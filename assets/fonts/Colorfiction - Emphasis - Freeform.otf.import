@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b7qubgm8s3du8"
+path="res://.godot/imported/Colorfiction - Emphasis - Freeform.otf-9994f34b56ab4e01d511964c6844e520.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Colorfiction - Emphasis - Freeform.otf"
+dest_files=["res://.godot/imported/Colorfiction - Emphasis - Freeform.otf-9994f34b56ab4e01d511964c6844e520.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

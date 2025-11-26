@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl010euulle2d"]
+
+[ext_resource type="Script" uid="uid://cc1xu226davf8" path="res://audio_manager.gd" id="1_bq1v2"]
+[ext_resource type="AudioStream" uid="uid://ck6o18mvs5m5i" path="res://assets/audio y musica/Bill Evans Peace Piece.MP3" id="2_6jj5d"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_bq1v2")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6jj5d")
+autoplay = true

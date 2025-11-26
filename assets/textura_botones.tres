@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cmbfdlyuukidw"]
+
+[ext_resource type="Texture2D" uid="uid://c2pvrqjuryngb" path="res://assets/modern-ui mauro.png" id="1_ojyt0"]
+
+[resource]
+texture = ExtResource("1_ojyt0")
+texture_margin_left = 10.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(99, 3, 90, 25)

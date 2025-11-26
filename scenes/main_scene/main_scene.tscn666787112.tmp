@@ -1,0 +1,313 @@
+[gd_scene load_steps=17 format=3 uid="uid://ck3y5ytsgn5gg"]
+
+[ext_resource type="Script" uid="uid://0weaso8v3ann" path="res://scenes/main_scene/main_scene.gd" id="1_6iw8k"]
+[ext_resource type="Texture2D" uid="uid://daqyu5r8ushtn" path="res://assets/MansionUpdated_1080p_WEBP/inthallway2_evening2.webp" id="2_symxd"]
+[ext_resource type="Theme" uid="uid://r5k28wgtddh6" path="res://assets/verde_button_theme.tres" id="3_2cqfw"]
+[ext_resource type="Texture2D" uid="uid://b3db31v738yuo" path="res://assets/personajes random/sprite1 happy small.png" id="3_3t4qf"]
+[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_o5t4i"]
+[ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="4_34m6u"]
+[ext_resource type="Texture2D" uid="uid://caosv1vjctfuw" path="res://assets/personajes random/sprite2 sad small.png" id="4_ugojt"]
+[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="5_2cqfw"]
+[ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="6_6loks"]
+[ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="7_6ycpv"]
+[ext_resource type="Texture2D" uid="uid://c1f5nq0r4pi6s" path="res://assets/fondo_ui.png" id="8_umvci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbdpr"]
+font = ExtResource("5_2cqfw")
+font_size = 20
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3t4qf"]
+font = ExtResource("5_2cqfw")
+font_color = Color(0.243137, 0.435294, 0.564706, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugojt"]
+font = ExtResource("5_2cqfw")
+font_color = Color(0.113725, 0.466667, 0.27451, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6yoc"]
+font = ExtResource("5_2cqfw")
+font_color = Color(0.690196, 0.294118, 0.227451, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nim2u"]
+font = ExtResource("5_2cqfw")
+font_color = Color(0.768627, 0.67451, 0.27451, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_6iw8k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 650.0
+color = Color(0.224304, 0.224304, 0.224304, 1)
+metadata/_edit_lock_ = true
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(576.5, 322.5)
+scale = Vector2(0.600521, 0.602778)
+texture = ExtResource("2_symxd")
+metadata/_edit_lock_ = true
+
+[node name="personajes" type="Node2D" parent="."]
+
+[node name="Sprite1HappySmall" type="Sprite2D" parent="personajes"]
+position = Vector2(851, 352)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_3t4qf")
+
+[node name="Sprite2SadSmall" type="Sprite2D" parent="personajes"]
+position = Vector2(337, 342)
+rotation = -3.14159
+scale = Vector2(0.8, -0.8)
+texture = ExtResource("4_ugojt")
+
+[node name="Marker1" type="Marker2D" parent="personajes"]
+position = Vector2(390, 211)
+
+[node name="Marker2" type="Marker2D" parent="personajes"]
+position = Vector2(799, 220)
+rotation = 3.1381
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(600, 100)
+offset_left = 196.0
+offset_top = 475.0
+offset_right = 978.0
+offset_bottom = 628.0
+color = Color(0.339144, 0.271922, 0.267912, 0.905882)
+metadata/_edit_lock_ = true
+
+[node name="opcion1" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="opcion1"]
+offset_left = 244.0
+offset_top = 501.0
+offset_right = 328.0
+offset_bottom = 534.0
+theme = ExtResource("3_o5t4i")
+text = "opcion 1"
+
+[node name="Panel" type="Panel" parent="opcion1"]
+offset_left = 335.0
+offset_top = 485.0
+offset_right = 525.0
+offset_bottom = 550.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="opcion1"]
+anchors_preset = -1
+anchor_right = 3.135
+anchor_bottom = 1.0
+offset_left = 340.0
+offset_top = 486.0
+offset_right = 519.0
+offset_bottom = 547.0
+text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="opcion2" type="Node2D" parent="."]
+
+[node name="Button2" type="Button" parent="opcion2"]
+offset_left = 244.0
+offset_top = 566.0
+offset_right = 332.0
+offset_bottom = 599.0
+theme = ExtResource("3_2cqfw")
+text = "opcion 2"
+
+[node name="Panel2" type="Panel" parent="opcion2"]
+offset_left = 336.0
+offset_top = 554.0
+offset_right = 526.0
+offset_bottom = 619.0
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="opcion2"]
+anchors_preset = -1
+anchor_right = 3.135
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 555.0
+offset_right = 520.0
+offset_bottom = 616.0
+text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="opcion3" type="Node2D" parent="."]
+
+[node name="Button3" type="Button" parent="opcion3"]
+offset_left = 614.0
+offset_top = 502.0
+offset_right = 701.0
+offset_bottom = 535.0
+theme = ExtResource("6_6loks")
+text = "opcion 3"
+
+[node name="Panel" type="Panel" parent="opcion3"]
+offset_left = 708.0
+offset_top = 485.0
+offset_right = 898.0
+offset_bottom = 550.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="opcion3"]
+anchors_preset = -1
+anchor_right = 3.135
+anchor_bottom = 1.0
+offset_left = 713.0
+offset_top = 484.0
+offset_right = 892.0
+offset_bottom = 545.0
+text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="opcion4" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="opcion4"]
+offset_left = 710.0
+offset_top = 556.0
+offset_right = 900.0
+offset_bottom = 621.0
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="opcion4"]
+offset_left = 614.0
+offset_top = 571.0
+offset_right = 702.0
+offset_bottom = 604.0
+theme = ExtResource("7_6ycpv")
+text = "opcion 4"
+
+[node name="Label" type="Label" parent="opcion4"]
+z_index = 1
+anchors_preset = -1
+anchor_right = 3.135
+anchor_bottom = 1.0
+offset_left = 717.0
+offset_top = 557.0
+offset_right = 896.0
+offset_bottom = 618.0
+text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="pregunta" type="Node2D" parent="."]
+
+[node name="pregunta_rect" type="NinePatchRect" parent="pregunta"]
+modulate = Color(0.60486, 0.499225, 0.403493, 1)
+offset_left = 399.0
+offset_top = 405.0
+offset_right = 773.0
+offset_bottom = 471.0
+texture = ExtResource("8_umvci")
+region_rect = Rect2(2, 2, 90, 27)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="pregunta" type="Label" parent="pregunta"]
+offset_left = 406.0
+offset_top = 407.0
+offset_right = 770.0
+offset_bottom = 460.0
+text = "Pregunta para el jugador"
+label_settings = SubResource("LabelSettings_kbdpr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="contador_respuestas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 966.0
+offset_top = 19.0
+offset_right = 1140.0
+offset_bottom = 171.0
+metadata/_edit_lock_ = true
+
+[node name="respuestas" type="Label" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 30.0
+offset_right = 1056.0
+offset_bottom = 53.0
+text = "Respuestas"
+label_settings = ExtResource("4_34m6u")
+metadata/_edit_lock_ = true
+
+[node name="respuestas_azul" type="Label" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 985.0
+offset_top = 59.0
+offset_right = 1107.0
+offset_bottom = 82.0
+text = "Respuestas azules"
+label_settings = SubResource("LabelSettings_3t4qf")
+metadata/_edit_lock_ = true
+
+[node name="respuestas_verde" type="Label" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 85.0
+offset_right = 1106.0
+offset_bottom = 108.0
+text = "Respuestas verdes"
+label_settings = SubResource("LabelSettings_ugojt")
+metadata/_edit_lock_ = true
+
+[node name="respuestas_rojo" type="Label" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 110.0
+offset_right = 1097.0
+offset_bottom = 133.0
+text = "Respuestas rojas"
+label_settings = SubResource("LabelSettings_f6yoc")
+metadata/_edit_lock_ = true
+
+[node name="respuestas_amarillo" type="Label" parent="contador_respuestas"]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 134.0
+offset_right = 1120.0
+offset_bottom = 157.0
+text = "Respuestas amariilas"
+label_settings = SubResource("LabelSettings_nim2u")
+metadata/_edit_lock_ = true
+
+[node name="comienzo_juego" type="Node2D" parent="."]
+
+[node name="negro" type="ColorRect" parent="comienzo_juego"]
+offset_right = 1159.0
+offset_bottom = 656.0
+color = Color(0.0323822, 0.0323822, 0.0323822, 1)

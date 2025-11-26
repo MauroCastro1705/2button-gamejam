@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck6o18mvs5m5i"
+path="res://.godot/imported/Bill Evans Peace Piece.MP3-cb857fa6afb59c1595bd600d92810ed0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio y musica/Bill Evans Peace Piece.MP3"
+dest_files=["res://.godot/imported/Bill Evans Peace Piece.MP3-cb857fa6afb59c1595bd600d92810ed0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

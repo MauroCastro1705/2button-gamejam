@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c8oxhpcf0ygjg"]
+
+[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="1_xm10k"]
+
+[resource]
+font = ExtResource("1_xm10k")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
