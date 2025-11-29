@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca41y5q73t00c"]
+[gd_scene load_steps=10 format=3 uid="uid://ca41y5q73t00c"]
 
 [ext_resource type="Script" uid="uid://dpkrl2b6qwbn3" path="res://scenes/menu/menu.gd" id="1_y1o0p"]
-[ext_resource type="Texture2D" uid="uid://6cnq2eo6ni1n" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48(1).jpeg" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="3_t0a87"]
 [ext_resource type="Texture2D" uid="uid://c2pvrqjuryngb" path="res://assets/modern-ui mauro.png" id="4_qo0fc"]
 [ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="5_r8yej"]
@@ -34,20 +33,13 @@ Button/styles/normal = SubResource("StyleBoxTexture_bx5ov")
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_y1o0p")
 
-[node name="fondo" type="Sprite2D" parent="."]
-modulate = Color(0.133196, 0.133196, 0.133196, 1)
-position = Vector2(576, 326)
-scale = Vector2(0.958755, 0.958755)
-texture = ExtResource("2_y1o0p")
-metadata/_edit_lock_ = true
-
 [node name="play" type="Button" parent="."]
 offset_left = 537.0
 offset_top = 451.0
 offset_right = 668.0
 offset_bottom = 512.0
 theme = SubResource("Theme_t0a87")
-text = "JUGAR"
+text = "Play"
 
 [node name="exit" type="Button" parent="."]
 offset_left = 906.0
@@ -55,7 +47,7 @@ offset_top = 576.0
 offset_right = 999.0
 offset_bottom = 624.0
 theme = ExtResource("5_t0a87")
-text = "SALIR"
+text = "Exit"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 1040.0
@@ -71,7 +63,7 @@ offset_top = 541.0
 offset_right = 656.0
 offset_bottom = 584.0
 theme = ExtResource("6_r8yej")
-text = "Creditos"
+text = "Credits"
 
 [node name="Titulo" type="Sprite2D" parent="."]
 position = Vector2(603, 223)

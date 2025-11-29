@@ -2,7 +2,7 @@ extends Node2D
 var version = ProjectSettings.get_setting("application/config/version")
 @onready var version_label: Label = $Label
 var mainLevel:PackedScene
-const creditos := "res://scenes/creditos/creditos.tscn"
+const creditos := "res://scenes/credits/creditos.tscn"
 
 func _ready() -> void:
 	version_label.text = "Verison: " + str(version)
