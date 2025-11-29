@@ -15,5 +15,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
 [node name="Character" parent="." instance=ExtResource("2_nero3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [editable path="Character"]

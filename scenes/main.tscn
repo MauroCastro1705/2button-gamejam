@@ -1,24 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=7 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="11_apvpm"]
-[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="13_jfda3"]
-[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
-font = ExtResource("17_tk810")
-font_size = 48
-shadow_color = Color(0, 0, 0, 0.376471)
-shadow_offset = Vector2(2, 2)
+[sub_resource type="Environment" id="Environment_tbgi4"]
+background_mode = 1
+background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
+background_energy_multiplier = 0.85
+ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jkv2x")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tbgi4")
+
 [node name="Player" parent="." node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("2_onms2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089791775, 0.7501229, 0.062346935)
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, -0.089791775, 0.54671717, -5.2899156)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -55,31 +56,27 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("11_apvpm")
 
-[node name="Icon" type="TextureRect" parent="HUD"]
+[node name="walk" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 67.0
-offset_right = 313.0
-offset_bottom = 323.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("13_jfda3")
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 138.0
+offset_bottom = 58.0
+text = "Can walk : "
 
-[node name="x" type="Label" parent="HUD"]
+[node name="mode" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 64.0
-offset_right = 144.0
-offset_bottom = 123.0
-text = "×"
-label_settings = SubResource("LabelSettings_38ys3")
-metadata/_edit_use_anchors_ = true
+offset_left = 58.0
+offset_top = 79.0
+offset_right = 154.0
+offset_bottom = 102.0
+text = "game mode:"
 
-[node name="Coins" type="Label" parent="HUD"]
+[node name="Label" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 64.0
-offset_right = 368.0
-offset_bottom = 123.0
-text = "0"
-label_settings = SubResource("LabelSettings_38ys3")
-metadata/_edit_use_anchors_ = true
+offset_left = 33.0
+offset_top = 136.0
+offset_right = 282.0
+offset_bottom = 185.0
+text = "move with: X and C
+change camera with \"space bar\""
