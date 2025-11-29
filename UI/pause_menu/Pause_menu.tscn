@@ -47,24 +47,24 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Menu de Pausa"
+text = "Pause"
 label_settings = SubResource("LabelSettings_sucmq")
 horizontal_alignment = 1
 
 [node name="volver" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_2tqc6")
-text = "Volver al juego"
+text = "Return to game"
 
 [node name="return" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_7uhxs")
-text = "Volver al menu"
+text = "return to menu"
 
 [node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_k3pgt")
-text = "Salir del juego"
+text = "exit game"
 
 [connection signal="pressed" from="VBoxContainer/volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="VBoxContainer/return" to="." method="_on_return_pressed"]
