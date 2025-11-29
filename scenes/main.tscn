@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqqgyqafm7xwp"]
+
+[ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
+[ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
+[ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
+[ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="11_apvpm"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="13_jfda3"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="17_tk810"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
+font = ExtResource("17_tk810")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_jkv2x")
+
+[node name="Player" parent="." node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("2_onms2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089791775, 0.7501229, 0.062346935)
+view = NodePath("../View")
+
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("5_bg0fr")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(0.7543441, -0.17071803, 0.63389266, 0.31043538, 0.94357574, -0.115302876, -0.5784422, 0.2837607, 0.7647784, 3.6830888, 0.785036, 4.240411)
+current = true
+fov = 40.0
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="platform" parent="World" instance=ExtResource("6_sdmev")]
+transform = Transform3D(1.4729924, 0, 0, 0, 1, 0, 0, 0, 7.5295095, 0, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("11_apvpm")
+
+[node name="Icon" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_jfda3")
+
+[node name="x" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = SubResource("LabelSettings_38ys3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Coins" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = SubResource("LabelSettings_38ys3")
+metadata/_edit_use_anchors_ = true

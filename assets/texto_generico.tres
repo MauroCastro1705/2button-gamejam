@@ -1,9 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b3fee4lcg6dl2"]
-
-[ext_resource type="FontFile" uid="uid://cnao6u85fn5gr" path="res://assets/fonts/pixelart.ttf" id="1_ohf5y"]
-
-[resource]
-font = ExtResource("1_ohf5y")
-font_size = 15
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
