@@ -23,19 +23,19 @@ transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0,
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -0.72312766, 0.78496885, -3.6981049)
 script = ExtResource("5_bg0fr")
 target = NodePath("../Player")
 
 [node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(0.7543441, -0.17071803, 0.63389266, 0.31043538, 0.94357574, -0.115302876, -0.5784422, 0.2837607, 0.7647784, 3.6830888, 0.785036, 4.240411)
+transform = Transform3D(-0.6793463, -0.1614484, 0.71583694, 0.36696887, 0.770015, 0.52192974, -0.63547087, 0.61726105, -0.46386084, 4.420465, 3.0879693, -1.5408032)
 current = true
 fov = 40.0
 
 [node name="World" type="Node3D" parent="."]
 
 [node name="platform" parent="World" instance=ExtResource("6_sdmev")]
-transform = Transform3D(1.4729924, 0, 0, 0, 1, 0, 0, 0, 7.5295095, 0, 0, 0)
+transform = Transform3D(9.538, 0, 0, 0, 1, 0, 0, 0, 7.53, 0, 0, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)

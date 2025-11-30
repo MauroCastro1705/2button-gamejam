@@ -15,28 +15,17 @@ var movement_velocity: Vector3
 
 func _physics_process(delta: float) -> void:
 	handle_controls(delta)
-
-	velocity = velocity.lerp(movement_velocity, delta * 10.0)
-	move_and_slide()
-
-	if position.y < -10.0:
-		get_tree().reload_current_scene()
-
 	model.scale = model.scale.lerp(Vector3.ONE, delta * 10.0)
-
-
 func handle_controls(delta: float) -> void:
 	# Only allow movement if the global camera mode is SIDE
 	if Global.cam_mode == Global.CamMode.SIDE:
-		var input_dir := Vector3.ZERO
-
-		var forward_input := Input.get_axis("move_forward", "move_back")
-		input_dir.z = forward_input
-
-		if input_dir.length() > 1.0:
-			input_dir = input_dir.normalized()
-
-		movement_velocity = input_dir * movement_speed * delta
-	else:
-		# Stop movement completely in other modes (like OTS)
-		movement_velocity = Vector3.ZERO
+		var input_dir = Input.get_vector("1", "2", "4", "3")
+		input_dir.y = -1
+		var direction = (transform.basis * Vector3(-input_dir.x, 0, input_dir.y))
+		velocity.x = direction.x * movement_speed
+		velocity.z = direction.z * movement_speed
+		move_and_slide()
+		if Input.is_action_pressed("button_one"):
+			rotation_degrees.y += 1
+		if Input.is_action_pressed("button_two"):
+			rotation_degrees.y -= 1
