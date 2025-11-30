@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=12 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
+[ext_resource type="PackedScene" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="11_apvpm"]
+
+[sub_resource type="Curve3D" id="Curve3D_tefeu"]
+resource_local_to_scene = true
+bake_interval = 512.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 0.5797348, 3.699674, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.17927313, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.30249238, 0.5376599, 0, 0, 0, 0, 0, 0, -0.07307196, 0.9339894, 0.021164179),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 1
@@ -12,14 +22,28 @@ background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
 background_energy_multiplier = 0.85
 ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxov2"]
+albedo_color = Color(1.92523e-06, 0.6739708, 0.38721982, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tefeu"]
+material = SubResource("StandardMaterial3D_uxov2")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o6xl0"]
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jkv2x")
+
+[node name="Path3DRope" parent="." node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("6_tefeu")]
+curve = SubResource("Curve3D_tefeu")
+fixed_start_point = false
+rigidbody_attached_to_start = NodePath("../Player")
+rigidbody_attached_to_end = NodePath("../RigidBody3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tbgi4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("2_onms2")]
-transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, -0.089791775, -0.10910484, -5.7135377)
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, -0.089791775, -0.10910484, 4.0519643)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -80,3 +104,14 @@ offset_right = 282.0
 offset_bottom = 185.0
 text = "rotate with: A and D
 change camera with \"space bar\" <----NEED to be CHANGED"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.020506)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65379524, 8.579349)
+mesh = SubResource("CylinderMesh_tefeu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675189, 8.570732)
+shape = SubResource("CylinderShape3D_o6xl0")
