@@ -42,10 +42,6 @@ folder_colors={
 "res://scripts/global/": "yellow"
 }
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 move_forward={

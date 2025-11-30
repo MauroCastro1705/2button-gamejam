@@ -14,6 +14,8 @@ var movement_velocity: Vector3
 
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= jump_strength
 	handle_controls(delta)
 	model.scale = model.scale.lerp(Vector3.ONE, delta * 10.0)
 func handle_controls(delta: float) -> void:

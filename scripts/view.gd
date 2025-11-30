@@ -5,8 +5,8 @@ extends Node3D
 @onready var camera: Camera3D = $Camera
 
 @export_group("Offsets")
-@export var side_offset := Vector3(8.0, 3.0, 0.0)   # right of player, a bit above
-@export var ots_offset  := Vector3(0.0, 2.0, 6.0)   # +Z puts us BEHIND when using target's basis
+@export var side_offset := Vector3(0, 3.0, 8.0)   # right of player, a bit above
+@export var ots_offset  := Vector3(1.5, 2.0, 4.0)   # +Z puts us BEHIND when using target's basis
 
 @export_group("Smoothing")
 @export_range(0.0, 20.0, 0.1) var follow_speed := 8.0
