@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ci63q8vcnjm6o"]
 
-[ext_resource type="Script" path="res://player.gd" id="1"]
-[ext_resource type="Script" path="res://main.gd" id="2"]
+[ext_resource type="Script" uid="uid://cvrf4sjb4qg44" path="res://player.gd" id="1"]
+[ext_resource type="Script" uid="uid://csn0xpgj1m06v" path="res://main.gd" id="2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5quk0"]
 rough = true

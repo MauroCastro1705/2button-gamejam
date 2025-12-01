@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
-[ext_resource type="PackedScene" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="11_apvpm"]
 
 [sub_resource type="Curve3D" id="Curve3D_tefeu"]
@@ -72,8 +72,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -640.0
-offset_right = 640.0
+offset_left = -401.0
+offset_right = 401.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
