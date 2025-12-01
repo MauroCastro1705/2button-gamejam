@@ -11,7 +11,7 @@
 resource_local_to_scene = true
 bake_interval = 512.0
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 0.5797348, 3.699674, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.17927313, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.30249238, 0.5376599, 0, 0, 0, 0, 0, 0, -0.07307196, 0.9339894, 0.021164179),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 0.5797348, 3.699674, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.68509376, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.70007294, 0.5376599, 0, 0, 0, 0, 0, 0, -0.07307196, 0.9339894, 0.021164179),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -29,6 +29,8 @@ albedo_color = Color(1.92523e-06, 0.6739708, 0.38721982, 1)
 material = SubResource("StandardMaterial3D_uxov2")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6xl0"]
+height = 0.69970703
+radius = 0.97558594
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jkv2x")
@@ -109,9 +111,9 @@ change camera with \"space bar\" <----NEED to be CHANGED"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.020506)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65379524, 8.579349)
+transform = Transform3D(2.249062, 0, 0, 0, 0.38388893, 0, 0, 0, 2.1039255, 0, 0.65379524, 8.579349)
 mesh = SubResource("CylinderMesh_tefeu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675189, 8.570732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60756207, 8.570732)
 shape = SubResource("CylinderShape3D_o6xl0")
