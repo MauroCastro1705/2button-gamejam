@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvbdmetd56gie"]
+
+[ext_resource type="Script" path="res://Scripts/textbox.gd" id="1_precl"]
+
+[node name="textbox_root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_precl")
+
+[node name="background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sprite" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="textb" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -321.5
+offset_top = -183.0
+offset_right = 321.5
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.17641911, 0.17641908, 0.17641908, 0.5137255)
+
+[node name="name" type="Label" parent="textb"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = 46.0
+offset_bottom = 31.0
+
+[node name="text" type="Label" parent="textb"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 63.0
+offset_right = 48.0
+offset_bottom = 86.0

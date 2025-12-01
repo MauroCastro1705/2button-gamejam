@@ -43,6 +43,10 @@ folder_colors={
 "res://scripts/global/": "yellow"
 }
 
+[global_group]
+
+player=""
+
 [input]
 
 move_forward={
