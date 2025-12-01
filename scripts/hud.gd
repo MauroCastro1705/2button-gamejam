@@ -2,6 +2,7 @@ extends Control
 
 @onready var walk_label: Label = $walk
 @onready var mode_label: Label = $mode
+@onready var tutorial: Label = $tutorial
 
 func _ready() -> void:
 	_update_ui()
@@ -25,3 +26,8 @@ func _update_ui() -> void:
 		mode_label.text = "Mode: TRAVEL"
 	else:
 		mode_label.text = "Mode: COMBAT"
+	
+	if is_side:
+		tutorial.text = "rotate with: A and D"
+	else:
+		tutorial.text = "Attack with A and D"
