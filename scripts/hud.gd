@@ -7,7 +7,6 @@ func _ready() -> void:
 	_update_ui()
 
 func _process(_delta: float) -> void:
-	# Update each frame — simple and reliable
 	_update_ui()
 
 func _update_ui() -> void:
@@ -23,6 +22,6 @@ func _update_ui() -> void:
 
 	# MODE info
 	if is_side:
-		mode_label.text = "Mode: Side-scroller"
+		mode_label.text = "Mode: TRAVEL"
 	else:
-		mode_label.text = "Mode: Over-the-shoulder"
+		mode_label.text = "Mode: COMBAT"

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://itpds7aplnge"]
+
+[ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="1_48c2t"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="2_cgeww"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -401.0
+offset_right = 401.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("1_48c2t")
+
+[node name="walk" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 138.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("2_cgeww")
+text = "Can walk : "
+
+[node name="mode" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 79.0
+offset_right = 154.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_cgeww")
+text = "game mode:"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 136.0
+offset_right = 282.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("2_cgeww")
+text = "rotate with: A and D
+change camera with \"space bar\" <----NEED to be CHANGED"

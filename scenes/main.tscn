@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
+[ext_resource type="PackedScene" uid="uid://itpds7aplnge" path="res://scenes/hud/hud.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://18ggqxllcajg" path="res://scripts/basic_fight.gd" id="7_tipki"]
 [ext_resource type="Script" uid="uid://bqewjwn1tm5b6" path="res://scripts/dialogue_comp.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://mh31j15qja2a" path="res://scripts/dialogue.gd" id="9_85g3d"]
-[ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="11_apvpm"]
 
 [sub_resource type="Curve3D" id="Curve3D_tefeu"]
 resource_local_to_scene = true
@@ -84,44 +84,7 @@ transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -
 shadow_enabled = true
 shadow_opacity = 0.75
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -401.0
-offset_right = 401.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-script = ExtResource("11_apvpm")
-
-[node name="walk" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 35.0
-offset_right = 138.0
-offset_bottom = 58.0
-text = "Can walk : "
-
-[node name="mode" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 79.0
-offset_right = 154.0
-offset_bottom = 102.0
-text = "game mode:"
-
-[node name="Label" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 136.0
-offset_right = 282.0
-offset_bottom = 185.0
-text = "rotate with: A and D
-change camera with \"space bar\" <----NEED to be CHANGED"
+[node name="HUD" parent="." instance=ExtResource("6_85g3d")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.020506)
