@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvbdmetd56gie"]
 
-[ext_resource type="Script" path="res://Scripts/textbox.gd" id="1_precl"]
+[ext_resource type="Script" uid="uid://3yf14yco7abw" path="res://Scripts/textbox.gd" id="1_precl"]
 
 [node name="textbox_root" type="Control"]
 layout_mode = 3

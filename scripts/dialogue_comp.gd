@@ -12,12 +12,15 @@ var plr: CharacterBody3D
 var batya: Area3D
 @export var disable: bool = false
 @export var shape: CollisionShape3D
+
+
 func set_plr(_plr):
 	plr = _plr
 	name_node = plr.get_node("Character/textbox_root/textb/name")
 	text_node = plr.get_node("Character/textbox_root/textb/text")
 	bg_node = plr.get_node("Character/textbox_root/background")
 	sprite_node = plr.get_node("Character/textbox_root/sprite")
+	
 func show():
 	plr.get_node("Character/textbox_root").show()
 	name_node.text = dialogue[str_count].namee
@@ -27,14 +30,15 @@ func show():
 		bg_node.texture = dialogue[str_count].background
 	name_node.text = dialogue[str_count].namee
 	if dialogue[str_count].stop_movement:
-		Global.cam_mode = Global.CamMode.OTS
+		Global.emit_signal("combat_mode") #CHANGES IN GLOBAL TO COMBAT MODE(stops walking)
 	text_node.text = dialogue[str_count].text
 	if after_effs[str_count] != null:
 		after_effs[str_count].use(plr)
 	str_count += 1
+	
 func hide():
 	#plr.show()
-	Global.cam_mode = Global.CamMode.SIDE
+	Global.emit_signal("travel_mode")#CHANGES TO TRAVEL MODE( AUTO WALKING)
 	str_count = 0
 	plr.get_node("Character/textbox_root").hide()
 	name_node.text = ""

@@ -1,13 +1,13 @@
 [gd_scene load_steps=32 format=3 uid="uid://cvj4gvvg4og03"]
 
 [ext_resource type="PackedScene" uid="uid://cssglj6choju3" path="res://scenes/player.tscn" id="2_nc7vw"]
-[ext_resource type="Material" uid="uid://b3uxs3oppo8yg" path="res://materials/dark_grid.tres" id="2_sbd5r"]
-[ext_resource type="Material" uid="uid://d3du70wkvp1eo" path="res://materials/dark_grid2.tres" id="3_752eu"]
+[ext_resource type="Material" uid="uid://b3uxs3oppo8yg" path="res://ropephysics/materials/dark_grid.tres" id="2_sbd5r"]
+[ext_resource type="Material" uid="uid://d3du70wkvp1eo" path="res://ropephysics/materials/dark_grid2.tres" id="3_752eu"]
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="3_sm413"]
-[ext_resource type="Material" uid="uid://esbif4ec2kcc" path="res://materials/green_rope.tres" id="4_hineg"]
-[ext_resource type="Material" uid="uid://de64w7g55hbby" path="res://materials/purple_rope.tres" id="4_jeaob"]
-[ext_resource type="Material" uid="uid://c0vdiomofi8ro" path="res://materials/red_rope.tres" id="5_ct4ni"]
-[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="8_hmp7c"]
+[ext_resource type="Material" uid="uid://esbif4ec2kcc" path="res://ropephysics/materials/green_rope.tres" id="4_hineg"]
+[ext_resource type="Material" uid="uid://de64w7g55hbby" path="res://ropephysics/materials/purple_rope.tres" id="4_jeaob"]
+[ext_resource type="Material" uid="uid://c0vdiomofi8ro" path="res://ropephysics/materials/red_rope.tres" id="5_ct4ni"]
+[ext_resource type="Script" uid="uid://bkma3m0kvjucm" path="res://scripts/pause_screen.gd" id="8_hmp7c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aikxy"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
