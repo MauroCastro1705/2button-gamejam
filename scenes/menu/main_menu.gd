@@ -1,6 +1,6 @@
 extends Control
 
-const PLAY_SCENE_PATH := ""
+const PLAY_SCENE_PATH := "res://scenes/main.tscn"
 const CREDITS_SCENE_PATH := ""
 @onready var buttons_vbox: VBoxContainer = %buttons
 @onready var selector: Label = $selector
@@ -65,7 +65,3 @@ func _activate_current() -> void:
 			get_tree().quit()
 		_:
 			buttons[index].emit_signal("pressed")
-
-func _ensure_input_action(action_name: String) -> void:
-	if not InputMap.has_action(action_name):
-		InputMap.add_action(action_name)

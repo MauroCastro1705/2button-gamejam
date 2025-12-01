@@ -2,14 +2,11 @@ extends CharacterBody3D
 
 @export_subgroup("Components")
 @export var view: Node3D
-
-var movement_velocity: Vector3
-
 @onready var model := $Character
 @onready var animation := $Character/AnimationPlayer
-@export var move_speed: float = 3.0
-@export var turn_speed_deg: float = 180.0   # degrees per second when held
-@export var snap_turn_deg: float = 0.0      # set (e.g. 45) to use discrete snap turns on tap; 0 = smooth turning
+@export var move_speed: float = 2.0
+@export var turn_speed_deg: float = 180.0# degrees per second when held
+@export var snap_turn_deg: float = 0.0# set (e.g. 45) to use discrete snap turns on tap; 0 = smooth turning
 
 
 func _physics_process(delta: float) -> void:

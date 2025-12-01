@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4pbk8w6kxa6w"]
+
+[ext_resource type="Script" uid="uid://4icnxq5nsf3h" path="res://scenes/splash/splash.gd" id="1_cwtag"]
+[ext_resource type="Texture2D" uid="uid://dxeapngd5b48f" path="res://assets-2D/t_SguD.png" id="1_i52gs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwtag"]
+font_size = 50
+font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="Animation" id="Animation_y4437"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.056291588, 0.056291603, 0.056291595, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cwtag"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.056291588, 0.056291603, 0.056291595, 1), Color(0.05490196, 0.05490196, 0.05490196, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wwhxh"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.05490196, 0.05490196, 0.05490196, 0), Color(0.056291588, 0.056291603, 0.056291595, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wwhxh"]
+_data = {
+&"RESET": SubResource("Animation_y4437"),
+&"fade_in": SubResource("Animation_cwtag"),
+&"fade_out": SubResource("Animation_wwhxh")
+}
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwtag")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78917265, 0.7891719, 0.7891725, 1)
+
+[node name="TSguD" type="Sprite2D" parent="."]
+position = Vector2(411, 410)
+scale = Vector2(0.6666667, 0.6666667)
+texture = ExtResource("1_i52gs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 139.0
+offset_right = 605.0
+offset_bottom = 208.0
+text = "A game made for"
+label_settings = SubResource("LabelSettings_cwtag")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wwhxh")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
