@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1twuxybp05p3"]
+[gd_scene load_steps=6 format=3 uid="uid://b1twuxybp05p3"]
 
 [ext_resource type="Script" uid="uid://drtpqc5q2m3ph" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="2_3rkf3"]
+[ext_resource type="Theme" uid="uid://dwbykbbc3c4tj" path="res://themes/button_theme.tres" id="2_247la"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_247la"]
+font_color = Color(0.23137255, 0.8039216, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nl8w3"]
+font = ExtResource("2_3rkf3")
+font_size = 12
+font_color = Color(0.23137255, 0.8039216, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -59,14 +69,17 @@ alignment = 1
 
 [node name="BtnPlay" type="Button" parent="MarginContainer/VBoxContainer/buttons"]
 layout_mode = 2
+theme = ExtResource("2_247la")
 text = "Start"
 
 [node name="BtnCredits" type="Button" parent="MarginContainer/VBoxContainer/buttons"]
 layout_mode = 2
+theme = ExtResource("2_247la")
 text = "Credits"
 
 [node name="BtnExit" type="Button" parent="MarginContainer/VBoxContainer/buttons"]
 layout_mode = 2
+theme = ExtResource("2_247la")
 text = "Exit game"
 
 [node name="selector" type="Label" parent="."]
@@ -76,3 +89,22 @@ offset_top = 232.0
 offset_right = 156.0
 offset_bottom = 255.0
 text = "▶"
+label_settings = SubResource("LabelSettings_247la")
+
+[node name="tutorial" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 567.0
+offset_right = 61.0
+offset_bottom = 590.0
+text = "A to cycle options and D to select option"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 586.0
+offset_right = 819.0
+offset_bottom = 609.0
+scale = Vector2(0.5, 0.5)
+text = "Verison 0.0.1"
+label_settings = SubResource("LabelSettings_nl8w3")

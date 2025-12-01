@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dwbykbbc3c4tj"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qnv5y"]
+color = Color(0.2303004, 0.8046728, 3.85046e-07, 1)
+thickness = 10
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j2gb5"]
+color = Color(0.24968019, 0.42432588, 0.19026577, 1)
+thickness = 9
+vertical = true
+
+[resource]
+Button/colors/font_focus_color = Color(0.23137255, 0.8039216, 0, 1)
+Button/colors/font_hover_color = Color(0.37165746, 0.9541648, 3.85046e-07, 1)
+Button/styles/focus = SubResource("StyleBoxLine_qnv5y")
+Button/styles/hover = SubResource("StyleBoxLine_j2gb5")
