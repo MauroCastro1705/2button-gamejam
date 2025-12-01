@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1twuxybp05p3"]
+[gd_scene load_steps=8 format=3 uid="uid://b1twuxybp05p3"]
 
 [ext_resource type="Script" uid="uid://drtpqc5q2m3ph" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
-[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="2_3rkf3"]
 [ext_resource type="Theme" uid="uid://dwbykbbc3c4tj" path="res://themes/button_theme.tres" id="2_247la"]
+[ext_resource type="FontFile" uid="uid://beme3lwcnt17x" path="res://fonts/SwipeRaceDemo.ttf" id="2_kiqgm"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="3_kiqgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hj162"]
+font = ExtResource("2_kiqgm")
+font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_247la"]
 font_color = Color(0.23137255, 0.8039216, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nl8w3"]
-font = ExtResource("2_3rkf3")
 font_size = 12
 font_color = Color(0.23137255, 0.8039216, 0, 1)
 
@@ -21,14 +25,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nl8w3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+color = Color(0.18120003, 0.18120006, 0.18120003, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.604626
+offset_top = -73.86488
+offset_right = 276.9773
+offset_bottom = -73.86487
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5794215
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.000004
+offset_top = 516.0
+offset_right = 233.37268
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.37026376
+color = Color(0.30200383, 0.30200383, 0.30200383, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(500, 300)
@@ -59,7 +94,8 @@ theme_override_constants/margin_bottom = 30
 
 [node name="game tittle" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "GAME TITTLE"
+text = "MECHA BURDEN"
+label_settings = SubResource("LabelSettings_hj162")
 
 [node name="buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -97,6 +133,7 @@ offset_left = 21.0
 offset_top = 567.0
 offset_right = 61.0
 offset_bottom = 590.0
+theme_override_fonts/font = ExtResource("3_kiqgm")
 text = "A to cycle options and D to select option"
 
 [node name="Label" type="Label" parent="."]
@@ -106,5 +143,6 @@ offset_top = 586.0
 offset_right = 819.0
 offset_bottom = 609.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_kiqgm")
 text = "Verison 0.0.1"
 label_settings = SubResource("LabelSettings_nl8w3")
