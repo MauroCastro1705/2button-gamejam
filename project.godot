@@ -39,6 +39,7 @@ enabled=PackedStringArray()
 [file_customization]
 
 folder_colors={
+"res://assets-3d/": "red",
 "res://scenes/": "purple",
 "res://scripts/global/": "yellow",
 "res://shaders/": "green"
