@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://k1gwuppi6u3e"]
+
+[ext_resource type="PackedScene" uid="uid://cxm8jxo1lukst" path="res://models/Blender/Golum.glb" id="1_i7k2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7k2d"]
+albedo_color = Color(0.66565496, 0.09582613, 0.13897291, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7it5"]
+albedo_color = Color(0.39867708, 0.34933633, 0.32784265, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq6kl"]
+albedo_color = Color(0.5529412, 0.1764706, 0.11764706, 1)
+
+[node name="evil-golem" instance=ExtResource("1_i7k2d")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Cockpit" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 6.5932317, 0, 0, 0, 6.5932317, -2.5153365, 3.5980358, 4.108194)
+surface_material_override/0 = SubResource("StandardMaterial3D_i7k2d")
+
+[node name="MechBody" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5153365, 7.470073, 27.286877)
+surface_material_override/0 = SubResource("StandardMaterial3D_n7it5")
+
+[node name="Launcher" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19265994, 7.6437545, 11.836746)
+surface_material_override/0 = SubResource("StandardMaterial3D_dq6kl")
+
+[node name="Leg" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2771887, 0, -15.814415)
+surface_material_override/0 = SubResource("StandardMaterial3D_n7it5")
+
+[node name="Leg_001" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2771887, 0, -18.418652)
+surface_material_override/0 = SubResource("StandardMaterial3D_n7it5")
+
+[node name="Cannon" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.88618696, 0.4633278, 0, -0.4633278, 0.88618696, -0.39573297, 14.231385, 9.670539)
+surface_material_override/0 = SubResource("StandardMaterial3D_dq6kl")

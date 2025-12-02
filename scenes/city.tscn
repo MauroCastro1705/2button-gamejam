@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnq51r1gqkxf3"]
+
+[ext_resource type="PackedScene" uid="uid://dkw27llxh1d4w" path="res://models/grass-small.glb" id="1_drx7m"]
+[ext_resource type="PackedScene" uid="uid://blqf5cwsk25xj" path="res://models/grass.glb" id="2_8uhr2"]
+[ext_resource type="PackedScene" uid="uid://bro5i05f31ye0" path="res://assets-3d/Models/Rock Type1 02.dae" id="3_3br4m"]
+[ext_resource type="PackedScene" uid="uid://b8on7sxh258qe" path="res://assets-3d/Models/Rock Type2 04.dae" id="4_4lp1f"]
+[ext_resource type="PackedScene" uid="uid://2bexvtnc4h81" path="res://assets-3d/Models/Rock Type3 03.dae" id="5_07bxp"]
+[ext_resource type="PackedScene" uid="uid://l57wh5a8l0pa" path="res://assets-3d/Models/Rock Type4 02.dae" id="6_q8eg3"]
+[ext_resource type="PackedScene" uid="uid://b358f46ubojs7" path="res://assets-3d/Models/Rock Type5 03.dae" id="7_obbxu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxov2"]
+albedo_color = Color(1.92523e-06, 0.6739708, 0.38721982, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tefeu"]
+material = SubResource("StandardMaterial3D_uxov2")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o6xl0"]
+height = 0.69970703
+radius = 0.97558594
+
+[node name="City" type="RigidBody3D"]
+gravity_scale = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.249062, 0, 0, 0, 0.23989666, 0, 0, 0, 2.1039255, 0, 0.43140936, 0.06568241)
+mesh = SubResource("CylinderMesh_tefeu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60756207, 0.057065964)
+shape = SubResource("CylinderShape3D_o6xl0")
+
+[node name="decorations" type="Node3D" parent="."]
+
+[node name="grass-small" parent="decorations" instance=ExtResource("1_drx7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4821229, 0.66724294, -0.71436405)
+
+[node name="grass" parent="decorations" instance=ExtResource("2_8uhr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29309535, 0.59856415, 0.7724)
+
+[node name="Rock Type1 02" parent="decorations" instance=ExtResource("3_3br4m")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.35828197, 0.65487903, -0.050569296)
+
+[node name="Rock Type2 04" parent="decorations" instance=ExtResource("4_4lp1f")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.6103338, 0.6927393, -0.4846459)
+
+[node name="Rock Type3 03" parent="decorations" instance=ExtResource("5_07bxp")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.65927434, 0.6938846, 0.4947545)
+
+[node name="Rock Type4 02" parent="decorations" instance=ExtResource("6_q8eg3")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.5723201, 0.6627884, -0.019575)
+
+[node name="Rock Type5 03" parent="decorations" instance=ExtResource("7_obbxu")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.04289782, 0.63836575, -0.4776156)

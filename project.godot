@@ -40,6 +40,8 @@ enabled=PackedStringArray()
 
 folder_colors={
 "res://assets-3d/": "red",
+"res://objects/": "yellow",
+"res://particles/": "blue",
 "res://scenes/": "purple",
 "res://scripts/global/": "yellow",
 "res://shaders/": "green"

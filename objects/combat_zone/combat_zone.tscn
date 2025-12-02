@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1iju53es60n3"]
+
+[ext_resource type="Script" uid="uid://cuf466thdql2s" path="res://objects/combat_zone/combat_zone.gd" id="1_3nfyv"]
+[ext_resource type="PackedScene" uid="uid://k1gwuppi6u3e" path="res://models/golum_evil.tscn" id="2_e8rp4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1j0cp"]
+radius = 2.9025798
+
+[node name="CombatZone" type="Area3D"]
+script = ExtResource("1_3nfyv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1135378, 0)
+shape = SubResource("SphereShape3D_1j0cp")
+debug_color = Color(12.55355, 0, 0, 1)
+
+[node name="evil-golem" parent="." instance=ExtResource("2_e8rp4")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0031244755, 0, -0.0559237)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

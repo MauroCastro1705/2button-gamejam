@@ -11,6 +11,7 @@ extends CharacterBody3D
 
 func _physics_process(delta: float) -> void:
 	handle_controls(delta)
+	handle_combat()
 	model.scale = model.scale.lerp(Vector3.ONE, delta * 10.0)
 	
 
@@ -38,3 +39,12 @@ func handle_controls(delta: float) -> void:
 	velocity.x = target_vel.x
 	velocity.z = target_vel.z
 	move_and_slide()
+
+func handle_combat():
+	# Only allow combat if the global camera mode is combat
+	if Global.cam_mode != Global.CamMode.COMBAT:
+		return
+	if Input.is_action_just_pressed("button_two"):
+		print("punch 1")
+	if Input.is_action_just_pressed("button_one"):
+		print("punch 2")

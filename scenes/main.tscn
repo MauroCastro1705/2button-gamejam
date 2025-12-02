@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=17 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -6,16 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://itpds7aplnge" path="res://scenes/hud/hud.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cnq51r1gqkxf3" path="res://scenes/city.tscn" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://18ggqxllcajg" path="res://scripts/basic_fight.gd" id="7_tipki"]
 [ext_resource type="Script" uid="uid://bqewjwn1tm5b6" path="res://scripts/dialogue_comp.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://mh31j15qja2a" path="res://scripts/dialogue.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ds3m4lqwamxeb" path="res://objects/pick-up/pick_up_1.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://1iju53es60n3" path="res://objects/combat_zone/combat_zone.tscn" id="13_trceg"]
 
 [sub_resource type="Curve3D" id="Curve3D_tefeu"]
 resource_local_to_scene = true
 bake_interval = 512.0
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 1.7007524, 3.3546374, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.68509376, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.70007294, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307196, 0.54541457, 0.5657109),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 1.351955, 3.2011096, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.68509376, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.70007294, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307196, 0.54541457, -0.32616508),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -26,16 +28,6 @@ background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
 background_energy_multiplier = 0.85
 ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxov2"]
-albedo_color = Color(1.92523e-06, 0.6739708, 0.38721982, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_tefeu"]
-material = SubResource("StandardMaterial3D_uxov2")
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_o6xl0"]
-height = 0.69970703
-radius = 0.97558594
-
 [sub_resource type="Resource" id="Resource_choun"]
 script = ExtResource("9_85g3d")
 namee = "fwfwfwfwf"
@@ -44,15 +36,13 @@ stop_movement = true
 metadata/_custom_type_script = "uid://mh31j15qja2a"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tipki"]
-radius = 6.097521
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_85g3d"]
-material = SubResource("StandardMaterial3D_uxov2")
+radius = 4.4894643
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jkv2x")
 
 [node name="Path3DRope" parent="." node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("6_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.097311735, 0.21661758)
 curve = SubResource("Curve3D_tefeu")
 fixed_start_point = false
 rigidbody_attached_to_start = NodePath("../Player")
@@ -62,16 +52,18 @@ rigidbody_attached_to_end = NodePath("../City")
 environment = SubResource("Environment_tbgi4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
-transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, -0.089791775, -0.10910484, 4.0519643)
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, -0.089791775, -0.32745108, 4.0519643)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -0.72312766, 0.78496885, -3.6981049)
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -10)
 script = ExtResource("5_bg0fr")
 target = NodePath("../Player")
+travel_offset = Vector3(0, 8, 15)
+combat_offset = Vector3(14, 7, -10)
 
 [node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(-0.6793463, -0.1614484, 0.71583694, 0.36696887, 0.770015, 0.52192974, -0.63547087, 0.61726105, -0.46386084, 4.420465, 3.0879693, -1.5408032)
+transform = Transform3D(-0.67934626, -0.16144879, 0.7158375, 0.36696884, 0.7700151, 0.5219296, -0.63547087, 0.6172607, -0.4638601, 4.420465, 3.0879693, -1.5408032)
 current = true
 fov = 40.0
 
@@ -79,66 +71,62 @@ fov = 40.0
 
 [node name="platform" parent="World" instance=ExtResource("6_sdmev")]
 transform = Transform3D(53.629906, 0, 0, 0, 1.953, 0, 0, 0, 32.66671, 0, -1.4064643, 0)
+metadata/_edit_lock_ = true
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+transform = Transform3D(-0.42261797, -0.694272, 0.58256346, 0, 0.64278793, 0.76604384, -0.90630805, 0.32374403, -0.27165356, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.75
 
 [node name="HUD" parent="." instance=ExtResource("6_85g3d")]
 
-[node name="City" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.020506)
+[node name="City" parent="." instance=ExtResource("7_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0479794)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="City"]
-transform = Transform3D(2.249062, 0, 0, 0, 0.38388893, 0, 0, 0, 2.1039255, 0, 0.65379524, 8.579349)
-mesh = SubResource("CylinderMesh_tefeu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="City"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60756207, 8.570732)
-shape = SubResource("CylinderShape3D_o6xl0")
-
-[node name="fight" type="Area3D" parent="." node_paths=PackedStringArray("dia")]
+[node name="fight_old" type="Area3D" parent="." node_paths=PackedStringArray("dia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30401087, 0, 0)
+visible = false
+monitoring = false
+monitorable = false
 script = ExtResource("7_tipki")
 dia = NodePath("dia_comp")
 metadata/_custom_type_script = "uid://18ggqxllcajg"
 
-[node name="dia_comp" type="Node" parent="fight" node_paths=PackedStringArray("after_effs")]
+[node name="dia_comp" type="Node" parent="fight_old" node_paths=PackedStringArray("after_effs")]
 script = ExtResource("8_85g3d")
 dialogue = Array[ExtResource("9_85g3d")]([SubResource("Resource_choun")])
 after_effs = [null]
 metadata/_custom_type_script = "uid://bqewjwn1tm5b6"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.320089, 0.023345947, 2.7106514)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fight_old"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 9.502331, 0.023345947, 2.7106514)
 shape = SubResource("SphereShape3D_tipki")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="fight"]
-transform = Transform3D(2.249062, 0, 0, 0, 0.38388893, 0, 0, 0, 2.1039255, 7.215588, 0.65379524, 2.7622423)
-mesh = SubResource("CylinderMesh_85g3d")
+[node name="objects_to_colletc" type="Node" parent="."]
 
-[node name="Node" type="Node" parent="."]
-
-[node name="PickUp1" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp1" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.514367, 0.7745967, 0)
 
-[node name="PickUp7" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp7" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.717955, 0.7745967, 7.1625843)
 
-[node name="PickUp8" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp8" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.949726, 0.7745967, 7.1625843)
 
-[node name="PickUp2" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp2" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.325348, 0.7745967, 0)
 
-[node name="PickUp3" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp3" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.325348, 0.7745967, -7.7223682)
 
-[node name="PickUp4" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp4" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0474663, 0.7745967, -11.020308)
 
-[node name="PickUp5" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp5" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8982277, 0.7745967, -15.256263)
 
-[node name="PickUp6" parent="Node" instance=ExtResource("10_choun")]
+[node name="PickUp6" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817786, 0.585423, -8.186083)
+
+[node name="CombatZone" parent="." instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.34291744, 7.701627)
