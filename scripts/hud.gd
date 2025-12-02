@@ -3,9 +3,11 @@ extends Control
 @onready var walk_label: Label = $walk
 @onready var mode_label: Label = $mode
 @onready var tutorial: Label = $tutorial
+@onready var score: Label = $score
 
 func _ready() -> void:
 	_update_ui()
+	Global.update_score.connect(_update_ui)
 
 func _process(_delta: float) -> void:
 	_update_ui()
@@ -31,3 +33,5 @@ func _update_ui() -> void:
 		tutorial.text = "rotate with: A and D"
 	else:
 		tutorial.text = "Attack with A and D"
+		
+	score.text = "score: " + str(Global.score)

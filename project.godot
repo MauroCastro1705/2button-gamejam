@@ -44,6 +44,11 @@ folder_colors={
 "res://shaders/": "green"
 }
 
+[filesystem]
+
+import/blender/enabled.android=true
+import/blender/enabled.web=true
+
 [global_group]
 
 player=""
