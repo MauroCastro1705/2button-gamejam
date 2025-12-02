@@ -7,13 +7,15 @@ func _ready() -> void:
 	connect("body_exited", plr_exit)
 func plr_enter(body):
 	if body.is_in_group("player"):
+		can_int = true
 		dia.set_plr(body)
 		dia.batya = self
 		dia.check_what_to_do()
 func plr_exit(body):
 	if body.is_in_group("player"):
+		can_int = false
 		dia.hide()
 		dia.plr = null
-#func _input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("interact") and can_int:
-		#dia.check_what_to_do()
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("button_two") and can_int:
+		dia.check_what_to_do()

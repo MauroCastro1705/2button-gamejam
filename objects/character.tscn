@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0e27836xgmhi"]
+[gd_scene load_steps=4 format=3 uid="uid://c0e27836xgmhi"]
 
 [ext_resource type="PackedScene" uid="uid://xy8rvnjp22n5" path="res://models/character.glb" id="1_vn7w5"]
 [ext_resource type="PackedScene" uid="uid://dvbdmetd56gie" path="res://scenes/textbox_root.tscn" id="2_bnbr5"]
+[ext_resource type="PackedScene" uid="uid://cxm8jxo1lukst" path="res://models/Blender/Golum.glb" id="2_pjthe"]
 
 [node name="character" groups=["player"] instance=ExtResource("1_vn7w5")]
+
+[node name="root" parent="character" index="0"]
+visible = false
 
 [node name="leg-left" parent="character/root" index="0"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.125, 0.17625, -0.02375)
@@ -22,6 +26,9 @@ transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 
 
 [node name="antenna" parent="character/root/torso" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.6, 0)
+
+[node name="Golum" parent="character" index="1" instance=ExtResource("2_pjthe")]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 0.31760922, -0.08282161, -0.02743721)
 
 [node name="AnimationPlayer" parent="." index="1"]
 deterministic = true
