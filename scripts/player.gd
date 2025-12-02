@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_controls(delta: float) -> void:
 	# Only allow movement if the global camera mode is SIDE
-	if Global.cam_mode != Global.CamMode.SIDE:
+	if Global.cam_mode != Global.CamMode.TRAVEL:
 		return
 	# --- Turning ---
 	## Two modes: smooth (hold to rotate) or snap (press to rotate by fixed angle)

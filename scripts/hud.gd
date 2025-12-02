@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	_update_ui()
 
 func _update_ui() -> void:
-	var is_side := Global.cam_mode == Global.CamMode.SIDE
+	var is_side := Global.cam_mode == Global.CamMode.TRAVEL
 
 	# WALK info
 	if is_side:

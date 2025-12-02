@@ -5,27 +5,20 @@ extends Node3D
 @onready var camera: Camera3D = $Camera
 
 @export_group("Offsets")
-@export var side_offset := Vector3(0, 3.0, 8.0)   # right of player, a bit above
-@export var ots_offset  := Vector3(1.5, 2.0, 4.0)   # +Z puts us BEHIND when using target's basis
+@export var travel_offset := Vector3(0, 3.0, 8.0)   # 3rd-person follow
+@export var combat_offset := Vector3(0, 20.0, 20.0) # higher + farther = isometric
 
 @export_group("Smoothing")
 @export_range(0.0, 20.0, 0.1) var follow_speed := 8.0
-@export var look_at_target := true                 # used for SIDE; OTS overrides to look forward
-@export var ots_look_ahead := 10.0                 # how far ahead to look in OTS
+@export var look_at_target := true
+@export var ots_look_ahead := 10.0
 
-
-var mode: Global.CamMode = Global.CamMode.SIDE #in global for reference in other scripts
+var mode: Global.CamMode = Global.CamMode.TRAVEL
 
 func _ready() -> void:
 	_apply_instant()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("camera_toggle"):
-		# Toggle local mode
-		mode = Global.CamMode.OTS if mode == Global.CamMode.SIDE else Global.CamMode.SIDE
-
-		# Also update the global state
-		Global.cam_mode = mode
+	Global.combat_mode.connect(_camera_combat)
+	Global.travel_mode.connect(_camera_travel)
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(target):
@@ -34,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	var t := target.global_transform
 	var toffset := _get_current_offset()
 
-	# Build desired position in the target's LOCAL space (x: right, y: up, z: forward)
 	var desired_pos := t.origin \
 		+ t.basis.x * toffset.x \
 		+ t.basis.y * toffset.y \
@@ -44,19 +36,21 @@ func _physics_process(delta: float) -> void:
 	var alpha := 1.0 - pow(0.001, follow_speed * delta)
 	camera.global_position = camera.global_position.lerp(desired_pos, alpha)
 
-	# Aim behavior: SIDE looks at target; OTS looks forward with the player
-	if mode == Global.CamMode.OTS:
-		var forward := -t.basis.z.normalized()
-		camera.look_at(camera.global_position + forward * ots_look_ahead, Vector3.UP)
-	elif look_at_target:
-		camera.look_at(t.origin, Vector3.UP)
+	# Look-at behavior
+	match mode:
+		Global.CamMode.TRAVEL:
+			if look_at_target:
+				camera.look_at(t.origin, Vector3.UP)
+		Global.CamMode.COMBAT:
+			# isometric: fixed downward view
+			camera.look_at(t.origin, Vector3.UP)
 
 func _get_current_offset() -> Vector3:
 	match mode:
-		Global.CamMode.SIDE:
-			return side_offset
-		Global.CamMode.OTS:
-			return ots_offset
+		Global.CamMode.TRAVEL:
+			return travel_offset
+		Global.CamMode.COMBAT:
+			return combat_offset
 		_:
 			return Vector3.ZERO
 
@@ -71,9 +65,19 @@ func _apply_instant() -> void:
 		+ t.basis.z * toffset.z
 	camera.global_position = pos
 
-	# Same aiming logic as in _physics_process
-	if mode == Global.CamMode.OTS:
-		var forward := -t.basis.z.normalized()
-		camera.look_at(camera.global_position + forward * ots_look_ahead, Vector3.UP)
-	elif look_at_target:
-		camera.look_at(t.origin, Vector3.UP)
+	camera.look_at(t.origin, Vector3.UP)
+
+# -------------------------
+# CAMERA MODE SIGNALS
+# -------------------------
+func _camera_combat() -> void:
+	mode = Global.CamMode.COMBAT
+	# Rotate camera downward for isometric angle
+	camera.rotation_degrees = Vector3(45, 45, 0)
+	_apply_instant()
+
+func _camera_travel() -> void:
+	mode = Global.CamMode.TRAVEL
+	# Reset rotation for 3rd-person
+	camera.rotation_degrees = Vector3.ZERO
+	_apply_instant()

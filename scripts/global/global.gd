@@ -4,8 +4,8 @@ signal combat_mode
 signal travel_mode
 signal update_score
 
-enum CamMode { SIDE, OTS }
-var cam_mode: CamMode = CamMode.SIDE
+enum CamMode { TRAVEL, COMBAT }
+var cam_mode: CamMode = CamMode.TRAVEL
 
 var score:int
 
@@ -17,11 +17,11 @@ func _ready() -> void:
 	
 	
 func _change_to_combat():
-	cam_mode = CamMode.OTS
+	cam_mode = CamMode.COMBAT
 	print("changed to combat mode")
 	
 func _change_to_travel_mode():
-	cam_mode = CamMode.SIDE
+	cam_mode = CamMode.TRAVEL
 	print("_change_to_travel_mode")
 
 func _update_player_score():
