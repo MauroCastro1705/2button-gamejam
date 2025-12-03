@@ -48,6 +48,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -100.0
+offset_right = -200.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.1148968, 0.11489681, 0.1148968, 1)
@@ -81,21 +84,26 @@ layout_mode = 2
 label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
-[node name="ammo 1" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(37, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w1cpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D3" type="TextureRect" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 8)
+layout_mode = 2
+texture = ExtResource("3_pcoj7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ammo 1" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Ammo"
 label_settings = ExtResource("2_tnqj0")
-
-[node name="Sprite2D" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(-13, 73)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_pcoj7")
-
-[node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(33, 46)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_w1cpc")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -112,21 +120,26 @@ layout_mode = 2
 label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
-[node name="ammo 2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Sprite2D3" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+position = Vector2(36, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_nuyw6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Sprite2D2" type="TextureRect" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(15, 8)
+layout_mode = 2
+texture = ExtResource("3_pcoj7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ammo 2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Ammo"
 label_settings = ExtResource("2_tnqj0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
-position = Vector2(-12, 73)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_pcoj7")
-
-[node name="Sprite2D3" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
-position = Vector2(18, 46)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_nuyw6")
 
 [node name="player_info" type="Control" parent="."]
 anchors_preset = 0
