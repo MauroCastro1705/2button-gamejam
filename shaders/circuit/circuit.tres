@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqyccw6f4bjt2"]
+
+[ext_resource type="Shader" uid="uid://wjt4ws8cjs4d" path="res://shaders/circuit/circuit.gdshader" id="1_kc2jj"]
+
+[resource]
+shader = ExtResource("1_kc2jj")
+shader_parameter/line_width = 0.01
+shader_parameter/segment_count = 10
+shader_parameter/segment_length = 0.34999999590212
+shader_parameter/tail_lag = 0.19999999925492
+shader_parameter/line_colour = Color(0, 1, 0, 1)
+shader_parameter/head_size_multiplier = 1.60000002384192
+shader_parameter/head_colour = Color(0, 1, 0, 1)
+shader_parameter/line_count = 10
+shader_parameter/line_lifetime = 6.900000304
+shader_parameter/start_direction_degrees = 0.0
+shader_parameter/random_start_direction = true
+shader_parameter/only_on_colour = false
+shader_parameter/apply_colour = Color(0, 0, 0, 1)
+shader_parameter/use_albedo_texture = false
+shader_parameter/albedo_modulate = Color(1, 1, 1, 1)

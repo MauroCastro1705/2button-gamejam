@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1twuxybp05p3"]
+[gd_scene load_steps=9 format=3 uid="uid://b1twuxybp05p3"]
 
 [ext_resource type="Script" uid="uid://drtpqc5q2m3ph" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
 [ext_resource type="Theme" uid="uid://dwbykbbc3c4tj" path="res://themes/button_theme.tres" id="2_247la"]
+[ext_resource type="Material" uid="uid://cqyccw6f4bjt2" path="res://shaders/circuit/circuit.tres" id="2_hj162"]
 [ext_resource type="FontFile" uid="uid://beme3lwcnt17x" path="res://fonts/SwipeRaceDemo.ttf" id="2_kiqgm"]
 [ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="3_kiqgm"]
 
@@ -27,6 +28,7 @@ script = ExtResource("1_nl8w3")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 texture_repeat = 2
+material = ExtResource("2_hj162")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,36 +36,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.18120003, 0.18120006, 0.18120003, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 34.604626
-offset_top = -73.86488
-offset_right = 276.9773
-offset_bottom = -73.86487
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.5794215
-color = Color(0.21950102, 0.21950102, 0.21950102, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -9.000004
-offset_top = 516.0
-offset_right = 233.37268
-offset_bottom = 516.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.37026376
-color = Color(0.30200383, 0.30200383, 0.30200383, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(500, 300)
