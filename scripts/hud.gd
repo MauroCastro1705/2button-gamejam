@@ -44,7 +44,7 @@ func _update_ui() -> void:
 		combat_hud.hide()
 		ammo.show()
 	else:
-		tutorial.text = "Attack with A and D"
+		tutorial.text = " "
 		combat_hud.show()
 		ammo.hide()
 		

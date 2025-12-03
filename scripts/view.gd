@@ -16,13 +16,19 @@ extends Node3D
 var mode: Global.CamMode = Global.CamMode.TRAVEL
 
 func _ready() -> void:
+	if not is_instance_valid(target):
+		push_warning("Camera target is not assigned in inspector")
+	# aseguramos que esta cámara sea la activa
+	camera.current = true
+	
 	_apply_instant()
+	
 	Global.combat_mode.connect(_camera_combat)
 	Global.travel_mode.connect(_camera_travel)
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(target):
-		return
+		return  # no hacemos nada si no hay target
 
 	var t := target.global_transform
 	var toffset := _get_current_offset()
@@ -42,7 +48,6 @@ func _physics_process(delta: float) -> void:
 			if look_at_target:
 				camera.look_at(t.origin, Vector3.UP)
 		Global.CamMode.COMBAT:
-			# isometric: fixed downward view
 			camera.look_at(t.origin, Vector3.UP)
 
 func _get_current_offset() -> Vector3:
@@ -57,14 +62,15 @@ func _get_current_offset() -> Vector3:
 func _apply_instant() -> void:
 	if not is_instance_valid(target):
 		return
+
 	var t := target.global_transform
 	var toffset := _get_current_offset()
 	var pos := t.origin \
 		+ t.basis.x * toffset.x \
 		+ t.basis.y * toffset.y \
 		+ t.basis.z * toffset.z
-	camera.global_position = pos
 
+	camera.global_position = pos
 	camera.look_at(t.origin, Vector3.UP)
 
 # -------------------------
@@ -72,12 +78,10 @@ func _apply_instant() -> void:
 # -------------------------
 func _camera_combat() -> void:
 	mode = Global.CamMode.COMBAT
-	# Rotate camera downward for isometric angle
 	camera.rotation_degrees = Vector3(45, 45, 0)
 	_apply_instant()
 
 func _camera_travel() -> void:
 	mode = Global.CamMode.TRAVEL
-	# Reset rotation for 3rd-person
 	camera.rotation_degrees = Vector3.ZERO
 	_apply_instant()

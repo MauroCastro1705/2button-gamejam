@@ -1,6 +1,6 @@
 extends Control
 
-const PLAY_SCENE := preload("res://scenes/main.tscn")
+const PLAY_SCENE := preload("res://scenes/new_main_scene.tscn")
 const CREDITS = preload("res://scenes/credits/credits.tscn")
 
 const CREDITS_SCENE_PATH := ""

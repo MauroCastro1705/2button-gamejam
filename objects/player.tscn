@@ -1,43 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=4 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" uid="uid://br1k30d32naot" path="res://scripts/player.gd" id="1_ffboj"]
-[ext_resource type="PackedScene" uid="uid://c0e27836xgmhi" path="res://objects/character.tscn" id="2_nero3"]
 [ext_resource type="PackedScene" uid="uid://lmbmrcxi48ka" path="res://models/player_golem.tscn" id="2_ykyjo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
-radius = 0.3
-height = 1.0
+radius = 1.1274414
+height = 2.2548828
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_ffboj")
 
-[node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
-visible = false
+[node name="Collider" type="CollisionShape3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1220214, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
-[node name="Character" parent="." instance=ExtResource("2_nero3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="leg-left" parent="Character/character/root" index="0"]
-transform = Transform3D(0.96592593, 0, 0.2588191, 0, 1, 0, -0.2588191, 0, 0.96592593, 0.125, 0.17625, -0.02375)
-
-[node name="leg-right" parent="Character/character/root" index="1"]
-transform = Transform3D(0.96592593, 0, -0.2588191, 0, 1, 0, 0.2588191, 0, 0.96592593, -0.125, 0.17625, -0.023750002)
-
-[node name="torso" parent="Character/character/root" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.996194, 0.08715568, 0, -0.08715568, 0.996194, -1.80478e-15, 0.17625, -0.02375)
-
-[node name="arm-left" parent="Character/character/root/torso" index="0"]
-transform = Transform3D(0.70710695, 0.70710695, 0, -0.70710695, 0.70710695, 0, 0, 0, 1, 0.3, 0.175, 0)
-
-[node name="arm-right" parent="Character/character/root/torso" index="1"]
-transform = Transform3D(0.70710695, -0.70710695, 0, 0.70710695, 0.70710695, 0, 0, 0, 1, -0.3, 0.1195, 0)
-
-[node name="Golum" parent="Character/character" index="1"]
-visible = false
-
-[node name="player_Golem" parent="Character/character" index="2" instance=ExtResource("2_ykyjo")]
-transform = Transform3D(-1.3113416e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113416e-08, -1.3760586e-08, 0, 0.15740275)
-
-[editable path="Character"]
+[node name="player_Golem" parent="." groups=["player"] instance=ExtResource("2_ykyjo")]
+transform = Transform3D(-1.3113416e-08, 0, -0.29999998, 0, 0.29999998, 0, 0.29999998, 0, -1.3113416e-08, 0, 0, 0)
