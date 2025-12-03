@@ -6,6 +6,33 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_kpcr4"]
 radius = 0.73146963
 
+[sub_resource type="Animation" id="Animation_uo5jf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brick:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.4957472, -0.89709926, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brick:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.03690791, 0.07113862, 0.019828677)]
+}
+
 [sub_resource type="Animation" id="Animation_kpcr4"]
 resource_name = "rotation"
 length = 5.0
@@ -35,33 +62,6 @@ tracks/1/keys = {
 "values": [Vector3(0.03690791, 0.07113862, 0.019828677), Vector3(0.037, 0.7, 0.02), Vector3(0.03690791, 0.07113862, 0.019828677)]
 }
 
-[sub_resource type="Animation" id="Animation_uo5jf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Brick:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.4957472, -0.89709926, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Brick:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.03690791, 0.07113862, 0.019828677)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvur5"]
 _data = {
 &"RESET": SubResource("Animation_uo5jf"),
@@ -75,7 +75,7 @@ script = ExtResource("1_kpcr4")
 shape = SubResource("SphereShape3D_kpcr4")
 
 [node name="Brick" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.3419648, -1.5586411, -0.11719475, 0, 0.14995736, -1.9943701, 1.6810504, 1.2442467, 0.09355533, 0.03690791, 0.07113862, 0.019828677)
+transform = Transform3D(1.3419648, -1.558641, -0.117194735, 0, 0.14995734, -1.9943699, 1.6810504, 1.2442466, 0.093555324, 0.03690791, 0.07113862, 0.019828677)
 mesh = ExtResource("1_3crki")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

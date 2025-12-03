@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://w5svbscvkybd"]
+
+[ext_resource type="Script" uid="uid://bugrl1bf7ouqm" path="res://scenes/combat-hud/combat_hud.gd" id="1_ygmvc"]
+
+[node name="CombatHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygmvc")
+
+[node name="combay_keys" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="ColorRect" parent="combay_keys"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 465.0
+offset_right = 625.0
+offset_bottom = 594.0
+color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="combay_keys/background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="combay_keys/background/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Attack 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="ammo 1" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ammo"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Attack 2"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="ammo 2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ammo"
+
+[node name="player_info" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="player_info"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 21.0
+offset_right = 103.0
+offset_bottom = 102.0
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[node name="player_life" type="ProgressBar" parent="player_info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 71.0
+offset_top = 105.0
+offset_right = 229.0
+offset_bottom = 132.0
+value = 50.0
+rounded = true
+
+[node name="Label" type="Label" parent="player_info"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 130.0
+offset_right = 200.0
+offset_bottom = 153.0
+text = "Player health"
+
+[node name="enemy_info" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 756.0
+offset_top = 5.0
+offset_right = 796.0
+offset_bottom = 45.0
+
+[node name="ColorRect2" type="ColorRect" parent="enemy_info"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 95.0
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[node name="enemy_life" type="ProgressBar" parent="enemy_info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = -173.0
+offset_top = 97.0
+offset_right = -15.0
+offset_bottom = 124.0
+value = 50.0
+rounded = true
+
+[node name="Label" type="Label" parent="enemy_info"]
+layout_mode = 0
+offset_left = -147.0
+offset_top = 126.0
+offset_right = -41.0
+offset_bottom = 149.0
+text = "Enemy health"

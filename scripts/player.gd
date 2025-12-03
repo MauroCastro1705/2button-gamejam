@@ -44,7 +44,9 @@ func handle_combat():
 	# Only allow combat if the global camera mode is combat
 	if Global.cam_mode != Global.CamMode.COMBAT:
 		return
-	if Input.is_action_just_pressed("button_two"):
-		print("punch 1")
+		
 	if Input.is_action_just_pressed("button_one"):
-		print("punch 2")
+		Global._player_ammo_A_shoot()
+		
+	if Input.is_action_just_pressed("button_two"):
+		Global._player_ammo_D_shoot()

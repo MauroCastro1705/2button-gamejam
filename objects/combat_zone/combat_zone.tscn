@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://k1gwuppi6u3e" path="res://models/golum_evil.tscn" id="2_e8rp4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j0cp"]
-radius = 2.9025798
+radius = 3.748139
 
 [node name="CombatZone" type="Area3D"]
 script = ExtResource("1_3nfyv")

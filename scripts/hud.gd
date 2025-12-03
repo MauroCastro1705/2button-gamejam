@@ -4,10 +4,13 @@ extends Control
 @onready var mode_label: Label = $mode
 @onready var tutorial: Label = $tutorial
 @onready var score: Label = $score
+@onready var combat_hud: Control = $CombatHud
+
 
 func _ready() -> void:
 	_update_ui()
 	Global.update_score.connect(_update_ui)
+	combat_hud.hide()
 
 func _process(_delta: float) -> void:
 	_update_ui()
@@ -31,7 +34,9 @@ func _update_ui() -> void:
 	
 	if is_side:
 		tutorial.text = "rotate with: A and D"
+		combat_hud.hide()
 	else:
 		tutorial.text = "Attack with A and D"
+		combat_hud.show()
 		
 	score.text = "score: " + str(Global.score)
