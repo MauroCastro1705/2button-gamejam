@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _combat_starts() -> void:
-	await get_tree().create_timer(0.3).timeout	
+	await get_tree().create_timer(0.01).timeout	
 	print("combat begins")
 	Global.emit_signal("combat_mode")
 

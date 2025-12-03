@@ -94,10 +94,12 @@ script = ExtResource("7_tipki")
 dia = NodePath("dia_comp")
 metadata/_custom_type_script = "uid://18ggqxllcajg"
 
-[node name="dia_comp" type="Node" parent="fight_old" node_paths=PackedStringArray("after_effs")]
+[node name="dia_comp" type="Node" parent="fight_old" node_paths=PackedStringArray("after_effs", "shape")]
 script = ExtResource("8_85g3d")
 dialogue = Array[ExtResource("9_85g3d")]([SubResource("Resource_choun"), SubResource("Resource_trceg")])
 after_effs = [null, NodePath("../Node")]
+disable = true
+shape = NodePath("../CollisionShape3D")
 metadata/_custom_type_script = "uid://bqewjwn1tm5b6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fight_old"]
