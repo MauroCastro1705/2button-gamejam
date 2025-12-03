@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://w5svbscvkybd"]
+[gd_scene load_steps=12 format=3 uid="uid://w5svbscvkybd"]
 
 [ext_resource type="Script" uid="uid://bugrl1bf7ouqm" path="res://scenes/combat-hud/combat_hud.gd" id="1_ygmvc"]
 [ext_resource type="LabelSettings" uid="uid://ba4jdhvsdqhu1" path="res://themes/label_basic.tres" id="2_tnqj0"]
+[ext_resource type="Theme" uid="uid://bhq8w8yfelxno" path="res://themes/life_bars.tres" id="3_h5lil"]
+[ext_resource type="Texture2D" uid="uid://ceeur4ru0xvc5" path="res://assets-2D/ammo_icon_2.png" id="3_pcoj7"]
+[ext_resource type="Texture2D" uid="uid://coa0h0lganojd" path="res://assets-2D/gole-face.png" id="3_uvcv5"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="4_hvfb0"]
+[ext_resource type="Texture2D" uid="uid://cm2ivr8aguxta" path="res://assets-2D/keyboard_a_outline.png" id="5_w1cpc"]
+[ext_resource type="Texture2D" uid="uid://b4xr0abjx6dg0" path="res://assets-2D/keyboard_d_outline.png" id="6_nuyw6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdg8c"]
+font = ExtResource("4_hvfb0")
+font_color = Color(0, 0.8846548, 0.22612992, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pcoj7"]
+font = ExtResource("4_hvfb0")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvfb0"]
+font = ExtResource("4_hvfb0")
+font_size = 14
 
 [node name="CombatHud" type="Control"]
 layout_mode = 3
@@ -13,16 +31,25 @@ grow_vertical = 2
 script = ExtResource("1_ygmvc")
 
 [node name="combay_keys" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="background" type="ColorRect" parent="combay_keys"]
-layout_mode = 0
-offset_left = 244.0
-offset_top = 465.0
-offset_right = 625.0
-offset_bottom = 594.0
+custom_minimum_size = Vector2(80, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.1148968, 0.11489681, 0.1148968, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="combay_keys/background"]
@@ -46,12 +73,11 @@ alignment = 1
 [node name="Label" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Attack 1"
-label_settings = ExtResource("2_tnqj0")
+label_settings = SubResource("LabelSettings_kdg8c")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "A"
 label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
@@ -61,6 +87,16 @@ layout_mode = 2
 text = "Ammo"
 label_settings = ExtResource("2_tnqj0")
 
+[node name="Sprite2D" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(-13, 73)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_pcoj7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(33, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w1cpc")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -68,12 +104,11 @@ alignment = 1
 [node name="Label2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Attack 2"
-label_settings = ExtResource("2_tnqj0")
+label_settings = SubResource("LabelSettings_kdg8c")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "D"
 label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
@@ -83,38 +118,60 @@ layout_mode = 2
 text = "Ammo"
 label_settings = ExtResource("2_tnqj0")
 
+[node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+position = Vector2(-12, 73)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_pcoj7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+position = Vector2(18, 46)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_nuyw6")
+
 [node name="player_info" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="player_info"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 21.0
-offset_right = 103.0
-offset_bottom = 102.0
-color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+[node name="ColorRect" type="Sprite2D" parent="player_info"]
+position = Vector2(77.36667, 54.499996)
+scale = Vector2(0.10312501, 0.103125)
+texture = ExtResource("3_uvcv5")
 
-[node name="player_life" type="ProgressBar" parent="player_info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="player_info"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
-offset_left = 71.0
-offset_top = 105.0
-offset_right = 229.0
-offset_bottom = 132.0
+offset_left = 24.0
+offset_top = 102.0
+offset_right = 241.0
+offset_bottom = 163.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="player_info/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Label" type="Label" parent="player_info/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player health"
+label_settings = SubResource("LabelSettings_pcoj7")
+
+[node name="player_life_value" type="Label" parent="player_info/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50"
+label_settings = SubResource("LabelSettings_pcoj7")
+horizontal_alignment = 2
+
+[node name="player_life" type="ProgressBar" parent="player_info/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+theme = ExtResource("3_h5lil")
 value = 50.0
 rounded = true
-
-[node name="Label" type="Label" parent="player_info"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 130.0
-offset_right = 200.0
-offset_bottom = 153.0
-text = "Player health"
-label_settings = ExtResource("2_tnqj0")
+show_percentage = false
 
 [node name="enemy_info" type="Control" parent="."]
 anchors_preset = 0
@@ -123,30 +180,43 @@ offset_top = 5.0
 offset_right = 796.0
 offset_bottom = 45.0
 
-[node name="ColorRect2" type="ColorRect" parent="enemy_info"]
-layout_mode = 0
-offset_left = -62.0
-offset_top = 14.0
-offset_right = 26.0
-offset_bottom = 95.0
-color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+[node name="ColorRect3" type="Sprite2D" parent="enemy_info"]
+position = Vector2(-35, 49.499996)
+scale = Vector2(-0.103, 0.103)
+texture = ExtResource("3_uvcv5")
 
-[node name="enemy_life" type="ProgressBar" parent="enemy_info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="enemy_info"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
-offset_left = -173.0
+offset_left = -194.0
 offset_top = 97.0
-offset_right = -15.0
-offset_bottom = 124.0
+offset_right = 23.0
+offset_bottom = 156.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="enemy_info/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Label" type="Label" parent="enemy_info/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Enemy health"
+label_settings = SubResource("LabelSettings_hvfb0")
+horizontal_alignment = 1
+
+[node name="enemy_life_value" type="Label" parent="enemy_info/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50"
+label_settings = ExtResource("2_tnqj0")
+horizontal_alignment = 1
+
+[node name="enemy_life" type="ProgressBar" parent="enemy_info/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+theme = ExtResource("3_h5lil")
 value = 50.0
 rounded = true
-
-[node name="Label" type="Label" parent="enemy_info"]
-layout_mode = 0
-offset_left = -147.0
-offset_top = 126.0
-offset_right = -41.0
-offset_bottom = 149.0
-text = "Enemy health"
-label_settings = ExtResource("2_tnqj0")
+show_percentage = false

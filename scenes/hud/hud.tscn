@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://itpds7aplnge"]
+[gd_scene load_steps=7 format=3 uid="uid://itpds7aplnge"]
 
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="1_48c2t"]
 [ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="2_cgeww"]
 [ext_resource type="LabelSettings" uid="uid://ba4jdhvsdqhu1" path="res://themes/label_basic.tres" id="3_0bx4p"]
 [ext_resource type="PackedScene" uid="uid://w5svbscvkybd" path="res://scenes/combat-hud/combat-hud.tscn" id="3_c45xl"]
+[ext_resource type="Texture2D" uid="uid://ceeur4ru0xvc5" path="res://assets-2D/ammo_icon_2.png" id="5_mgtrf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v7mo4"]
+font = ExtResource("2_cgeww")
+font_color = Color(0, 0.8846548, 0.22612992, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -44,6 +49,7 @@ layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="DEBUG" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -65,3 +71,54 @@ offset_right = 110.0
 offset_bottom = 507.0
 theme_override_fonts/font = ExtResource("2_cgeww")
 text = "game mode:"
+
+[node name="ammo" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 402.0
+offset_right = 795.0
+offset_bottom = 494.0
+alignment = 2
+
+[node name="tittle" type="Label" parent="ammo"]
+layout_mode = 2
+text = "Ammo"
+label_settings = SubResource("LabelSettings_v7mo4")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ammo"]
+layout_mode = 2
+alignment = 2
+
+[node name="wpn1" type="Label" parent="ammo/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wpn 1: 2"
+label_settings = ExtResource("3_0bx4p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="ammo/HBoxContainer"]
+custom_minimum_size = Vector2(15, 8)
+layout_mode = 2
+texture = ExtResource("5_mgtrf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ammo"]
+layout_mode = 2
+alignment = 2
+
+[node name="wpn2" type="Label" parent="ammo/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wpn 2"
+label_settings = ExtResource("3_0bx4p")
+horizontal_alignment = 1
+
+[node name="Sprite2D3" type="TextureRect" parent="ammo/HBoxContainer2"]
+custom_minimum_size = Vector2(15, 8)
+layout_mode = 2
+texture = ExtResource("5_mgtrf")
+expand_mode = 1
+stretch_mode = 4

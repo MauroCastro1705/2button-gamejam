@@ -4,6 +4,8 @@ extends Control
 @onready var enemy_life: ProgressBar = %enemy_life
 @onready var ammo_1: Label = %"ammo 1"
 @onready var ammo_2: Label = %"ammo 2"
+@onready var player_life_value: Label = %player_life_value
+@onready var enemy_life_value: Label = %enemy_life_value
 
 
 func _ready() -> void:
@@ -18,6 +20,8 @@ func set_bars():
 	enemy_life.max_value = Global.golem_life
 
 func _update_bars():
+	player_life_value.text = str(Global.player_life)
+	enemy_life_value.text =  str(Global.golem_life)
 	player_life.value = Global.player_life
 	enemy_life.value = Global.golem_life
 	

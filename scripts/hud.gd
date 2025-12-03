@@ -1,16 +1,23 @@
 extends Control
 
-@onready var walk_label: Label = $walk
-@onready var mode_label: Label = $mode
+
 @onready var tutorial: Label = $tutorial
 @onready var score: Label = $score
 @onready var combat_hud: Control = $CombatHud
+@onready var walk_label: Label = $DEBUG/walk
+@onready var mode_label: Label = $DEBUG/mode
+@onready var wpn_1: Label = %wpn1
+@onready var wpn_2: Label = %wpn2
+@onready var ammo: VBoxContainer = $ammo
 
 
 func _ready() -> void:
 	_update_ui()
+	_update_ammo()
 	Global.update_score.connect(_update_ui)
+	Global.ammo_used.connect(_update_ammo)
 	combat_hud.hide()
+	ammo.hide()
 
 func _process(_delta: float) -> void:
 	_update_ui()
@@ -35,8 +42,14 @@ func _update_ui() -> void:
 	if is_side:
 		tutorial.text = "rotate with: A and D"
 		combat_hud.hide()
+		ammo.show()
 	else:
 		tutorial.text = "Attack with A and D"
 		combat_hud.show()
+		ammo.hide()
 		
 	score.text = "score: " + str(Global.score)
+	
+func _update_ammo():
+	wpn_1.text = "wpn 1: " + str(Global.player_ammo_A)
+	wpn_2.text = "wpn 2: " + str(Global.player_ammo_D)

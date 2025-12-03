@@ -1,7 +1,18 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bhq8w8yfelxno"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bhq8w8yfelxno"]
 
 [ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="1_75trg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88peo"]
+bg_color = Color(0.20990813, 0.20990813, 0.20990801, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75trg"]
+bg_color = Color(0, 0.9764706, 0.14509805, 1)
+
 [resource]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 1
 ProgressBar/font_sizes/font_size = 14
 ProgressBar/fonts/font = ExtResource("1_75trg")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_88peo")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_75trg")

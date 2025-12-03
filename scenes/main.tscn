@@ -60,6 +60,7 @@ environment = SubResource("Environment_tbgi4")
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
 view = NodePath("../View")
+move_speed = 5.0
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -10)
