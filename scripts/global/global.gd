@@ -51,7 +51,7 @@ func _handle_golem_damage(value:int):
 		golem_life -= value
 		print("golem life: " + str(golem_life))
 		emit_signal("golem_damaged")
-	if golem_life == 0:
+	if golem_life <= 0:
 		emit_signal("golem_died")
 
 

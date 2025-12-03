@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="5_bg0fr"]
 [ext_resource type="PackedScene" uid="uid://itpds7aplnge" path="res://scenes/hud/hud.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="6_sdmev"]
-[ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://ropephysics/scenes/path_3d_rope.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cnq51r1gqkxf3" path="res://scenes/city.tscn" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://18ggqxllcajg" path="res://scripts/basic_fight.gd" id="7_tipki"]
 [ext_resource type="Script" uid="uid://bqewjwn1tm5b6" path="res://scripts/dialogue_comp.gd" id="8_85g3d"]
