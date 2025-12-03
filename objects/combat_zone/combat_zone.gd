@@ -1,6 +1,7 @@
 extends Area3D
 
-@onready var evil_golem: Node3D = $"evil-golem"
+
+@onready var evil_golem: Node3D = $enemy_Golem
 
 
 var _target: Node3D

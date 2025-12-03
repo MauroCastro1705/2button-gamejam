@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8on7sxh258qe"
-path="res://.godot/imported/Rock Type2 04.dae-eac5f598938deb37ae58df22271e0a3d.scn"
+uid="uid://l57wh5a8l0pa"
+path="res://.godot/imported/Rock Type4 02.dae-f5fe7815acd539cf9594a70933d0dc30.scn"
 
 [deps]
 
-source_file="res://assets-3d/Models/Rock Type2 04.dae"
-dest_files=["res://.godot/imported/Rock Type2 04.dae-eac5f598938deb37ae58df22271e0a3d.scn"]
+source_file="res://assets-3d/rock_Models/Rock Type4 02.dae"
+dest_files=["res://.godot/imported/Rock Type4 02.dae-f5fe7815acd539cf9594a70933d0dc30.scn"]
 
 [params]
 

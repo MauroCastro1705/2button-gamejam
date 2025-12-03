@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dkw27llxh1d4w" path="res://models/grass-small.glb" id="1_drx7m"]
 [ext_resource type="PackedScene" uid="uid://blqf5cwsk25xj" path="res://models/grass.glb" id="2_8uhr2"]
-[ext_resource type="PackedScene" uid="uid://bro5i05f31ye0" path="res://assets-3d/Models/Rock Type1 02.dae" id="3_3br4m"]
-[ext_resource type="PackedScene" uid="uid://b8on7sxh258qe" path="res://assets-3d/Models/Rock Type2 04.dae" id="4_4lp1f"]
-[ext_resource type="PackedScene" uid="uid://2bexvtnc4h81" path="res://assets-3d/Models/Rock Type3 03.dae" id="5_07bxp"]
-[ext_resource type="PackedScene" uid="uid://l57wh5a8l0pa" path="res://assets-3d/Models/Rock Type4 02.dae" id="6_q8eg3"]
-[ext_resource type="PackedScene" uid="uid://b358f46ubojs7" path="res://assets-3d/Models/Rock Type5 03.dae" id="7_obbxu"]
+[ext_resource type="PackedScene" uid="uid://bro5i05f31ye0" path="res://assets-3d/rock_Models/Rock Type1 02.dae" id="3_3br4m"]
+[ext_resource type="PackedScene" uid="uid://b8on7sxh258qe" path="res://assets-3d/rock_Models/Rock Type2 04.dae" id="4_4lp1f"]
+[ext_resource type="PackedScene" uid="uid://2bexvtnc4h81" path="res://assets-3d/rock_Models/Rock Type3 03.dae" id="5_07bxp"]
+[ext_resource type="PackedScene" uid="uid://l57wh5a8l0pa" path="res://assets-3d/rock_Models/Rock Type4 02.dae" id="6_q8eg3"]
+[ext_resource type="PackedScene" uid="uid://b358f46ubojs7" path="res://assets-3d/rock_Models/Rock Type5 03.dae" id="7_obbxu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxov2"]
 albedo_color = Color(1.92523e-06, 0.6739708, 0.38721982, 1)
