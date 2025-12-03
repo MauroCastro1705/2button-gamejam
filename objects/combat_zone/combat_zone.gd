@@ -11,9 +11,9 @@ func _ready() -> void:
 	Global.golem_died.connect(_combat_ended)
 
 func _on_body_entered(body: Node3D) -> void:
-	#if body.is_in_group("player"):
-		#_target = body
-		#_combat_starts()
+	if body.is_in_group("player"):
+		_target = body
+		_combat_starts()
 	pass
 func _on_body_exited(body: Node3D) -> void:
 	if body == _target:

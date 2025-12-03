@@ -57,7 +57,7 @@ rigidbody_attached_to_end = NodePath("../City")
 environment = SubResource("Environment_tbgi4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
-transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 9.361565, -0.32745108, 4.0519643)
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -75,7 +75,7 @@ fov = 40.0
 [node name="World" type="Node3D" parent="."]
 
 [node name="platform" parent="World" instance=ExtResource("6_sdmev")]
-transform = Transform3D(53.629906, 0, 0, 0, 1.953, 0, 0, 0, 32.66671, 0, -1.4064643, 0)
+transform = Transform3D(76.06451, 0, 0, 0, 1, 0, 0, 0, 63.46464, 0, -1.4064643, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
@@ -103,7 +103,7 @@ shape = NodePath("../CollisionShape3D")
 metadata/_custom_type_script = "uid://bqewjwn1tm5b6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fight_old"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.51404, 0.14785075, 7.9410505)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.51404, 18.106115, 7.9410505)
 shape = SubResource("SphereShape3D_tipki")
 
 [node name="Node" type="Node" parent="fight_old"]
@@ -112,10 +112,10 @@ script = ExtResource("11_trceg")
 [node name="objects_to_colletc" type="Node" parent="."]
 
 [node name="PickUp1" parent="objects_to_colletc" instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.514367, 0.7745967, 0)
+transform = Transform3D(0.9326201, 0, -0.36085966, 0, 1, 0, 0.36085966, 0, 0.9326201, 19.064693, 0.7745967, 12.607414)
 
 [node name="PickUp7" parent="objects_to_colletc" instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.717955, 0.7745967, 7.1625843)
+transform = Transform3D(0.9326201, 0, -0.36085966, 0, 1, 0, 0.36085966, 0, 0.9326201, 11.627035, 0.7745967, 17.40962)
 
 [node name="PickUp8" parent="objects_to_colletc" instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.949726, 0.7745967, 7.1625843)
@@ -136,6 +136,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8982277, 0.7745967, -15.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817786, 0.585423, -8.186083)
 
 [node name="CombatZone" parent="." instance=ExtResource("13_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.34291744, 7.701627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.8975048, 7.701627)
 monitoring = true
 monitorable = true
