@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ba4jdhvsdqhu1"]
+
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="1_2odw7"]
+
+[resource]
+font = ExtResource("1_2odw7")

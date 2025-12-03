@@ -80,31 +80,7 @@ transform = Transform3D(76.06451, 0, 0, 0, 1, 0, 0, 0, 63.46464, 0, -1.4064643, 
 metadata/_edit_lock_ = true
 
 [node name="Terrain" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(4.4697943, 3.3834323e-07, -2.2407458, 0, -5, -7.54979e-07, -2.2407458, 6.749201e-07, -4.4697943, -41.22722, -1.9360838, 37.7026)
-
-[node name="Terrain2" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(-2.1855695e-07, -7.54979e-07, 5, 0, -5, -7.54979e-07, 5, -3.300118e-14, 2.1855695e-07, 0.10628891, -1.9360838, 37.7026)
-
-[node name="Terrain3" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(3.7624767, -4.972273e-07, 3.2929876, 0, -5, -7.54979e-07, 3.2929876, 5.681182e-07, -3.7624767, 40.82993, -1.9360838, 37.7026)
-
-[node name="Terrain4" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(5, 0, 0, 0, -5, -7.54979e-07, 0, 7.54979e-07, -5, -41.22722, -1.9360838, -2.4460182)
-
-[node name="Terrain5" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(-3.7824655, -4.9375757e-07, 3.2700083, 2.1175824e-21, -5, -7.54979e-07, 3.2700083, -5.7113635e-07, 3.7824655, 0.10628891, -1.9360838, -2.4460182)
-
-[node name="Terrain6" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(5, 0, 0, 0, -5, -7.54979e-07, 0, 7.54979e-07, -5, 40.82993, -1.9360838, -2.4460182)
-
-[node name="Terrain7" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(5, 0, 0, 0, -5, -7.54979e-07, 0, 7.54979e-07, -5, -41.22722, -1.9360838, -39.636322)
-
-[node name="Terrain8" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(-2.1855695e-07, -7.54979e-07, 5, 0, -5, -7.54979e-07, 5, -3.300118e-14, 2.1855695e-07, 0.10628891, -1.9360838, -39.636322)
-
-[node name="Terrain9" parent="World" instance=ExtResource("6_a8y0u")]
-transform = Transform3D(3.8701959, -4.780057e-07, 3.1656885, 0, -5, -7.54979e-07, 3.1656885, 5.843833e-07, -3.8701959, 40.82993, -1.9360838, -39.636322)
+transform = Transform3D(0.99989176, -1.4875793e-07, -0.014712598, -1.509958e-07, -1, -1.5099579e-07, -0.014712598, 1.5320101e-07, -0.99989176, 2.4247246, -0.8050966, -8.694206)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.42261797, -0.694272, 0.58256346, 0, 0.64278793, 0.76604384, -0.90630805, 0.32374403, -0.27165356, 0, 0, 0)
