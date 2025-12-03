@@ -7,11 +7,14 @@
 radius = 3.748139
 
 [node name="CombatZone" type="Area3D"]
+monitoring = false
+monitorable = false
 script = ExtResource("1_3nfyv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1135378, 0)
 shape = SubResource("SphereShape3D_1j0cp")
+disabled = true
 debug_color = Color(12.55355, 0, 0, 1)
 
 [node name="evil-golem" parent="." instance=ExtResource("2_e8rp4")]

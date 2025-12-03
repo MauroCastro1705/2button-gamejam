@@ -6,6 +6,7 @@ func _ready() -> void:
 	connect("body_entered", plr_enter)
 	connect("body_exited", plr_exit)
 func plr_enter(body):
+	print("AFAFAWFWAGFFF")
 	if body.is_in_group("player"):
 		can_int = true
 		dia.set_plr(body)

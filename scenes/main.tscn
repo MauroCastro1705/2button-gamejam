@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=19 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bqewjwn1tm5b6" path="res://scripts/dialogue_comp.gd" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://mh31j15qja2a" path="res://scripts/dialogue.gd" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ds3m4lqwamxeb" path="res://objects/pick-up/pick_up_1.tscn" id="10_choun"]
+[ext_resource type="Script" uid="uid://cnjp4xi5gjs7a" path="res://scenes/fwfwg.gd" id="11_trceg"]
 [ext_resource type="PackedScene" uid="uid://1iju53es60n3" path="res://objects/combat_zone/combat_zone.tscn" id="13_trceg"]
 
 [sub_resource type="Curve3D" id="Curve3D_tefeu"]
@@ -35,14 +36,18 @@ text = "ffwwffw"
 stop_movement = true
 metadata/_custom_type_script = "uid://mh31j15qja2a"
 
+[sub_resource type="Resource" id="Resource_trceg"]
+script = ExtResource("9_85g3d")
+metadata/_custom_type_script = "uid://mh31j15qja2a"
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_tipki"]
-radius = 4.4894643
+radius = 8.105951
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jkv2x")
 
 [node name="Path3DRope" parent="." node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.097311735, 0.21661758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, 0.097311735, 0.21661758)
 curve = SubResource("Curve3D_tefeu")
 fixed_start_point = false
 rigidbody_attached_to_start = NodePath("../Player")
@@ -52,7 +57,7 @@ rigidbody_attached_to_end = NodePath("../City")
 environment = SubResource("Environment_tbgi4")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_onms2")]
-transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, -0.089791775, -0.32745108, 4.0519643)
+transform = Transform3D(-0.99999994, 0, 1.5099579e-07, 0, 1, 0, -1.5099579e-07, 0, -0.99999994, 9.361565, -0.32745108, 4.0519643)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -81,26 +86,26 @@ shadow_opacity = 0.75
 [node name="HUD" parent="." instance=ExtResource("6_85g3d")]
 
 [node name="City" parent="." instance=ExtResource("7_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0479794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, 0, -1.0479794)
 
 [node name="fight_old" type="Area3D" parent="." node_paths=PackedStringArray("dia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30401087, 0, 0)
-visible = false
-monitoring = false
-monitorable = false
 script = ExtResource("7_tipki")
 dia = NodePath("dia_comp")
 metadata/_custom_type_script = "uid://18ggqxllcajg"
 
 [node name="dia_comp" type="Node" parent="fight_old" node_paths=PackedStringArray("after_effs")]
 script = ExtResource("8_85g3d")
-dialogue = Array[ExtResource("9_85g3d")]([SubResource("Resource_choun")])
-after_effs = [null]
+dialogue = Array[ExtResource("9_85g3d")]([SubResource("Resource_choun"), SubResource("Resource_trceg")])
+after_effs = [null, NodePath("../Node")]
 metadata/_custom_type_script = "uid://bqewjwn1tm5b6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fight_old"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 9.502331, 0.023345947, 2.7106514)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.51404, 0.14785075, 7.9410505)
 shape = SubResource("SphereShape3D_tipki")
+
+[node name="Node" type="Node" parent="fight_old"]
+script = ExtResource("11_trceg")
 
 [node name="objects_to_colletc" type="Node" parent="."]
 
@@ -130,3 +135,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817786, 0.585423, -8.18608
 
 [node name="CombatZone" parent="." instance=ExtResource("13_trceg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.34291744, 7.701627)
+monitoring = true
+monitorable = true

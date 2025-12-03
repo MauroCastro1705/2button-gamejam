@@ -11,10 +11,10 @@ func _ready() -> void:
 	Global.golem_died.connect(_combat_ended)
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		_target = body
-		_combat_starts()
-
+	#if body.is_in_group("player"):
+		#_target = body
+		#_combat_starts()
+	pass
 func _on_body_exited(body: Node3D) -> void:
 	if body == _target:
 		_target = null
@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _combat_starts() -> void:
+	await get_tree().create_timer(0.3).timeout	
 	print("combat begins")
 	Global.emit_signal("combat_mode")
 

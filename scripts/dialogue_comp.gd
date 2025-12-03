@@ -30,7 +30,9 @@ func show():
 		bg_node.texture = dialogue[str_count].background
 	name_node.text = dialogue[str_count].namee
 	if dialogue[str_count].stop_movement:
-		Global.emit_signal("combat_mode") #CHANGES IN GLOBAL TO COMBAT MODE(stops walking)
+		plr.canmove = false
+		#Global.emit_signal("combat_mode") #CHANGES IN GLOBAL TO COMBAT MODE(stops walking)
+		#get_tree().get_current_scene().get_node("HUD/CombatHud").hide()
 	text_node.text = dialogue[str_count].text
 	if after_effs[str_count] != null:
 		after_effs[str_count].use(plr)
@@ -38,7 +40,9 @@ func show():
 	
 func hide():
 	#plr.show()
-	Global.emit_signal("travel_mode")#CHANGES TO TRAVEL MODE( AUTO WALKING)
+	plr.canmove = true
+	#Global.emit_signal("travel_mode")#CHANGES TO TRAVEL MODE( AUTO WALKING)
+	get_tree().get_current_scene().get_node("HUD/CombatHud").show()
 	str_count = 0
 	plr.get_node("Character/textbox_root").hide()
 	name_node.text = ""
