@@ -1,6 +1,8 @@
 extends Control
 
-const PLAY_SCENE_PATH := "res://scenes/main.tscn"
+const PLAY_SCENE := preload("res://scenes/main.tscn")
+const CREDITS = preload("res://scenes/credits/credits.tscn")
+
 const CREDITS_SCENE_PATH := ""
 @onready var buttons_vbox: VBoxContainer = %buttons
 @onready var selector: Label = $selector
@@ -22,9 +24,9 @@ func _ready() -> void:
 	_update_selection()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("menu_next"):
+	if event.is_action_pressed("button_one"):
 		_cycle_next()
-	elif event.is_action_pressed("menu_confirm"):
+	elif event.is_action_pressed("button_two"):
 		_activate_current()
 
 func _cycle_next() -> void:
@@ -54,14 +56,33 @@ func _position_selector(b: Button) -> void:
 func _activate_current() -> void:
 	if buttons.is_empty():
 		return
+
 	match buttons[index].name:
 		"BtnPlay":
-			if PLAY_SCENE_PATH != "":
-				get_tree().change_scene_to_file(PLAY_SCENE_PATH)
+			get_tree().change_scene_to_packed(PLAY_SCENE)
 		"BtnCredits":
-			if CREDITS_SCENE_PATH != "":
-				get_tree().change_scene_to_file(CREDITS_SCENE_PATH)
+			get_tree().change_scene_to_packed(CREDITS)
 		"BtnExit":
 			get_tree().quit()
-		_:
-			buttons[index].emit_signal("pressed")
+
+
+func _goto_scene_safe(path: String) -> void:
+	if path.is_empty():
+		push_error("PLAY_SCENE_PATH is empty.")
+		return
+
+	# 1) Verify the resource actually exists in the PCK (helps catch export issues)
+	if not ResourceLoader.exists(path):
+		push_error("Scene NOT found in export: %s" % path)
+		return
+
+	# 2) Preload it so the exporter *must* include it; also catches load errors early
+	var packed := load(path)
+	if packed == null:
+		push_error("Failed to load PackedScene: %s" % path)
+		return
+
+	# 3) Change scene via PackedScene (recommended in Godot 4)
+	var err := get_tree().change_scene_to_packed(packed)
+	if err != OK:
+		push_error("change_scene_to_packed error code: %s" % str(err))

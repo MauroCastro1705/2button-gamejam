@@ -40,7 +40,7 @@ func _update_ui() -> void:
 		mode_label.text = "Mode: COMBAT"
 	
 	if is_side:
-		tutorial.text = "rotate with: A and D"
+		tutorial.text = "Steer with: A and D"
 		combat_hud.hide()
 		ammo.show()
 	else:

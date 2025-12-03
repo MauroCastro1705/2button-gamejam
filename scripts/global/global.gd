@@ -3,7 +3,9 @@ extends Node
 signal combat_mode
 signal travel_mode
 signal update_score
-signal golem_damaged
+
+signal golem_damage(amount:int)
+
 signal ammo_used
 signal golem_died
 
@@ -44,16 +46,9 @@ func _update_player_score():
 func _update_player_score_golem():
 	score += 10
 
-func _handle_golem_damage(value:int):
-	if golem_life < 1 :
-		return
-	else:
-		golem_life -= value
-		print("golem life: " + str(golem_life))
-		emit_signal("golem_damaged")
-	if golem_life <= 0:
-		emit_signal("golem_died")
 
+func _handle_golem_damage(amount:int) -> void:
+	emit_signal("golem_damage", amount)
 
 
 

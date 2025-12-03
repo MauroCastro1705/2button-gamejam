@@ -48,6 +48,8 @@ func handle_combat():
 		
 	if Input.is_action_just_pressed("button_one"):
 		Global._player_ammo_A_shoot()
+		Global._handle_golem_damage(15)
 		
 	if Input.is_action_just_pressed("button_two"):
 		Global._player_ammo_D_shoot()
+		Global._handle_golem_damage(10)

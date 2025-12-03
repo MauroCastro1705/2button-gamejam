@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4pbk8w6kxa6w"]
+[gd_scene load_steps=9 format=3 uid="uid://b4pbk8w6kxa6w"]
 
 [ext_resource type="Script" uid="uid://4icnxq5nsf3h" path="res://scenes/splash/splash.gd" id="1_cwtag"]
 [ext_resource type="Texture2D" uid="uid://dxeapngd5b48f" path="res://assets-2D/t_SguD.png" id="1_i52gs"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="3_y4437"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwtag"]
+font = ExtResource("3_y4437")
 font_size = 50
 font_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 

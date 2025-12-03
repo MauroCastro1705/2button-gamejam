@@ -144,3 +144,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817786, 0.585423, -8.18608
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.8975048, 7.701627)
 monitoring = true
 monitorable = true
+
+[node name="CombatZone2" parent="." instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.067799, -0.8975048, 25.701626)
+monitoring = true
+monitorable = true
+
+[node name="CombatZone3" parent="." instance=ExtResource("13_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.465996, -0.8975048, 7.701627)
+monitoring = true
+monitorable = true

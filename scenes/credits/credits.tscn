@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rxn3gosqgl17"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 805.0
+offset_bottom = 605.0
+color = Color(0.2147026, 0.21470255, 0.21470255, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 361.0
+offset_top = 131.0
+offset_right = 414.0
+offset_bottom = 154.0
+text = "credits"
