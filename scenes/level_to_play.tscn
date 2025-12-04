@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_5vqte"]
-[ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="2_1ni8b"]
+[ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://ropephysics/scenes/path_3d_rope.tscn" id="2_1ni8b"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_8of12"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="4_4ajat"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="5_j7dyp"]
@@ -56,9 +56,8 @@ rigidbody_attached_to_end = NodePath("../City")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tbgi4")
 
-[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("3_8of12")]
+[node name="Player" parent="." instance=ExtResource("3_8of12")]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
-view = NodePath("../View")
 move_speed = 5.0
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]

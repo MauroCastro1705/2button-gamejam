@@ -75,7 +75,7 @@ script = ExtResource("1_kpcr4")
 shape = SubResource("SphereShape3D_kpcr4")
 
 [node name="Brick" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.3419648, -1.5586408, -0.11719473, 0, 0.14995734, -1.9943697, 1.6810504, 1.2442466, 0.09355532, 0.03690791, 0.07113862, 0.019828677)
+transform = Transform3D(1.3419648, -1.5586408, -0.11719472, 0, 0.14995734, -1.9943696, 1.6810504, 1.2442466, 0.09355531, 0.03690791, 0.07113862, 0.019828677)
 mesh = ExtResource("1_3crki")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

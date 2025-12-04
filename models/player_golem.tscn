@@ -11,6 +11,21 @@ albedo_texture = ExtResource("2_jvwm7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp141"]
 albedo_texture = ExtResource("3_kp141")
 
+[sub_resource type="Animation" id="Animation_kp141"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cannon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1665138, 0.13134956, 0.06331682)]
+}
+
 [sub_resource type="Animation" id="Animation_jvwm7"]
 resource_name = "shoot_1"
 length = 0.5
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, 1, -0.5),
 "update": 0,
 "values": [Vector3(0.1665138, 0.13134956, 0.06331682), Vector3(0.3, 0.4, 0.063), Vector3(0.1665138, 0.13134956, 0.06331682)]
-}
-
-[sub_resource type="Animation" id="Animation_kp141"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cannon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.1665138, 0.13134956, 0.06331682)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5rnjw"]
