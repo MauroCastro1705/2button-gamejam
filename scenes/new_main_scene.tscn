@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkb3kstcbwkse"]
+[gd_scene load_steps=26 format=3 uid="uid://bkb3kstcbwkse"]
 
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="1_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_eix37"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://chgpbnfvrrcrq" path="res://assets-3d/URBAN/Buildings Prebuild/flat_square_concrete.glb" id="18_sacgu"]
 [ext_resource type="PackedScene" uid="uid://mbj35ms0ujfw" path="res://assets-3d/URBAN/Roads/Road sides/road_side_full.glb" id="19_jrndn"]
 [ext_resource type="PackedScene" uid="uid://bprkkk4devta4" path="res://assets-3d/URBAN/Roads/Road type 1/road_1_straight.glb" id="20_g6o4r"]
+[ext_resource type="Material" uid="uid://ejvcsb6p5mfp" path="res://shaders/fog sand/sand_fog.tres" id="21_1n70v"]
 
 [sub_resource type="Curve3D" id="Curve3D_jrndn"]
 resource_local_to_scene = true
@@ -226,3 +227,27 @@ transform = Transform3D(0.9790739, 0, -0.20350505, 0, 1, 0, 0.20350505, 0, 0.979
 
 [node name="road_1_straight2" parent="far_away" instance=ExtResource("20_g6o4r")]
 transform = Transform3D(0.99996614, 0, -0.008237839, 0, 1, 0, 0.008237839, 0, 0.99996614, -56.672253, -0.9064636, 3.2675514)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.1979504, 0, 61.929306)
+rotation_edit_mode = 1
+size = Vector3(13.287109, 2, 2.8881836)
+material = ExtResource("21_1n70v")
+
+[node name="FogVolume2" type="FogVolume" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.1979504, 0, -53.031578)
+rotation_edit_mode = 1
+size = Vector3(13.287109, 2, 2.8881836)
+material = ExtResource("21_1n70v")
+
+[node name="FogVolume3" type="FogVolume" parent="."]
+transform = Transform3D(-0.5582152, 0, -9.984407, 0, 10, 0, 9.984407, 0, -0.5582152, 69.09801, 0, -1.5166702)
+rotation_edit_mode = 1
+size = Vector3(13.287109, 2, 2.8881836)
+material = ExtResource("21_1n70v")
+
+[node name="FogVolume4" type="FogVolume" parent="."]
+transform = Transform3D(-0.5582152, 0, -9.984407, 0, 10, 0, 9.984407, 0, -0.5582152, -63.492123, 0, -1.5166702)
+rotation_edit_mode = 1
+size = Vector3(13.287109, 2, 2.8881836)
+material = ExtResource("21_1n70v")

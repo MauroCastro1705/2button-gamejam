@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ejvcsb6p5mfp"]
+
+[ext_resource type="Shader" uid="uid://usehw1tj63e7" path="res://shaders/fog sand/sand_fog.gdshader" id="1_mtsne"]
+
+[sub_resource type="Gradient" id="Gradient_mtsne"]
+colors = PackedColorArray(0.98633534, 0.7294707, 0.3667535, 1, 0.6868841, 0.46115935, 0.068870425, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3mxe"]
+gradient = SubResource("Gradient_mtsne")
+
+[resource]
+shader = ExtResource("1_mtsne")
+shader_parameter/noise_scale = 0.48689998768143
+shader_parameter/flatness = 8.0000001192096
+shader_parameter/density = 0.02629999933461
+shader_parameter/grad_tex = SubResource("GradientTexture2D_x3mxe")
+shader_parameter/emision = Color(0.8695726, 0.5929262, 0.120602995, 1)
+shader_parameter/fog_speed = 2.3750000011091288e-07
