@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://col5vqqecbl25"]
+
+[ext_resource type="PackedScene" uid="uid://bmnoy6p3ahdd3" path="res://assets-3d/URBAN/Cones & Barriers/Concrete Barriers/Jersey_barrier_broken_center.glb" id="1_xokv5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i04be"]
+size = Vector3(2.478691, 1.1142578, 0.81469727)
+
+[node name="concrete_barrier" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13996506, 0.5545493, -0.07849121)
+shape = SubResource("BoxShape3D_i04be")
+
+[node name="Jersey_barrier_broken_center2" parent="." instance=ExtResource("1_xokv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12817693, 0, -0.044205785)

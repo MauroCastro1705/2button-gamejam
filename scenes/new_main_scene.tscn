@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkb3kstcbwkse"]
+[gd_scene load_steps=17 format=3 uid="uid://bkb3kstcbwkse"]
 
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="1_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_eix37"]
@@ -6,14 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="4_jieyl"]
 [ext_resource type="PackedScene" uid="uid://itpds7aplnge" path="res://scenes/hud/hud.tscn" id="5_a1njh"]
 [ext_resource type="PackedScene" uid="uid://cnq51r1gqkxf3" path="res://scenes/city.tscn" id="6_h4ats"]
+[ext_resource type="PackedScene" uid="uid://bmfsqqvd67pfk" path="res://objects/bricks/concrete_barrier.tscn" id="9_4fdll"]
+[ext_resource type="PackedScene" uid="uid://col5vqqecbl25" path="res://objects/bricks/concrete_barrier_3.tscn" id="10_s3e1p"]
+[ext_resource type="PackedScene" uid="uid://c78upbflcj5ap" path="res://objects/bricks/concrete_barrier_2.tscn" id="11_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://ds3m4lqwamxeb" path="res://objects/pick-up/pick_up_1.tscn" id="11_wt5jy"]
+[ext_resource type="PackedScene" uid="uid://cigi7nvofnqbc" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape.glb" id="12_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://1iju53es60n3" path="res://objects/combat_zone/combat_zone.tscn" id="12_sacgu"]
+[ext_resource type="PackedScene" uid="uid://dfqjegjjtures" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape_vertical_stripes.glb" id="13_qs6ff"]
+[ext_resource type="PackedScene" uid="uid://b4cbjvxwa6546" path="res://assets-3d/URBAN/Buildings Prebuild/Hangar1.glb" id="14_jieyl"]
 
 [sub_resource type="Curve3D" id="Curve3D_jrndn"]
 resource_local_to_scene = true
 bake_interval = 512.0
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.08562492, 1.351955, 3.2011096, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.68509376, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544802, 0.70007294, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307196, 0.54541457, -0.32616508),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.085624695, 1.1096145, 2.7766407, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.0033858418, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544754, -0.31966954, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307243, -0.66878486, -0.3074051),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -41,7 +47,7 @@ move_speed = 5.0
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -10)
 script = ExtResource("3_qs6ff")
 target = NodePath("../Player")
-travel_offset = Vector3(0, 8, 15)
+travel_offset = Vector3(0, 6, 15)
 combat_offset = Vector3(14, 7, -10)
 
 [node name="Camera" type="Camera3D" parent="View"]
@@ -63,7 +69,7 @@ shadow_opacity = 0.75
 [node name="HUD" parent="." instance=ExtResource("5_a1njh")]
 
 [node name="City" parent="." instance=ExtResource("6_h4ats")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, 0, -1.0479794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, -0.88473207, -1.0479794)
 
 [node name="objects_to_colletc" type="Node" parent="."]
 
@@ -108,3 +114,55 @@ monitorable = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hl6ae")
+
+[node name="obstacles" type="Node3D" parent="."]
+
+[node name="concrete_barrier" parent="obstacles" instance=ExtResource("9_4fdll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8856252, 0)
+
+[node name="concrete_barrier3" parent="obstacles" instance=ExtResource("10_s3e1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9514885, 14.150179)
+
+[node name="concrete_barrier2" parent="obstacles" instance=ExtResource("11_n5yqt")]
+transform = Transform3D(0.7684846, 0, -0.6398683, 0, 1, 0, 0.6398683, 0, 0.7684846, -12.937643, -0.9382584, -5.7425365)
+
+[node name="concrete_barrier4" parent="obstacles" instance=ExtResource("9_4fdll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.089539, -0.8856252, 20.804527)
+
+[node name="concrete_barrier5" parent="obstacles" instance=ExtResource("10_s3e1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.089539, -0.9514885, 34.954704)
+
+[node name="concrete_barrier6" parent="obstacles" instance=ExtResource("11_n5yqt")]
+transform = Transform3D(0.7684846, 0, -0.6398683, 0, 1, 0, 0.6398683, 0, 0.7684846, 13.1518955, -0.9382584, 15.061991)
+
+[node name="concrete_barrier7" parent="obstacles" instance=ExtResource("11_n5yqt")]
+transform = Transform3D(-0.32338893, 0, -0.9462662, 0, 1, 0, 0.9462662, 0, -0.32338893, -15.930218, -0.9382584, -24.404505)
+
+[node name="concrete_barrier8" parent="obstacles" instance=ExtResource("9_4fdll")]
+transform = Transform3D(0.3569663, 0, -0.93411726, 0, 1, 0, 0.93411726, 0, 0.3569663, -26.7969, -0.8856252, 21.52787)
+
+[node name="concrete_barrier9" parent="obstacles" instance=ExtResource("10_s3e1p")]
+transform = Transform3D(0.3569663, 0, -0.93411726, 0, 1, 0, 0.93411726, 0, 0.3569663, -15.884621, -0.9514885, 26.579006)
+
+[node name="concrete_barrier10" parent="obstacles" instance=ExtResource("11_n5yqt")]
+transform = Transform3D(-0.32338893, 0, -0.9462662, 0, 1, 0, 0.9462662, 0, -0.32338893, -26.050999, -0.9382584, 7.392702)
+
+[node name="concrete_barrier11" parent="obstacles" instance=ExtResource("9_4fdll")]
+transform = Transform3D(-0.789395, 0, -0.61388576, 0, 1, 0, 0.61388576, 0, -0.789395, 21.204477, -0.8856252, -1.64041)
+
+[node name="concrete_barrier12" parent="obstacles" instance=ExtResource("10_s3e1p")]
+transform = Transform3D(-0.789395, 0, -0.61388576, 0, 1, 0, 0.61388576, 0, -0.789395, 12.517885, -0.9514885, -12.810486)
+
+[node name="concrete_barrier13" parent="obstacles" instance=ExtResource("11_n5yqt")]
+transform = Transform3D(-0.9994438, 0, 0.03334701, 0, 1, 0, -0.03334701, 0, -0.9994438, 34.94265, -0.9382584, -5.049512)
+
+[node name="far_away" type="Node3D" parent="."]
+
+[node name="flat_Lshape2" parent="far_away" instance=ExtResource("12_n5yqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.92816, -0.90646744, -27.311277)
+
+[node name="flat_Lshape_vertical_stripes2" parent="far_away" instance=ExtResource("13_qs6ff")]
+transform = Transform3D(-0.85805595, 0, -0.51355624, 0, 1, 0, 0.51355624, 0, -0.85805595, -46.079407, -0.90646744, -40.874535)
+
+[node name="Hangar12" parent="far_away" instance=ExtResource("14_jieyl")]
+transform = Transform3D(0.7322696, 0, 0.68101484, 0, 1, 0, -0.68101484, 0, 0.7322696, -44.848133, -0.90647125, 53.179226)
