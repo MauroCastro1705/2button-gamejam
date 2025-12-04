@@ -53,16 +53,17 @@ func _handle_golem_damage(amount:int) -> void:
 
 
 
-func _player_ammo_A_shoot():
-	if player_ammo_A <= 0 :
-		return
-	else:
-		player_ammo_A -= 1
-		emit_signal("ammo_used")
-	
-func _player_ammo_D_shoot():
-	if player_ammo_D <= 0 :
-		return
-	else:
-		player_ammo_D -= 1
-		emit_signal("ammo_used")
+func _player_ammo_A_shoot() -> bool:
+	if player_ammo_A <= 0:
+		return false
+	player_ammo_A -= 1
+	emit_signal("ammo_used")
+	return true
+
+
+func _player_ammo_D_shoot() -> bool:
+	if player_ammo_D <= 0:
+		return false
+	player_ammo_D -= 1
+	emit_signal("ammo_used")
+	return true

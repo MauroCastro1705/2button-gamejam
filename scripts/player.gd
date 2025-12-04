@@ -41,14 +41,15 @@ func handle_controls(delta: float) -> void:
 		move_and_slide()
 
 func handle_combat():
-	# Only allow combat if the global camera mode is combat
 	if Global.cam_mode != Global.CamMode.COMBAT:
 		return
+
 	ring_shader.show()
+
 	if Input.is_action_just_pressed("button_one"):
-		Global._player_ammo_A_shoot()
-		Global._handle_golem_damage(15)
-		
+		if Global._player_ammo_A_shoot():
+			Global._handle_golem_damage(15)
+
 	if Input.is_action_just_pressed("button_two"):
-		Global._player_ammo_D_shoot()
-		Global._handle_golem_damage(10)
+		if Global._player_ammo_D_shoot():
+			Global._handle_golem_damage(10)
