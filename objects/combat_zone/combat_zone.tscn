@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://1iju53es60n3"]
+[gd_scene load_steps=9 format=3 uid="uid://1iju53es60n3"]
 
 [ext_resource type="Script" uid="uid://cuf466thdql2s" path="res://objects/combat_zone/combat_zone.gd" id="1_3nfyv"]
 [ext_resource type="PackedScene" uid="uid://17v7gp5jllwt" path="res://scenes/enemy_golem.tscn" id="2_e8rp4"]
 [ext_resource type="Shader" uid="uid://d3hkekh0kdtbe" path="res://shaders/ring shader/ring shader.gdshader" id="3_i8e5i"]
+[ext_resource type="PackedScene" uid="uid://cumww1tr8ugyk" path="res://particles/light_hit/light_hit.tscn" id="4_adb3l"]
+[ext_resource type="PackedScene" uid="uid://dyaws6erun83j" path="res://particles/heavy_hit/heavy_hit.tscn" id="5_wuxx5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j0cp"]
 radius = 3.748139
@@ -25,6 +27,7 @@ script = ExtResource("1_3nfyv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1135378, 0)
+visible = false
 shape = SubResource("SphereShape3D_1j0cp")
 debug_color = Color(12.55355, 0, 0, 1)
 
@@ -36,5 +39,11 @@ unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.009460598, 0)
 mesh = SubResource("PlaneMesh_e574t")
 surface_material_override/0 = SubResource("ShaderMaterial_adb3l")
+
+[node name="LightHit" parent="." instance=ExtResource("4_adb3l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21588606, 2.3501368, 0.015383482)
+
+[node name="heavyHit" parent="." instance=ExtResource("5_wuxx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08979845, 2.2584274, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

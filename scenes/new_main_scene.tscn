@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkb3kstcbwkse"]
+[gd_scene load_steps=26 format=3 uid="uid://bkb3kstcbwkse"]
 
+[ext_resource type="PackedScene" uid="uid://cttmwoq21bvj4" path="res://particles/dust/dust.tscn" id="1_1n70v"]
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="1_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_eix37"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="3_qs6ff"]
@@ -21,15 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://mbj35ms0ujfw" path="res://assets-3d/URBAN/Roads/Road sides/road_side_full.glb" id="19_jrndn"]
 [ext_resource type="PackedScene" uid="uid://bprkkk4devta4" path="res://assets-3d/URBAN/Roads/Road type 1/road_1_straight.glb" id="20_g6o4r"]
 
-[sub_resource type="Curve3D" id="Curve3D_jrndn"]
-resource_local_to_scene = true
-bake_interval = 512.0
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.085624695, 1.1096145, 2.7766407, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.0033858418, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544754, -0.31966954, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307243, -0.66878486, -0.3074051),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwsq8"]
 
 [sub_resource type="Sky" id="Sky_1n70v"]
@@ -41,6 +33,14 @@ background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
 background_energy_multiplier = 0.85
 sky = SubResource("Sky_1n70v")
 ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+fog_enabled = true
+fog_light_color = Color(0.9098039, 0.8117647, 0.53333336, 1)
+fog_light_energy = 0.79
+fog_sun_scatter = 0.68
+fog_aerial_perspective = 0.316
+fog_sky_affect = 0.6
+fog_height = 2.0
+fog_height_density = 0.01
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.5577951, 0.4287464, 0.33585995, 1)
 volumetric_fog_emission = Color(0.629455, 0.3301617, 5.7756904e-07, 1)
@@ -49,7 +49,27 @@ volumetric_fog_length = 100.0
 volumetric_fog_detail_spread = 4.141059
 volumetric_fog_ambient_inject = 3.0
 
+[sub_resource type="Curve3D" id="Curve3D_jrndn"]
+resource_local_to_scene = true
+bake_interval = 512.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.085624695, 1.1096145, 2.7766407, 0, 0, 0, 0, 0, 0, -0.16045713, 0.21007806, 2.6620414, 0, 0, 0, 0, 0, 0, 0.27778625, 0.0033858418, 1.3044547, 0, 0, 0, 0, 0, 0, 0.09544754, -0.31966954, 0.80603015, 0, 0, 0, 0, 0, 0, -0.07307243, -0.66878486, -0.3074051),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hl6ae")
+
+[node name="Player" parent="." instance=ExtResource("2_eix37")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
+move_speed = 5.0
+
+[node name="Dust" parent="Player" instance=ExtResource("1_1n70v")]
+transform = Transform3D(1, 0, 6.3573026e-08, 0, 1, 0, -6.3573026e-08, 0, 1, 0.38228893, 0.7070012, -4.1211834)
+amount = 400
 
 [node name="Path3DRope" parent="." node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("1_n5yqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, 0.097311735, 0.21661758)
@@ -57,10 +77,6 @@ curve = SubResource("Curve3D_jrndn")
 fixed_start_point = false
 rigidbody_attached_to_start = NodePath("../Player")
 rigidbody_attached_to_end = NodePath("../City")
-
-[node name="Player" parent="." instance=ExtResource("2_eix37")]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
-move_speed = 5.0
 
 [node name="City" parent="." instance=ExtResource("6_h4ats")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, -0.88473207, -1.0479794)
@@ -131,9 +147,6 @@ monitorable = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.465996, -0.8975048, 7.701627)
 monitoring = true
 monitorable = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_hl6ae")
 
 [node name="obstacles" type="Node3D" parent="."]
 

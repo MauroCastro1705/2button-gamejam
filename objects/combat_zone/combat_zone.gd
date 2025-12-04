@@ -2,6 +2,10 @@ extends Area3D
 
 @onready var evil_golem: Node3D = $enemy_Golem
 @onready var ring_shader: MeshInstance3D = %"ring shader"
+@onready var light_hit: GPUParticles3D = $LightHit
+@onready var heavy_hit: GPUParticles3D = $heavyHit
+
+
 
 var golem_life_local:int
 var _target: Node3D
@@ -52,10 +56,13 @@ func _combat_ended(killed: bool) -> void:
 	if killed:
 		Global._update_player_score_golem()
 		ring_shader.hide()
+	heavy_hit.emitting = true
+	await heavy_hit.finished
 	queue_free()  # remove this zone (and its enemy)
 
 func _on_golem_damage(amount:int) -> void:
 	golem_life_local -= amount
+	light_hit.emitting = true
 	emit_signal("local_golem_damaged")  # tell the UI to refresh
 	if golem_life_local <= 0:
 		_combat_ended(true)
