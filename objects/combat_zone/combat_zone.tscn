@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://1iju53es60n3"]
+[gd_scene load_steps=7 format=3 uid="uid://1iju53es60n3"]
 
 [ext_resource type="Script" uid="uid://cuf466thdql2s" path="res://objects/combat_zone/combat_zone.gd" id="1_3nfyv"]
 [ext_resource type="PackedScene" uid="uid://17v7gp5jllwt" path="res://scenes/enemy_golem.tscn" id="2_e8rp4"]
+[ext_resource type="Shader" uid="uid://d3hkekh0kdtbe" path="res://shaders/ring shader/ring shader.gdshader" id="3_i8e5i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j0cp"]
 radius = 3.748139
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e574t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_adb3l"]
+render_priority = 0
+shader = ExtResource("3_i8e5i")
+shader_parameter/ring_color = Color(0.7490196, 0.078431375, 0, 1)
+shader_parameter/ring_frequency = 50.0
+shader_parameter/ring_portion = 0.89999997615814
+shader_parameter/move_speed = -3.0
+shader_parameter/smooth_edge = true
 
 [node name="CombatZone" type="Area3D"]
 monitoring = false
@@ -18,5 +30,11 @@ debug_color = Color(12.55355, 0, 0, 1)
 
 [node name="enemy_Golem" parent="." instance=ExtResource("2_e8rp4")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="ring shader" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.009460598, 0)
+mesh = SubResource("PlaneMesh_e574t")
+surface_material_override/0 = SubResource("ShaderMaterial_adb3l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

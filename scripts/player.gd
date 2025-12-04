@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var snap_turn_deg: float = 0.0# set (e.g. 45) to use discrete snap turns on tap; 0 = smooth turning
 @export var canmove: bool = true
 @onready var model: Node3D = $player_Golem
+@onready var ring_shader: MeshInstance3D = $"ring shader"
 
 func _physics_process(delta: float) -> void:
 	handle_controls(delta)
@@ -17,6 +18,7 @@ func handle_controls(delta: float) -> void:
 	if Global.cam_mode != Global.CamMode.TRAVEL:
 		return
 	if canmove:
+		ring_shader.hide()
 	# --- Turning ---
 	## Two modes: smooth (hold to rotate) or snap (press to rotate by fixed angle)
 		if snap_turn_deg > 0.0:
@@ -42,7 +44,7 @@ func handle_combat():
 	# Only allow combat if the global camera mode is combat
 	if Global.cam_mode != Global.CamMode.COMBAT:
 		return
-		
+	ring_shader.show()
 	if Input.is_action_just_pressed("button_one"):
 		Global._player_ammo_A_shoot()
 		Global._handle_golem_damage(15)

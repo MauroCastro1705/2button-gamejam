@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cgwq6hj834u1r"]
+
+[ext_resource type="Shader" uid="uid://d3hkekh0kdtbe" path="res://shaders/ring shader/ring shader.gdshader" id="1_ktmpe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ktmpe")
+shader_parameter/ring_color = Color(1, 1, 1, 1)
+shader_parameter/ring_frequency = 50.0
+shader_parameter/ring_portion = 0.0
+shader_parameter/move_speed = -10.0
+shader_parameter/smooth_edge = false

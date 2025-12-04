@@ -1,6 +1,7 @@
 extends Area3D
 
 @onready var evil_golem: Node3D = $enemy_Golem
+@onready var ring_shader: MeshInstance3D = %"ring shader"
 
 var golem_life_local:int
 var _target: Node3D
@@ -11,12 +12,14 @@ const YAW_OFFSET := PI * 0.5
 
 func _ready() -> void:
 	golem_life_local = Global.golem_life
+	ring_shader.hide()
 
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		_target = body
 		_combat_starts()
+		ring_shader.show()
 
 func _on_body_exited(body: Node3D) -> void:
 	if body == _target:
@@ -29,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	handle_rotation(delta)
 
 func _combat_starts() -> void:
+	ring_shader.show()
 	await get_tree().process_frame
 	if not _connected_to_damage:
 		Global.golem_damage.connect(_on_golem_damage)
@@ -47,6 +51,7 @@ func _combat_ended(killed: bool) -> void:
 		_connected_to_damage = false
 	if killed:
 		Global._update_player_score_golem()
+		ring_shader.hide()
 	queue_free()  # remove this zone (and its enemy)
 
 func _on_golem_damage(amount:int) -> void:
@@ -57,6 +62,7 @@ func _on_golem_damage(amount:int) -> void:
 		Global.golem_died.emit()
 
 func handle_rotation(delta: float) -> void:
+	ring_shader.show()
 	var dir := _target.global_position - evil_golem.global_position
 	dir.y = 0.0
 	if dir.length_squared() < 0.000001:

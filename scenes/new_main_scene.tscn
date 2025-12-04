@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkb3kstcbwkse"]
+[gd_scene load_steps=25 format=3 uid="uid://bkb3kstcbwkse"]
 
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="1_n5yqt"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_eix37"]
@@ -14,6 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://1iju53es60n3" path="res://objects/combat_zone/combat_zone.tscn" id="12_sacgu"]
 [ext_resource type="PackedScene" uid="uid://dfqjegjjtures" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape_vertical_stripes.glb" id="13_qs6ff"]
 [ext_resource type="PackedScene" uid="uid://b4cbjvxwa6546" path="res://assets-3d/URBAN/Buildings Prebuild/Hangar1.glb" id="14_jieyl"]
+[ext_resource type="PackedScene" uid="uid://b6wl8xbyjrlyk" path="res://assets-3d/URBAN/Buildings Prebuild/flat_square_concrete_alt.glb" id="15_pwsq8"]
+[ext_resource type="PackedScene" uid="uid://cw514mioi0qjj" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape_large_alt.glb" id="16_1n70v"]
+[ext_resource type="PackedScene" uid="uid://d3jlia7mn05uy" path="res://assets-3d/URBAN/Buildings Prebuild/flat_square_brick_alt.glb" id="17_wt5jy"]
+[ext_resource type="PackedScene" uid="uid://chgpbnfvrrcrq" path="res://assets-3d/URBAN/Buildings Prebuild/flat_square_concrete.glb" id="18_sacgu"]
+[ext_resource type="PackedScene" uid="uid://mbj35ms0ujfw" path="res://assets-3d/URBAN/Roads/Road sides/road_side_full.glb" id="19_jrndn"]
+[ext_resource type="PackedScene" uid="uid://bprkkk4devta4" path="res://assets-3d/URBAN/Roads/Road type 1/road_1_straight.glb" id="20_g6o4r"]
 
 [sub_resource type="Curve3D" id="Curve3D_jrndn"]
 resource_local_to_scene = true
@@ -24,11 +30,25 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwsq8"]
+
+[sub_resource type="Sky" id="Sky_1n70v"]
+sky_material = SubResource("ProceduralSkyMaterial_pwsq8")
+
 [sub_resource type="Environment" id="Environment_hl6ae"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
 background_energy_multiplier = 0.85
+sky = SubResource("Sky_1n70v")
 ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.5577951, 0.4287464, 0.33585995, 1)
+volumetric_fog_emission = Color(0.629455, 0.3301617, 5.7756904e-07, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_length = 100.0
+volumetric_fog_detail_spread = 4.141059
+volumetric_fog_ambient_inject = 3.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -43,12 +63,15 @@ rigidbody_attached_to_end = NodePath("../City")
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
 move_speed = 5.0
 
+[node name="City" parent="." instance=ExtResource("6_h4ats")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, -0.88473207, -1.0479794)
+
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -10)
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -9.562299)
 script = ExtResource("3_qs6ff")
 target = NodePath("../Player")
 travel_offset = Vector3(0, 6, 15)
-combat_offset = Vector3(14, 7, -10)
+combat_offset = Vector3(12, 7, -10)
 
 [node name="Camera" type="Camera3D" parent="View"]
 transform = Transform3D(-0.67934626, -0.16144879, 0.7158375, 0.36696884, 0.7700151, 0.5219296, -0.63547087, 0.6172607, -0.4638601, 4.420465, 3.0879693, -1.5408032)
@@ -63,13 +86,11 @@ metadata/_edit_lock_ = true
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.42261797, -0.694272, 0.58256346, 0, 0.64278793, 0.76604384, -0.90630805, 0.32374403, -0.27165356, 0, 0, 0)
+light_color = Color(1, 0.8901961, 0.7921569, 1)
 shadow_enabled = true
 shadow_opacity = 0.75
 
 [node name="HUD" parent="." instance=ExtResource("5_a1njh")]
-
-[node name="City" parent="." instance=ExtResource("6_h4ats")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, -0.88473207, -1.0479794)
 
 [node name="objects_to_colletc" type="Node" parent="."]
 
@@ -161,8 +182,47 @@ transform = Transform3D(-0.9994438, 0, 0.03334701, 0, 1, 0, -0.03334701, 0, -0.9
 [node name="flat_Lshape2" parent="far_away" instance=ExtResource("12_n5yqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.92816, -0.90646744, -27.311277)
 
+[node name="flat_Lshape4" parent="far_away" instance=ExtResource("12_n5yqt")]
+transform = Transform3D(-0.41264355, 0, 0.9108927, 0, 1, 0, -0.9108927, 0, -0.41264355, -24.727036, -0.90646744, -41.553856)
+
+[node name="flat_Lshape3" parent="far_away" instance=ExtResource("12_n5yqt")]
+transform = Transform3D(-0.3662089, 0, -0.9305327, 0, 1, 0, -0.9305327, 0, 0.3662089, -57.481323, -0.90646744, 4.190405)
+
 [node name="flat_Lshape_vertical_stripes2" parent="far_away" instance=ExtResource("13_qs6ff")]
-transform = Transform3D(-0.85805595, 0, -0.51355624, 0, 1, 0, 0.51355624, 0, -0.85805595, -46.079407, -0.90646744, -40.874535)
+transform = Transform3D(-0.85805595, 0, -0.51355624, 0, 1, 0, 0.51355624, 0, -0.85805595, -54.8341, -0.90646744, -40.874535)
+
+[node name="flat_Lshape_vertical_stripes3" parent="far_away" instance=ExtResource("13_qs6ff")]
+transform = Transform3D(0.6801454, 0, -0.7330773, 0, 1, 0, 0.7330773, 0, 0.6801454, 6.2737885, -0.90646744, 55.781685)
 
 [node name="Hangar12" parent="far_away" instance=ExtResource("14_jieyl")]
-transform = Transform3D(0.7322696, 0, 0.68101484, 0, 1, 0, -0.68101484, 0, 0.7322696, -44.848133, -0.90647125, 53.179226)
+transform = Transform3D(0.7322696, 0, 0.68101484, 0, 1, 0, -0.68101484, 0, 0.7322696, -54.449757, -0.90647125, 53.179226)
+
+[node name="Hangar13" parent="far_away" instance=ExtResource("14_jieyl")]
+transform = Transform3D(-0.12316838, 0, -0.99238575, 0, 1, 0, 0.99238575, 0, -0.12316838, -4.0727253, -0.90647125, -51.99634)
+
+[node name="flat_square_concrete_alt2" parent="far_away" instance=ExtResource("15_pwsq8")]
+transform = Transform3D(0.9190459, 0, 0.39415044, 0, 1, 0, -0.39415044, 0, 0.9190459, -70.73601, -0.9064617, 30.161896)
+
+[node name="flat_Lshape_large_alt2" parent="far_away" instance=ExtResource("16_1n70v")]
+transform = Transform3D(0.7789769, 0, 0.62705255, 0, 1, 0, -0.62705255, 0, 0.7789769, 53.612083, -0.9064636, 12.348637)
+
+[node name="flat_Lshape_large_alt3" parent="far_away" instance=ExtResource("16_1n70v")]
+transform = Transform3D(-0.13453895, 0, 0.86601263, 0, 0.8848712, 0, -1.0079201, 0, -0.11559689, 11.739925, -0.9064636, -40.166225)
+
+[node name="flat_square_brick_alt2" parent="far_away" instance=ExtResource("17_wt5jy")]
+transform = Transform3D(0.51632404, 0, -0.8563933, 0, 1, 0, 0.8563933, 0, 0.51632404, -47.897427, -1.5500431, -61.73087)
+
+[node name="flat_square_concrete2" parent="far_away" instance=ExtResource("18_sacgu")]
+transform = Transform3D(-0.317735, 0, 0.9481796, 0, 1, 0, -0.9481796, 0, -0.317735, 33.118206, -1.1674595, 71.99925)
+
+[node name="flat_square_concrete_alt3" parent="far_away" instance=ExtResource("15_pwsq8")]
+transform = Transform3D(0.813933, 0, -0.5809586, 0, 1, 0, 0.5809586, 0, 0.813933, 57.52501, -0.90646935, 32.141106)
+
+[node name="flat_Lshape5" parent="far_away" instance=ExtResource("12_n5yqt")]
+transform = Transform3D(0.2855211, 0, -0.9583724, 0, 1, 0, 0.9583724, 0, 0.2855211, -23.53252, -1.2496109, 50.701965)
+
+[node name="road_side_full2" parent="far_away" instance=ExtResource("19_jrndn")]
+transform = Transform3D(0.9790739, 0, -0.20350505, 0, 1, 0, 0.20350505, 0, 0.9790739, -57.54761, -0.9064636, -37.93553)
+
+[node name="road_1_straight2" parent="far_away" instance=ExtResource("20_g6o4r")]
+transform = Transform3D(0.99996614, 0, -0.008237839, 0, 1, 0, 0.008237839, 0, 0.99996614, -56.672253, -0.9064636, 3.2675514)
