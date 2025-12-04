@@ -1,41 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://17v7gp5jllwt"]
+[gd_scene load_steps=7 format=3 uid="uid://17v7gp5jllwt"]
 
 [ext_resource type="PackedScene" uid="uid://b6i3ncdc0fayp" path="res://models/Blender/Golem.glb" id="1_n15nm"]
 [ext_resource type="Texture2D" uid="uid://b4leinqm2o77v" path="res://models/Blender/EnemyTexture.png" id="2_o3up7"]
 [ext_resource type="Texture2D" uid="uid://j46eqtpm5cph" path="res://models/Blender/Enemy Gun.png" id="3_bkcj0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjgwi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3up7"]
 albedo_texture = ExtResource("2_o3up7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fpo7"]
 albedo_texture = ExtResource("3_bkcj0")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjgwi"]
+albedo_texture = ExtResource("2_o3up7")
+
 [node name="enemy_Golem" instance=ExtResource("1_n15nm")]
 
-[node name="Leg_001" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5601482, 0, -18.466125)
-surface_material_override/0 = SubResource("StandardMaterial3D_vjgwi")
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.51491714, -0.15744427, -0.24639536, 0.8058294)
+bones/3/rotation = Quaternion(9.814295e-08, -3.9328285e-08, 0.47073495, 0.8822747)
+bones/4/rotation = Quaternion(-5.527285e-08, -3.389792e-08, -0.19218211, 0.9813593)
+bones/6/rotation = Quaternion(-0.504861, 0.15436941, 0.24833341, 0.8121676)
+bones/7/rotation = Quaternion(-7.0144104e-08, -3.0480766e-08, -0.47073492, 0.8822747)
+bones/8/rotation = Quaternion(4.7336528e-08, -1.3200373e-07, 0.19218211, 0.9813593)
+
+[node name="LegLeft" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o3up7")
+
+[node name="LegRight" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o3up7")
+
+[node name="MechBody" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o3up7")
 
 [node name="Cannon" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.88618696, 0.4633278, 0, -0.4633278, 0.88618696, -0.1127733, 14.231384, 9.623063)
+transform = Transform3D(1, 0, 0, 0, 0.88618696, 0.4633278, 0, -0.4633278, 0.88618696, -0.1127733, 0.13253784, -0.05383873)
 surface_material_override/0 = SubResource("StandardMaterial3D_7fpo7")
 
 [node name="Launcher" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47561955, 7.6437545, 11.78927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47561955, -0.74685335, 0.88603306)
 surface_material_override/0 = SubResource("StandardMaterial3D_7fpo7")
 
-[node name="MechBody" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2323768, 7.4700727, 27.239403)
-surface_material_override/0 = SubResource("StandardMaterial3D_vjgwi")
-
-[node name="Cockpit" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 6.593231, 0, 0, 0, 6.593231, -2.2323768, 3.5980358, 4.0607176)
-surface_material_override/0 = SubResource("StandardMaterial3D_vjgwi")
-
-[node name="Leg" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5601482, 0, -15.935079)
-surface_material_override/0 = SubResource("StandardMaterial3D_vjgwi")
-
-[node name="Leg_002" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5601482, 0, -18.489845)
+[node name="Cockpit" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 6.593231, 0, 0, 0, 6.593231, 0.04165387, -0.07400799, 0.013308525)
 surface_material_override/0 = SubResource("StandardMaterial3D_vjgwi")

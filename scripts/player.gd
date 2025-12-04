@@ -19,6 +19,8 @@ func handle_controls(delta: float) -> void:
 		return
 	if canmove:
 		ring_shader.hide()
+		model._start_walk()
+		
 	# --- Turning ---
 	## Two modes: smooth (hold to rotate) or snap (press to rotate by fixed angle)
 		if snap_turn_deg > 0.0:
@@ -45,11 +47,14 @@ func handle_combat():
 		return
 
 	ring_shader.show()
+	model._stop_walk()
 
 	if Input.is_action_just_pressed("button_one"):
 		if Global._player_ammo_A_shoot():
+			model._shoot_anim()
 			Global._handle_golem_damage(15)
 
 	if Input.is_action_just_pressed("button_two"):
 		if Global._player_ammo_D_shoot():
+			model._shoot_anim()
 			Global._handle_golem_damage(10)

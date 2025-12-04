@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c37aieupyemgm"
-path="res://.godot/imported/Terrain.blend-2e4f1251b64f4acb7eba1a6f2cb6ec96.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/Blender/Terrain.blend"
-dest_files=["res://.godot/imported/Terrain.blend-2e4f1251b64f4acb7eba1a6f2cb6ec96.scn"]
 
 [params]
 

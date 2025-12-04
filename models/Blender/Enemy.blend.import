@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjuh6lqt3pbvl"
-path="res://.godot/imported/Enemy.blend-11b3190d3003bbfc5a6cb1191ad60d08.scn"
+valid=false
 
 [deps]
 
 source_file="res://models/Blender/Enemy.blend"
-dest_files=["res://.godot/imported/Enemy.blend-11b3190d3003bbfc5a6cb1191ad60d08.scn"]
 
 [params]
 
