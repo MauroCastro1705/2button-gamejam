@@ -40,9 +40,11 @@ mesh = SubResource("PlaneMesh_e574t")
 surface_material_override/0 = SubResource("ShaderMaterial_adb3l")
 
 [node name="LightHit" parent="." instance=ExtResource("4_adb3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21588606, 2.3501368, 0.015383482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21588606, 2.3501368, 0.95793676)
+amount = 5
 
 [node name="heavyHit" parent="." instance=ExtResource("5_wuxx5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08979845, 2.2584274, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32629895, 2.500767, 0)
+amount = 10
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

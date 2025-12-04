@@ -1,10 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cumww1tr8ugyk"]
-
-[sub_resource type="Gradient" id="Gradient_0xdu0"]
-colors = PackedColorArray(1, 0.83137256, 0.41960785, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ef5ud"]
-gradient = SubResource("Gradient_0xdu0")
+[gd_scene load_steps=6 format=3 uid="uid://cumww1tr8ugyk"]
 
 [sub_resource type="Curve" id="Curve_0xdu0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -22,21 +16,22 @@ initial_velocity_max = 7.0
 gravity = Vector3(0, 0, 0)
 damping_max = 8.0
 scale_curve = SubResource("CurveTexture_ef5ud")
-color = Color(1, 0.83137256, 0.41960785, 1)
-color_ramp = SubResource("GradientTexture1D_ef5ud")
 hue_variation_min = 0.25999996
 hue_variation_max = 0.25999996
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xdu0"]
-albedo_color = Color(0.99607843, 1, 0.78431374, 1)
-emission_enabled = true
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
 emission = Color(0.79813266, 0.7011949, 0.13144886, 1)
 emission_energy_multiplier = 11.35
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ef5ud"]
 material = SubResource("StandardMaterial3D_0xdu0")
-size = Vector2(0.15, 0.15)
+size = Vector2(0.1, 0.1)
 
 [node name="LightHit" type="GPUParticles3D"]
 emitting = false
@@ -44,5 +39,6 @@ amount = 25
 lifetime = 0.25
 one_shot = true
 preprocess = 0.05
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_0xdu0")
 draw_pass_1 = SubResource("QuadMesh_ef5ud")
