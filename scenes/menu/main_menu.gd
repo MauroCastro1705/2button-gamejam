@@ -3,7 +3,6 @@ extends Control
 const PLAY_SCENE := preload("res://scenes/new_main_scene.tscn")
 const CREDITS = preload("res://scenes/credits/credits.tscn")
 
-const CREDITS_SCENE_PATH := ""
 @onready var buttons_vbox: VBoxContainer = %buttons
 @onready var selector: Label = $selector
 

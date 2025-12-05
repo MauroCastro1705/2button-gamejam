@@ -1,15 +1,61 @@
-[gd_scene format=3 uid="uid://rxn3gosqgl17"]
+[gd_scene load_steps=4 format=3 uid="uid://rxn3gosqgl17"]
+
+[ext_resource type="Script" uid="uid://bw7qtrfngsnxt" path="res://scenes/credits/credits.gd" id="1_dr3ri"]
+[ext_resource type="Material" uid="uid://cqyccw6f4bjt2" path="res://shaders/circuit/circuit.tres" id="2_8n0nl"]
+[ext_resource type="LabelSettings" uid="uid://ckmvxf2hch5od" path="res://themes/credtis_text.tres" id="3_c8xcy"]
 
 [node name="Credits" type="Node2D"]
+script = ExtResource("1_dr3ri")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 805.0
 offset_bottom = 605.0
 color = Color(0.2147026, 0.21470255, 0.21470255, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = ExtResource("2_8n0nl")
+offset_right = 805.0
+offset_bottom = 605.0
+color = Color(0.2147026, 0.21470255, 0.21470255, 1)
+
 [node name="Label" type="Label" parent="."]
-offset_left = 361.0
-offset_top = 131.0
-offset_right = 414.0
-offset_bottom = 154.0
+offset_left = 376.0
+offset_top = 135.0
+offset_right = 429.0
+offset_bottom = 158.0
 text = "credits"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 562.0
+offset_top = 544.0
+offset_right = 615.0
+offset_bottom = 567.0
+text = "Press \"A\" to return"
+label_settings = ExtResource("3_c8xcy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 361.0
+offset_top = 182.0
+offset_right = 429.0
+offset_bottom = 286.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "person 1"
+label_settings = ExtResource("3_c8xcy")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "person 2"
+label_settings = ExtResource("3_c8xcy")
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "person 3"
+label_settings = ExtResource("3_c8xcy")
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "person 4"
+label_settings = ExtResource("3_c8xcy")
