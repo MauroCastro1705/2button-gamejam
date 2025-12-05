@@ -7,7 +7,12 @@ extends CharacterBody3D
 @export var canmove: bool = true
 @onready var model: Node3D = $player_Golem
 @onready var ring_shader: MeshInstance3D = $"ring shader"
+@onready var ammo_label: Label3D = $player_Golem/ammo_label
+@onready var ammo_timer: Timer = $ammo_timer
 
+func _ready() -> void:
+	ammo_label.hide()
+	
 func _physics_process(delta: float) -> void:
 	handle_controls(delta)
 	handle_combat()
@@ -53,8 +58,20 @@ func handle_combat():
 		if Global._player_ammo_A_shoot():
 			model._shoot_anim()
 			Global._handle_golem_damage(15)
-
+		else:
+			ammo_label_anim()
+			
 	if Input.is_action_just_pressed("button_two"):
 		if Global._player_ammo_D_shoot():
 			model._shoot_anim()
 			Global._handle_golem_damage(10)
+		else:
+			ammo_label_anim()
+
+func ammo_label_anim():
+	ammo_label.show()
+	ammo_timer.start()
+	
+
+func _on_ammo_timer_timeout() -> void:
+	ammo_label.hide()

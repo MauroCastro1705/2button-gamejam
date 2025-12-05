@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=8 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" uid="uid://br1k30d32naot" path="res://scripts/player.gd" id="1_ffboj"]
 [ext_resource type="PackedScene" uid="uid://lmbmrcxi48ka" path="res://models/player_golem.tscn" id="2_ykyjo"]
 [ext_resource type="Shader" uid="uid://d3hkekh0kdtbe" path="res://shaders/ring shader/ring shader.gdshader" id="3_uxov2"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="4_nmc1l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 1.1274414
@@ -29,7 +30,20 @@ shape = SubResource("CapsuleShape3D_gdq8c")
 [node name="player_Golem" parent="." groups=["player"] instance=ExtResource("2_ykyjo")]
 transform = Transform3D(-1.3113416e-08, 0, -0.29999998, 0, 0.29999998, 0, 0.29999998, 0, -1.3113416e-08, 0, 0, 0)
 
+[node name="ammo_label" type="Label3D" parent="player_Golem"]
+transform = Transform3D(-2.6238346, 0, -2.0558703, 0, 3.3333335, 0, 2.0558703, 0, -2.6238346, 0, 9.201789, 0)
+modulate = Color(0.9841575, 0, 0.07517897, 1)
+text = "No Ammo !"
+font = ExtResource("4_nmc1l")
+font_size = 44
+
 [node name="ring shader" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.0065745413, 0)
 mesh = SubResource("PlaneMesh_nmc1l")
 surface_material_override/0 = SubResource("ShaderMaterial_f46kd")
+
+[node name="ammo_timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="ammo_timer" to="." method="_on_ammo_timer_timeout"]

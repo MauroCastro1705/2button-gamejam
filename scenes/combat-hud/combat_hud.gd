@@ -7,6 +7,7 @@ extends Control
 @onready var player_life_value: Label = %player_life_value
 @onready var enemy_life_value: Label = %enemy_life_value
 
+
 var current_enemy_zone: Node = null  # reference to the active zone
 
 func _ready() -> void:

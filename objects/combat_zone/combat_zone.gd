@@ -4,8 +4,7 @@ extends Area3D
 @onready var ring_shader: MeshInstance3D = %"ring shader"
 @onready var light_hit: GPUParticles3D = $LightHit
 @onready var heavy_hit: GPUParticles3D = $heavyHit
-
-
+@onready var damage_label: Label3D = %damage_label
 
 var golem_life_local:int
 var _target: Node3D
@@ -14,10 +13,17 @@ signal local_golem_damaged
 const ROTATE_SPEED := 6.0
 const YAW_OFFSET := PI * 0.5
 
+# posición base del label para poder resetearla
+var _damage_label_base_pos: Vector3
+
 func _ready() -> void:
 	golem_life_local = Global.golem_life
 	ring_shader.hide()
-
+	
+	# Guardamos la posición original del label para la animación
+	_damage_label_base_pos = damage_label.position
+	# Lo empezamos oculto
+	damage_label.visible = false
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -56,13 +62,16 @@ func _combat_ended(killed: bool) -> void:
 	if killed:
 		Global._update_player_score_golem()
 		ring_shader.hide()
-	#heavy_hit.emitting = true
-	#await heavy_hit.finished
 	queue_free()  # remove this zone (and its enemy)
 
 func _on_golem_damage(amount:int) -> void:
 	golem_life_local -= amount
-	#light_hit.emitting = true
+	
+
+	# light_hit.emitting = true
+	
+	_show_damage_label(amount)
+	
 	emit_signal("local_golem_damaged")  # tell the UI to refresh
 	if golem_life_local <= 0:
 		_combat_ended(true)
@@ -78,3 +87,36 @@ func handle_rotation(delta: float) -> void:
 	var t = clamp(ROTATE_SPEED * delta, 0.0, 1.0)
 	var current_yaw := evil_golem.global_rotation.y
 	evil_golem.global_rotation.y = lerp_angle(current_yaw, desired_yaw, t)
+
+# -------------------------
+# ANIMACIÓN DEL DAMAGE LABEL
+# -------------------------
+func _show_damage_label(amount: int) -> void:
+	# Setear texto y reiniciar apariencia
+	damage_label.text = str(amount)
+	damage_label.position = _damage_label_base_pos
+	damage_label.modulate.a = 1.0
+	damage_label.visible = true
+	
+	var tween := create_tween()
+	tween.set_parallel(true)
+	
+	# Que suba un poquito
+	tween.tween_property(
+		damage_label,
+		"position",
+		_damage_label_base_pos + Vector3(0, 0.6, 0),
+		0.4
+	)
+	
+	tween.tween_property(
+		damage_label,
+		"modulate:a",
+		0.0,
+		0.4
+	)
+
+	tween.finished.connect(func() -> void:
+		damage_label.visible = false
+		damage_label.position = _damage_label_base_pos
+	)

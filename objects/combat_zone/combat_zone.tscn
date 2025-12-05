@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1iju53es60n3"]
+[gd_scene load_steps=10 format=3 uid="uid://1iju53es60n3"]
 
 [ext_resource type="Script" uid="uid://cuf466thdql2s" path="res://objects/combat_zone/combat_zone.gd" id="1_3nfyv"]
 [ext_resource type="PackedScene" uid="uid://17v7gp5jllwt" path="res://scenes/enemy_golem.tscn" id="2_e8rp4"]
 [ext_resource type="Shader" uid="uid://d3hkekh0kdtbe" path="res://shaders/ring shader/ring shader.gdshader" id="3_i8e5i"]
 [ext_resource type="PackedScene" uid="uid://cumww1tr8ugyk" path="res://particles/light_hit/light_hit.tscn" id="4_adb3l"]
 [ext_resource type="PackedScene" uid="uid://dyaws6erun83j" path="res://particles/heavy_hit/heavy_hit.tscn" id="5_wuxx5"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="6_wuxx5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j0cp"]
 radius = 3.748139
@@ -32,6 +33,14 @@ debug_color = Color(12.55355, 0, 0, 1)
 
 [node name="enemy_Golem" parent="." instance=ExtResource("2_e8rp4")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="damage_label" type="Label3D" parent="enemy_Golem"]
+unique_name_in_owner = true
+transform = Transform3D(3.333333, 0, 0, 0, 3.333333, 0, 0, 0, 3.333333, 0, 9.252722, 0)
+modulate = Color(0.99999994, 0.16486448, 0.19527268, 1)
+text = "15"
+font = ExtResource("6_wuxx5")
+font_size = 46
 
 [node name="ring shader" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
