@@ -103,3 +103,43 @@ patch_margin_top = 15
 patch_margin_right = 24
 patch_margin_bottom = 19
 metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel2" type="Label" parent="."]
+offset_left = 137.0
+offset_top = 93.0
+offset_right = 314.0
+offset_bottom = 156.0
+text = "Pandeneitor
+- Argentina"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel3" type="Label" parent="."]
+offset_left = 516.0
+offset_top = 198.0
+offset_right = 693.0
+offset_bottom = 261.0
+text = "Valep84
+- Russia"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel4" type="Label" parent="."]
+offset_left = 156.0
+offset_top = 351.0
+offset_right = 333.0
+offset_bottom = 414.0
+text = "Sheika23
+- Usa"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel5" type="Label" parent="."]
+offset_left = 488.0
+offset_top = 438.0
+offset_right = 729.0
+offset_bottom = 501.0
+text = "Deathman aKa Ciglierino
+- Italy"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
