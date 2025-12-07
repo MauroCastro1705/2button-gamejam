@@ -76,6 +76,7 @@ func _on_golem_damage(amount:int) -> void:
 	if golem_life_local <= 0:
 		_combat_ended(true)
 		Global.golem_died.emit()
+		Global.golems_killed += 1
 
 func handle_rotation(delta: float) -> void:
 	ring_shader.show()

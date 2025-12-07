@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://w5svbscvkybd"]
+[gd_scene load_steps=15 format=3 uid="uid://w5svbscvkybd"]
 
 [ext_resource type="Script" uid="uid://bugrl1bf7ouqm" path="res://scenes/combat-hud/combat_hud.gd" id="1_ygmvc"]
 [ext_resource type="LabelSettings" uid="uid://ba4jdhvsdqhu1" path="res://themes/label_basic.tres" id="2_tnqj0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b4xr0abjx6dg0" path="res://assets-2D/keyboard_d_outline.png" id="6_nuyw6"]
 [ext_resource type="Texture2D" uid="uid://cpmteqk30n6hj" path="res://assets-2D/Golem.png" id="7_nuyw6"]
 [ext_resource type="Texture2D" uid="uid://b0mjbtueeqp3e" path="res://assets-2D/EnemyMech.png" id="9_e0kj8"]
+[ext_resource type="Texture2D" uid="uid://cbc8wbd5ebs2" path="res://assets-2D/Game UI collection FREE version/Elements-01.png" id="10_e0kj8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kdg8c"]
 font = ExtResource("4_hvfb0")
@@ -47,7 +48,37 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="background" type="ColorRect" parent="combay_keys"]
+[node name="texture" type="NinePatchRect" parent="combay_keys"]
+modulate = Color(0, 0.9764706, 0.14509805, 1)
+layout_mode = 0
+offset_left = 268.0
+offset_top = 494.0
+offset_right = 697.99994
+offset_bottom = 847.3334
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_e0kj8")
+region_rect = Rect2(1549, 3322, 481, 448)
+patch_margin_left = 12
+patch_margin_top = 15
+patch_margin_right = 24
+patch_margin_bottom = 19
+
+[node name="texture2" type="NinePatchRect" parent="combay_keys"]
+modulate = Color(0, 0.9764706, 0.14509805, 1)
+layout_mode = 0
+offset_left = 526.0
+offset_top = 494.0
+offset_right = 955.99994
+offset_bottom = 847.3334
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("10_e0kj8")
+region_rect = Rect2(1549, 3322, 481, 448)
+patch_margin_left = 12
+patch_margin_top = 15
+patch_margin_right = 24
+patch_margin_bottom = 19
+
+[node name="background" type="NinePatchRect" parent="combay_keys"]
 custom_minimum_size = Vector2(80, 100)
 layout_mode = 1
 anchors_preset = 12
@@ -59,7 +90,7 @@ offset_top = -100.0
 offset_right = -200.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+region_rect = Rect2(905, 3068, 218, 219)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="combay_keys/background"]
 layout_mode = 1
@@ -68,11 +99,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="combay_keys/background/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 59
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
@@ -91,7 +123,7 @@ label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(37, 46)
+position = Vector2(37, 42)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_w1cpc")
 
@@ -113,13 +145,11 @@ label_settings = ExtResource("2_tnqj0")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="combay_keys/background/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-alignment = 1
 
 [node name="Label2" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Attack 2"
 label_settings = SubResource("LabelSettings_kdg8c")
-horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -127,7 +157,7 @@ label_settings = ExtResource("2_tnqj0")
 horizontal_alignment = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="combay_keys/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
-position = Vector2(36, 46)
+position = Vector2(36, 43)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_nuyw6")
 
@@ -152,31 +182,39 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect2" type="ColorRect" parent="player_info"]
+[node name="NinePatchRect2" type="NinePatchRect" parent="player_info"]
+modulate = Color(0.03529412, 0.81960785, 0.23529412, 1)
 layout_mode = 0
-offset_top = 5.0
-offset_right = 145.0
-offset_bottom = 107.0
-color = Color(0.044557855, 0.044557847, 0.044557847, 1)
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 335.5605
+offset_bottom = 153.53989
+scale = Vector2(0.97410315, 0.7997837)
+texture = ExtResource("10_e0kj8")
+region_rect = Rect2(1529, 2758, 556, 196)
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 12
+patch_margin_bottom = 10
 
 [node name="ColorRect" type="Sprite2D" parent="player_info"]
-position = Vector2(77.36667, 54.499996)
-scale = Vector2(0.2, 0.2)
+position = Vector2(68, 58.999996)
+scale = Vector2(0.21807611, 0.22098444)
 texture = ExtResource("7_nuyw6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="player_info"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
-offset_left = 24.0
-offset_top = 102.0
-offset_right = 241.0
-offset_bottom = 163.0
-theme_override_constants/separation = 4
+offset_left = 121.0
+offset_top = 62.0
+offset_right = 316.0
+offset_bottom = 123.0
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="player_info/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 56
 
 [node name="Label" type="Label" parent="player_info/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -192,7 +230,7 @@ horizontal_alignment = 2
 
 [node name="player_life" type="ProgressBar" parent="player_info/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 10)
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 theme = ExtResource("3_h5lil")
 value = 50.0
@@ -201,36 +239,44 @@ show_percentage = false
 
 [node name="enemy_info" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 756.0
-offset_top = 5.0
-offset_right = 796.0
-offset_bottom = 45.0
+offset_left = 753.0
+offset_top = -5.0
+offset_right = 793.0
+offset_bottom = 35.0
 
-[node name="ColorRect" type="ColorRect" parent="enemy_info"]
+[node name="NinePatchRect3" type="NinePatchRect" parent="enemy_info"]
+modulate = Color(0.03529412, 0.81960785, 0.23529412, 1)
 layout_mode = 0
-offset_left = -101.0
-offset_right = 46.0
-offset_bottom = 101.0
-color = Color(0.044557855, 0.044557847, 0.044557847, 1)
+offset_left = 43.0
+offset_top = 11.0
+offset_right = 373.5605
+offset_bottom = 158.53989
+scale = Vector2(-0.974, 0.8)
+texture = ExtResource("10_e0kj8")
+region_rect = Rect2(1529, 2758, 556, 196)
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 12
+patch_margin_bottom = 10
 
 [node name="ColorRect3" type="Sprite2D" parent="enemy_info"]
-position = Vector2(-35, 49.499996)
-scale = Vector2(0.2, 0.2)
+position = Vector2(-13.200002, 57.249996)
+scale = Vector2(0.1931559, 0.20724635)
 texture = ExtResource("9_e0kj8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="enemy_info"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
-offset_left = -194.0
-offset_top = 97.0
-offset_right = 23.0
-offset_bottom = 156.0
-theme_override_constants/separation = 4
+offset_left = -266.0
+offset_top = 68.0
+offset_right = -70.0
+offset_bottom = 127.0
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="enemy_info/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 59
 
 [node name="Label" type="Label" parent="enemy_info/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -247,7 +293,7 @@ horizontal_alignment = 1
 
 [node name="enemy_life" type="ProgressBar" parent="enemy_info/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 10)
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 theme = ExtResource("3_h5lil")
 value = 50.0

@@ -1,14 +1,19 @@
 extends Control
 
 
-@onready var tutorial: Label = $tutorial
-@onready var score: Label = $score
+
 @onready var combat_hud: Control = $CombatHud
 @onready var walk_label: Label = $DEBUG/walk
 @onready var mode_label: Label = $DEBUG/mode
 @onready var wpn_1: Label = %wpn1
 @onready var wpn_2: Label = %wpn2
 @onready var ammo: VBoxContainer = $ammo
+@onready var score: Label = %score
+@onready var killed: Label = %killed
+@onready var tutorial: Label = %tutorial
+@onready var score_container: VBoxContainer = $score_container
+@onready var score_texture: NinePatchRect = $score_texture
+@onready var ammo_texture: NinePatchRect = $ammo_texture
 
 
 func _ready() -> void:
@@ -43,12 +48,19 @@ func _update_ui() -> void:
 		tutorial.text = "Steer with: A and D"
 		combat_hud.hide()
 		ammo.show()
+		score_container.show()
+		ammo_texture.show()
+		score_texture.show()
 	else:
 		tutorial.text = " "
 		combat_hud.show()
 		ammo.hide()
+		score_container.hide()
+		ammo_texture.hide()
+		score_texture.hide()
 		
 	score.text = "score: " + str(Global.score)
+	killed.text = "Golems defeated: " + str(Global.golems_killed)
 	
 func _update_ammo():
 	wpn_1.text = "wpn 1: " + str(Global.player_ammo_A)

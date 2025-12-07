@@ -17,6 +17,7 @@ var player_ammo_A:int = 4
 var player_ammo_D:int = 2
 
 var score:int
+var golems_killed:int
 
 func _ready() -> void:
 	combat_mode.connect(_change_to_combat)
@@ -25,6 +26,7 @@ func _ready() -> void:
 	golem_died.connect(_end_combat_mode)
 	
 	score = 0
+	golems_killed = 0
 	
 	
 func _change_to_combat():

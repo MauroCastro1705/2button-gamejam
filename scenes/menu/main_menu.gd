@@ -1,6 +1,6 @@
 extends Control
 
-const PLAY_SCENE := preload("res://scenes/new_main_scene.tscn")
+const PLAY_SCENE := preload("res://scenes/booting_scene/booting.tscn")
 const CREDITS = preload("res://scenes/credits/credits.tscn")
 
 @onready var buttons_vbox: VBoxContainer = %buttons
