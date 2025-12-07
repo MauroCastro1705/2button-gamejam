@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1twuxybp05p3"]
+[gd_scene load_steps=10 format=3 uid="uid://b1twuxybp05p3"]
 
 [ext_resource type="Script" uid="uid://drtpqc5q2m3ph" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
 [ext_resource type="Theme" uid="uid://dwbykbbc3c4tj" path="res://themes/button_theme.tres" id="2_247la"]
 [ext_resource type="Material" uid="uid://cqyccw6f4bjt2" path="res://shaders/circuit/circuit.tres" id="2_hj162"]
 [ext_resource type="FontFile" uid="uid://beme3lwcnt17x" path="res://fonts/SwipeRaceDemo.ttf" id="2_kiqgm"]
 [ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="3_kiqgm"]
+[ext_resource type="AudioStream" uid="uid://canrgpa18kh3q" path="res://sounds/2ButtonsExpMusic_Loop.wav" id="6_xn6kt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hj162"]
 font = ExtResource("2_kiqgm")
@@ -124,3 +125,8 @@ theme_override_fonts/font = ExtResource("3_kiqgm")
 text = "Verison 0.5
 "
 label_settings = SubResource("LabelSettings_nl8w3")
+
+[node name="2ButtonsExpMusicLoop" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1380, 175)
+stream = ExtResource("6_xn6kt")
+autoplay = true

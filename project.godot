@@ -16,9 +16,12 @@ run/main_scene="uid://b1twuxybp05p3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.92549, 0.92549, 0.960784, 1)
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
-Audio="*res://scripts/audio.gd"
 Global="*res://scripts/global/global.gd"
 
 [display]

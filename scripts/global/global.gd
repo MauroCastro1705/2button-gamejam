@@ -7,6 +7,7 @@ signal update_score
 signal golem_damage(amount:int)
 
 signal ammo_used
+
 signal ammo_pick
 signal golem_died
 
@@ -25,6 +26,7 @@ func _ready() -> void:
 	travel_mode.connect(_change_to_travel_mode)
 	update_score.connect(_update_player_score)
 	golem_died.connect(_end_combat_mode)
+	ammo_pick.connect(_ammo_picked)
 	
 	score = 0
 	golems_killed = 0
@@ -70,3 +72,6 @@ func _player_ammo_D_shoot() -> bool:
 	player_ammo_D -= 1
 	emit_signal("ammo_used")
 	return true
+
+func _ammo_picked():
+	pass

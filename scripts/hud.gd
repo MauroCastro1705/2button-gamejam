@@ -3,6 +3,7 @@ extends Control
 @onready var ammo_collected_hud: Control = $ammo_collected_hud
 @onready var ammo_timer: Timer = %ammo_timer
 
+
 @onready var combat_hud: Control = $CombatHud
 @onready var wpn_1: Label = %wpn1
 @onready var wpn_2: Label = %wpn2
@@ -14,6 +15,14 @@ extends Control
 @onready var score_texture: NinePatchRect = $score_texture
 @onready var ammo_texture: NinePatchRect = $ammo_texture
 
+#SOUNDS
+@onready var expo_sound: AudioStreamPlayer = $expo
+@onready var combat_sound: AudioStreamPlayer = $combat
+@onready var ambience: AudioStreamPlayer = $ambierce
+
+
+
+
 
 func _ready() -> void:
 	_update_ui()
@@ -21,9 +30,13 @@ func _ready() -> void:
 	Global.update_score.connect(_update_ui)
 	Global.ammo_used.connect(_update_ammo)
 	Global.ammo_pick.connect(_ammo_picked)
+	Global.combat_mode.connect(_play_combat_sound)
+	Global.travel_mode.connect(_play_travel_sound)
 	ammo_collected_hud.hide()
 	combat_hud.hide()
 	ammo.hide()
+	ambience.play()
+	expo_sound.play()
 
 func _process(_delta: float) -> void:
 	_update_ui()
@@ -44,7 +57,7 @@ func _update_ui() -> void:
 		score_container.hide()
 		ammo_texture.hide()
 		score_texture.hide()
-		
+
 	score.text = "score: " + str(Global.score)
 	killed.text = "Golems defeated: " + str(Global.golems_killed)
 	
@@ -57,6 +70,15 @@ func _ammo_picked():
 	ammo_timer.start()
 	_update_ammo()
 	
+	
 
 func _on_timer_timeout() -> void:
 	ammo_collected_hud.hide()
+
+func _play_combat_sound():
+	combat_sound.play()
+	expo_sound.stop()
+
+func _play_travel_sound():
+	expo_sound.play()
+	combat_sound.stop()
