@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://itpds7aplnge"]
+[gd_scene load_steps=10 format=3 uid="uid://itpds7aplnge"]
 
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="1_48c2t"]
 [ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="2_cgeww"]
@@ -15,6 +15,11 @@ font_color = Color(0, 0.8846548, 0.22612992, 1)
 font = ExtResource("2_cgeww")
 font_size = 13
 font_color = Color(0.94864446, 0.47565347, 0.102236144, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n56i7"]
+font = ExtResource("2_cgeww")
+font_size = 17
+font_color = Color(0, 0.88235295, 0.22745098, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -34,30 +39,6 @@ script = ExtResource("1_48c2t")
 visible = false
 layout_mode = 1
 metadata/_edit_lock_ = true
-
-[node name="DEBUG" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="walk" type="Label" parent="DEBUG"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 435.0
-offset_right = 95.0
-offset_bottom = 463.0
-theme_override_fonts/font = ExtResource("2_cgeww")
-text = "Can walk : "
-
-[node name="mode" type="Label" parent="DEBUG"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 479.0
-offset_right = 110.0
-offset_bottom = 507.0
-theme_override_fonts/font = ExtResource("2_cgeww")
-text = "game mode:"
 
 [node name="ammo_texture" type="NinePatchRect" parent="."]
 modulate = Color(0.03529412, 0.81960785, 0.23529412, 1)
@@ -164,3 +145,41 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cgeww")
 text = "asdasdasd"
 horizontal_alignment = 1
+
+[node name="ammo_collected_hud" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="score_texture2" type="NinePatchRect" parent="ammo_collected_hud"]
+modulate = Color(0.03529412, 0.81960785, 0.23529412, 1)
+layout_mode = 0
+offset_left = 625.0
+offset_top = 338.0
+offset_right = 1205.0
+offset_bottom = 500.60156
+scale = Vector2(0.3, 0.246)
+texture = ExtResource("4_v7mo4")
+region_rect = Rect2(2647, 3462, 936, 125)
+patch_margin_left = 11
+patch_margin_top = 10
+patch_margin_right = 23
+patch_margin_bottom = 22
+
+[node name="ammo_collected" type="Label" parent="ammo_collected_hud"]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 344.0
+offset_right = 792.0
+offset_bottom = 375.0
+text = "Ammo collected"
+label_settings = SubResource("LabelSettings_n56i7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammo_timer" type="Timer" parent="ammo_collected_hud"]
+unique_name_in_owner = true
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="ammo_collected_hud/ammo_timer" to="." method="_on_timer_timeout"]

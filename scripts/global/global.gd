@@ -7,6 +7,7 @@ signal update_score
 signal golem_damage(amount:int)
 
 signal ammo_used
+signal ammo_pick
 signal golem_died
 
 enum CamMode { TRAVEL, COMBAT }

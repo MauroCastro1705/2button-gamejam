@@ -218,7 +218,7 @@ theme_override_constants/separation = 56
 
 [node name="Label" type="Label" parent="player_info/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Player health"
+text = "Golem health"
 label_settings = SubResource("LabelSettings_pcoj7")
 
 [node name="player_life_value" type="Label" parent="player_info/VBoxContainer/VBoxContainer"]
@@ -280,7 +280,7 @@ theme_override_constants/separation = 59
 
 [node name="Label" type="Label" parent="enemy_info/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Enemy health"
+text = "Enemy Golem"
 label_settings = SubResource("LabelSettings_hvfb0")
 horizontal_alignment = 1
 

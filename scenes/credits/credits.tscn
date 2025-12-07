@@ -105,41 +105,81 @@ patch_margin_bottom = 19
 metadata/_edit_use_anchors_ = true
 
 [node name="DeployLabel2" type="Label" parent="."]
-offset_left = 137.0
-offset_top = 93.0
-offset_right = 314.0
-offset_bottom = 156.0
+offset_left = 124.0
+offset_top = 103.0
+offset_right = 301.0
+offset_bottom = 166.0
 text = "Pandeneitor
 - Argentina"
+label_settings = SubResource("LabelSettings_huu5m")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel6" type="Label" parent="."]
+offset_left = 118.0
+offset_top = 31.0
+offset_right = 319.0
+offset_bottom = 94.0
+text = "Programming and UI"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel7" type="Label" parent="."]
+offset_left = 490.0
+offset_top = 147.0
+offset_right = 691.0
+offset_bottom = 210.0
+text = "Programming"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel8" type="Label" parent="."]
+offset_left = 137.0
+offset_top = 285.0
+offset_right = 338.0
+offset_bottom = 348.0
+text = "3d modeling"
+label_settings = SubResource("LabelSettings_huu5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployLabel9" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 389.0
+offset_right = 720.0
+offset_bottom = 452.0
+text = "Sound design and SFX"
 label_settings = SubResource("LabelSettings_huu5m")
 metadata/_edit_use_anchors_ = true
 
 [node name="DeployLabel3" type="Label" parent="."]
-offset_left = 516.0
-offset_top = 198.0
-offset_right = 693.0
-offset_bottom = 261.0
+offset_left = 494.0
+offset_top = 205.0
+offset_right = 671.0
+offset_bottom = 268.0
 text = "Valep84
 - Russia"
 label_settings = SubResource("LabelSettings_huu5m")
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DeployLabel4" type="Label" parent="."]
-offset_left = 156.0
+offset_left = 119.0
 offset_top = 351.0
-offset_right = 333.0
+offset_right = 296.0
 offset_bottom = 414.0
 text = "Sheika23
 - Usa"
 label_settings = SubResource("LabelSettings_huu5m")
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DeployLabel5" type="Label" parent="."]
-offset_left = 488.0
-offset_top = 438.0
-offset_right = 729.0
-offset_bottom = 501.0
+offset_left = 483.0
+offset_top = 454.0
+offset_right = 724.0
+offset_bottom = 517.0
 text = "Deathman aKa Ciglierino
 - Italy"
 label_settings = SubResource("LabelSettings_huu5m")
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
