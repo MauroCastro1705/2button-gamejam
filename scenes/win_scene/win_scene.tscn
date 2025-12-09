@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://xrymj4k54xk6"]
+[gd_scene load_steps=27 format=3 uid="uid://xrymj4k54xk6"]
 
 [ext_resource type="Material" uid="uid://cngl3r8kch44f" path="res://shaders/ps1/ps1.tres" id="1_1jddt"]
 [ext_resource type="Script" uid="uid://bl2ogujui8tj0" path="res://scenes/win_scene/win_scene.gd" id="1_qex2r"]
@@ -51,6 +51,14 @@ volumetric_fog_ambient_inject = 3.0
 font = ExtResource("19_f0i3u")
 font_size = 17
 font_color = Color(0, 0.9098039, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sf143"]
+font = ExtResource("19_f0i3u")
+font_size = 17
+font_color = Color(0, 0.80784315, 0.03137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxn4p"]
+bg_color = Color(0, 0.80784315, 0.03137255, 1)
 
 [node name="WinScene" type="Node3D"]
 script = ExtResource("1_qex2r")
@@ -151,9 +159,9 @@ patch_margin_bottom = 19
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Control"]
 layout_mode = 0
 offset_left = 165.0
-offset_top = -40.0
+offset_top = -44.0
 offset_right = 324.0
-offset_bottom = -10.0
+offset_bottom = -14.0
 text = "Mission finished"
 label_settings = ExtResource("17_njyva")
 horizontal_alignment = 1
@@ -161,11 +169,11 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="SubViewportContainer/SubViewport/Control"]
 layout_mode = 0
 offset_left = 155.0
-offset_top = 68.0
+offset_top = 31.0
 offset_right = 379.0
-offset_bottom = 98.0
+offset_bottom = 94.0
 text = "Thank you for 
-playing"
+playing!"
 label_settings = ExtResource("17_njyva")
 horizontal_alignment = 1
 
@@ -173,8 +181,28 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 170.0
-offset_top = 13.0
+offset_top = -1.0
 offset_right = 413.0
-offset_bottom = 43.0
+offset_bottom = 29.0
 text = "Debrief"
 label_settings = SubResource("LabelSettings_nq8nx")
+
+[node name="DeployUI" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 99.0
+offset_right = 371.0
+offset_bottom = 143.0
+
+[node name="DeployLabel" type="Label" parent="SubViewportContainer/SubViewport/Control/DeployUI"]
+layout_mode = 2
+text = "Hold A to Return..."
+label_settings = SubResource("LabelSettings_sf143")
+metadata/_edit_use_anchors_ = true
+
+[node name="DeployBar" type="ProgressBar" parent="SubViewportContainer/SubViewport/Control/DeployUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_yxn4p")
+show_percentage = false
