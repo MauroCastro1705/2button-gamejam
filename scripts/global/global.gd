@@ -3,11 +3,8 @@ extends Node
 signal combat_mode
 signal travel_mode
 signal update_score
-
 signal golem_damage(amount:int)
-
 signal ammo_used
-
 signal ammo_pick
 signal golem_died
 
@@ -17,7 +14,7 @@ var golem_life:int = 30
 var player_life:int = 50
 var player_ammo_A:int = 4
 var player_ammo_D:int = 2
-
+var enemy_golem_count:int = 3
 var score:int
 var golems_killed:int
 

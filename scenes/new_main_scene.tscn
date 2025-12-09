@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bkb3kstcbwkse"]
+[gd_scene load_steps=28 format=3 uid="uid://bkb3kstcbwkse"]
 
 [ext_resource type="PackedScene" uid="uid://cttmwoq21bvj4" path="res://particles/dust/dust.tscn" id="1_1n70v"]
 [ext_resource type="PackedScene" uid="uid://x4xnc85khpl5" path="res://scenes/path_3d_rope.tscn" id="1_n5yqt"]
+[ext_resource type="Script" uid="uid://bg4mk3ya3miqe" path="res://scenes/game_manager.gd" id="1_sacgu"]
+[ext_resource type="Material" uid="uid://cngl3r8kch44f" path="res://shaders/ps1/ps1.tres" id="1_wt5jy"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_eix37"]
 [ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="3_qs6ff"]
 [ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="4_jieyl"]
@@ -58,183 +60,202 @@ _data = {
 point_count = 5
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_sacgu")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = ExtResource("1_wt5jy")
+offset_right = 797.0
+offset_bottom = 600.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_hl6ae")
 
-[node name="Player" parent="." instance=ExtResource("2_eix37")]
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_eix37")]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 9.361565, -0.79465556, 4.0519643)
 move_speed = 3.0
 
-[node name="Dust" parent="Player" instance=ExtResource("1_1n70v")]
+[node name="Dust" parent="SubViewportContainer/SubViewport/Player" instance=ExtResource("1_1n70v")]
 transform = Transform3D(0.5173475, 0, 3.9111303e-08, 0, 1, 0, -3.2889346e-08, 0, 0.6152185, 0.38229084, 0.7070012, -4.1211834)
 visible = false
 amount = 50
 
-[node name="Path3DRope" parent="." node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("1_n5yqt")]
+[node name="Path3DRope" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("rigidbody_attached_to_start", "rigidbody_attached_to_end") instance=ExtResource("1_n5yqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, 0.097311735, 0.21661758)
 curve = SubResource("Curve3D_jrndn")
 fixed_start_point = false
 rigidbody_attached_to_start = NodePath("../Player")
 rigidbody_attached_to_end = NodePath("../City")
 
-[node name="City" parent="." instance=ExtResource("6_h4ats")]
+[node name="City" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_h4ats")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451357, -0.88473207, -1.0479794)
 
-[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+[node name="View" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("target")]
 transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, -8, 0.785, -9.562299)
 script = ExtResource("3_qs6ff")
 target = NodePath("../Player")
 travel_offset = Vector3(0, 6, 15)
 combat_offset = Vector3(12, 7, -10)
 
-[node name="Camera" type="Camera3D" parent="View"]
+[node name="Camera" type="Camera3D" parent="SubViewportContainer/SubViewport/View"]
 transform = Transform3D(-0.67934626, -0.16144879, 0.7158375, 0.36696884, 0.7700151, 0.5219296, -0.63547087, 0.6172607, -0.4638601, 4.420465, 3.0879693, -1.5408032)
 current = true
 fov = 40.0
 
-[node name="World" type="Node3D" parent="."]
+[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="platform" parent="World" instance=ExtResource("4_jieyl")]
+[node name="platform" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("4_jieyl")]
 transform = Transform3D(76.06451, 0, 0, 0, 1, 0, 0, 0, 63.46464, 0, -1.4064643, 0)
 metadata/_edit_lock_ = true
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.42261797, -0.694272, 0.58256346, 0, 0.64278793, 0.76604384, -0.90630805, 0.32374403, -0.27165356, 0, 0, 0)
+[node name="Sun" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.4226179, -0.694272, 0.5825638, 0, 0.64278793, 0.76604414, -0.90630794, 0.323744, -0.27165368, 0, 0, 0)
 light_color = Color(1, 0.8901961, 0.7921569, 1)
 shadow_enabled = true
 shadow_opacity = 0.75
 
-[node name="HUD" parent="." instance=ExtResource("5_a1njh")]
+[node name="HUD" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_a1njh")]
+offset_left = -399.0
+offset_right = 403.0
 
-[node name="objects_to_colletc" type="Node" parent="."]
+[node name="objects_to_colletc" type="Node" parent="SubViewportContainer/SubViewport"]
 
-[node name="PickUp1" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp1" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(0.9326201, 0, -0.36085966, 0, 1, 0, 0.36085966, 0, 0.9326201, 19.064693, 0.7745967, 12.607414)
 
-[node name="PickUp7" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp7" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(0.9326201, 0, -0.36085966, 0, 1, 0, 0.36085966, 0, 0.9326201, 11.627035, 0.7745967, 17.40962)
 
-[node name="PickUp8" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp8" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.949726, 0.7745967, 7.1625843)
 
-[node name="PickUp2" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp2" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.325348, 0.7745967, 0)
 
-[node name="PickUp3" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp3" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.325348, 0.7745967, -7.7223682)
 
-[node name="PickUp4" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp4" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0474663, 0.7745967, -11.020308)
 
-[node name="PickUp5" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp5" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8982277, 0.7745967, -15.256263)
 
-[node name="PickUp6" parent="objects_to_colletc" instance=ExtResource("11_wt5jy")]
+[node name="PickUp6" parent="SubViewportContainer/SubViewport/objects_to_colletc" instance=ExtResource("11_wt5jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.817786, 0.585423, -8.186083)
 
-[node name="CombatZone" parent="." instance=ExtResource("12_sacgu")]
+[node name="CombatZone" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_sacgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.384415, -0.8975048, 7.701627)
 monitoring = true
 monitorable = true
 
-[node name="CombatZone2" parent="." instance=ExtResource("12_sacgu")]
+[node name="CombatZone2" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_sacgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.067799, -0.8975048, 25.701626)
 monitoring = true
 monitorable = true
 
-[node name="CombatZone3" parent="." instance=ExtResource("12_sacgu")]
+[node name="CombatZone3" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_sacgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.465996, -0.8975048, 7.701627)
 monitoring = true
 monitorable = true
 
-[node name="obstacles" type="Node3D" parent="."]
+[node name="obstacles" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="concrete_barrier" parent="obstacles" instance=ExtResource("9_4fdll")]
+[node name="concrete_barrier" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("9_4fdll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8856252, 0)
 
-[node name="concrete_barrier3" parent="obstacles" instance=ExtResource("10_s3e1p")]
+[node name="concrete_barrier3" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("10_s3e1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9514885, 14.150179)
 
-[node name="concrete_barrier2" parent="obstacles" instance=ExtResource("11_n5yqt")]
+[node name="concrete_barrier2" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("11_n5yqt")]
 transform = Transform3D(0.7684846, 0, -0.6398683, 0, 1, 0, 0.6398683, 0, 0.7684846, -12.937643, -0.9382584, -5.7425365)
 
-[node name="concrete_barrier4" parent="obstacles" instance=ExtResource("9_4fdll")]
+[node name="concrete_barrier4" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("9_4fdll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.089539, -0.8856252, 20.804527)
 
-[node name="concrete_barrier5" parent="obstacles" instance=ExtResource("10_s3e1p")]
+[node name="concrete_barrier5" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("10_s3e1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.089539, -0.9514885, 34.954704)
 
-[node name="concrete_barrier6" parent="obstacles" instance=ExtResource("11_n5yqt")]
+[node name="concrete_barrier6" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("11_n5yqt")]
 transform = Transform3D(0.7684846, 0, -0.6398683, 0, 1, 0, 0.6398683, 0, 0.7684846, 13.1518955, -0.9382584, 15.061991)
 
-[node name="concrete_barrier7" parent="obstacles" instance=ExtResource("11_n5yqt")]
+[node name="concrete_barrier7" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("11_n5yqt")]
 transform = Transform3D(-0.32338893, 0, -0.9462662, 0, 1, 0, 0.9462662, 0, -0.32338893, -15.930218, -0.9382584, -24.404505)
 
-[node name="concrete_barrier8" parent="obstacles" instance=ExtResource("9_4fdll")]
+[node name="concrete_barrier8" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("9_4fdll")]
 transform = Transform3D(0.3569663, 0, -0.93411726, 0, 1, 0, 0.93411726, 0, 0.3569663, -26.7969, -0.8856252, 21.52787)
 
-[node name="concrete_barrier9" parent="obstacles" instance=ExtResource("10_s3e1p")]
+[node name="concrete_barrier9" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("10_s3e1p")]
 transform = Transform3D(0.3569663, 0, -0.93411726, 0, 1, 0, 0.93411726, 0, 0.3569663, -15.884621, -0.9514885, 26.579006)
 
-[node name="concrete_barrier10" parent="obstacles" instance=ExtResource("11_n5yqt")]
+[node name="concrete_barrier10" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("11_n5yqt")]
 transform = Transform3D(-0.32338893, 0, -0.9462662, 0, 1, 0, 0.9462662, 0, -0.32338893, -26.050999, -0.9382584, 7.392702)
 
-[node name="concrete_barrier11" parent="obstacles" instance=ExtResource("9_4fdll")]
+[node name="concrete_barrier11" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("9_4fdll")]
 transform = Transform3D(-0.789395, 0, -0.61388576, 0, 1, 0, 0.61388576, 0, -0.789395, 21.204477, -0.8856252, -1.64041)
 
-[node name="concrete_barrier12" parent="obstacles" instance=ExtResource("10_s3e1p")]
+[node name="concrete_barrier12" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("10_s3e1p")]
 transform = Transform3D(-0.789395, 0, -0.61388576, 0, 1, 0, 0.61388576, 0, -0.789395, 12.517885, -0.9514885, -12.810486)
 
-[node name="concrete_barrier13" parent="obstacles" instance=ExtResource("11_n5yqt")]
+[node name="concrete_barrier13" parent="SubViewportContainer/SubViewport/obstacles" instance=ExtResource("11_n5yqt")]
 transform = Transform3D(-0.9994438, 0, 0.03334701, 0, 1, 0, -0.03334701, 0, -0.9994438, 34.94265, -0.9382584, -5.049512)
 
-[node name="far_away" type="Node3D" parent="."]
+[node name="far_away" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="flat_Lshape2" parent="far_away" instance=ExtResource("12_n5yqt")]
+[node name="flat_Lshape2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("12_n5yqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.92816, -0.90646744, -27.311277)
 
-[node name="flat_Lshape4" parent="far_away" instance=ExtResource("12_n5yqt")]
+[node name="flat_Lshape4" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("12_n5yqt")]
 transform = Transform3D(-0.41264355, 0, 0.9108927, 0, 1, 0, -0.9108927, 0, -0.41264355, -24.727036, -0.90646744, -41.553856)
 
-[node name="flat_Lshape3" parent="far_away" instance=ExtResource("12_n5yqt")]
+[node name="flat_Lshape3" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("12_n5yqt")]
 transform = Transform3D(-0.3662089, 0, -0.9305327, 0, 1, 0, -0.9305327, 0, 0.3662089, -57.481323, -0.90646744, 4.190405)
 
-[node name="flat_Lshape_vertical_stripes2" parent="far_away" instance=ExtResource("13_qs6ff")]
+[node name="flat_Lshape_vertical_stripes2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("13_qs6ff")]
 transform = Transform3D(-0.85805595, 0, -0.51355624, 0, 1, 0, 0.51355624, 0, -0.85805595, -54.8341, -0.90646744, -40.874535)
 
-[node name="flat_Lshape_vertical_stripes3" parent="far_away" instance=ExtResource("13_qs6ff")]
+[node name="flat_Lshape_vertical_stripes3" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("13_qs6ff")]
 transform = Transform3D(0.6801454, 0, -0.7330773, 0, 1, 0, 0.7330773, 0, 0.6801454, 6.2737885, -0.90646744, 55.781685)
 
-[node name="Hangar12" parent="far_away" instance=ExtResource("14_jieyl")]
+[node name="Hangar12" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("14_jieyl")]
 transform = Transform3D(0.7322696, 0, 0.68101484, 0, 1, 0, -0.68101484, 0, 0.7322696, -54.449757, -0.90647125, 53.179226)
 
-[node name="Hangar13" parent="far_away" instance=ExtResource("14_jieyl")]
+[node name="Hangar13" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("14_jieyl")]
 transform = Transform3D(-0.12316838, 0, -0.99238575, 0, 1, 0, 0.99238575, 0, -0.12316838, -4.0727253, -0.90647125, -51.99634)
 
-[node name="flat_square_concrete_alt2" parent="far_away" instance=ExtResource("15_pwsq8")]
+[node name="flat_square_concrete_alt2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("15_pwsq8")]
 transform = Transform3D(0.9190459, 0, 0.39415044, 0, 1, 0, -0.39415044, 0, 0.9190459, -70.73601, -0.9064617, 30.161896)
 
-[node name="flat_Lshape_large_alt2" parent="far_away" instance=ExtResource("16_1n70v")]
+[node name="flat_Lshape_large_alt2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("16_1n70v")]
 transform = Transform3D(0.7789769, 0, 0.62705255, 0, 1, 0, -0.62705255, 0, 0.7789769, 53.612083, -0.9064636, 12.348637)
 
-[node name="flat_Lshape_large_alt3" parent="far_away" instance=ExtResource("16_1n70v")]
+[node name="flat_Lshape_large_alt3" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("16_1n70v")]
 transform = Transform3D(-0.13453895, 0, 0.86601263, 0, 0.8848712, 0, -1.0079201, 0, -0.11559689, 11.739925, -0.9064636, -40.166225)
 
-[node name="flat_square_brick_alt2" parent="far_away" instance=ExtResource("17_wt5jy")]
+[node name="flat_square_brick_alt2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("17_wt5jy")]
 transform = Transform3D(0.51632404, 0, -0.8563933, 0, 1, 0, 0.8563933, 0, 0.51632404, -47.897427, -1.5500431, -61.73087)
 
-[node name="flat_square_concrete2" parent="far_away" instance=ExtResource("18_sacgu")]
+[node name="flat_square_concrete2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("18_sacgu")]
 transform = Transform3D(-0.317735, 0, 0.9481796, 0, 1, 0, -0.9481796, 0, -0.317735, 33.118206, -1.1674595, 71.99925)
 
-[node name="flat_square_concrete_alt3" parent="far_away" instance=ExtResource("15_pwsq8")]
+[node name="flat_square_concrete_alt3" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("15_pwsq8")]
 transform = Transform3D(0.813933, 0, -0.5809586, 0, 1, 0, 0.5809586, 0, 0.813933, 57.52501, -0.90646935, 32.141106)
 
-[node name="flat_Lshape5" parent="far_away" instance=ExtResource("12_n5yqt")]
+[node name="flat_Lshape5" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("12_n5yqt")]
 transform = Transform3D(0.2855211, 0, -0.9583724, 0, 1, 0, 0.9583724, 0, 0.2855211, -23.53252, -1.2496109, 50.701965)
 
-[node name="road_side_full2" parent="far_away" instance=ExtResource("19_jrndn")]
+[node name="road_side_full2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("19_jrndn")]
 transform = Transform3D(0.9790739, 0, -0.20350505, 0, 1, 0, 0.20350505, 0, 0.9790739, -57.54761, -0.9064636, -37.93553)
 
-[node name="road_1_straight2" parent="far_away" instance=ExtResource("20_g6o4r")]
+[node name="road_1_straight2" parent="SubViewportContainer/SubViewport/far_away" instance=ExtResource("20_g6o4r")]
 transform = Transform3D(0.99996614, 0, -0.008237839, 0, 1, 0, 0.008237839, 0, 0.99996614, -56.672253, -0.9064636, 3.2675514)
+
+[node name="game_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

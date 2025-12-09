@@ -62,21 +62,20 @@ func _combat_ended(killed: bool) -> void:
 	if killed:
 		Global._update_player_score_golem()
 		ring_shader.hide()
+		
 	queue_free()  # remove this zone (and its enemy)
 
 func _on_golem_damage(amount:int) -> void:
 	golem_life_local -= amount
 	
-
 	# light_hit.emitting = true
-	
 	_show_damage_label(amount)
-	
 	emit_signal("local_golem_damaged")  # tell the UI to refresh
 	if golem_life_local <= 0:
 		_combat_ended(true)
-		Global.golem_died.emit()
 		Global.golems_killed += 1
+		Global.golem_died.emit()
+		
 
 func handle_rotation(delta: float) -> void:
 	ring_shader.show()
@@ -93,7 +92,6 @@ func handle_rotation(delta: float) -> void:
 # ANIMACIÓN DEL DAMAGE LABEL
 # -------------------------
 func _show_damage_label(amount: int) -> void:
-	# Setear texto y reiniciar apariencia
 	damage_label.text = str(amount)
 	damage_label.position = _damage_label_base_pos
 	damage_label.modulate.a = 1.0

@@ -1,0 +1,180 @@
+[gd_scene load_steps=25 format=3 uid="uid://xrymj4k54xk6"]
+
+[ext_resource type="Material" uid="uid://cngl3r8kch44f" path="res://shaders/ps1/ps1.tres" id="1_1jddt"]
+[ext_resource type="Script" uid="uid://bl2ogujui8tj0" path="res://scenes/win_scene/win_scene.gd" id="1_qex2r"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_1jddt"]
+[ext_resource type="Script" uid="uid://etvlk47vh8ww" path="res://scripts/player_winScene.gd" id="3_xv7eg"]
+[ext_resource type="PackedScene" uid="uid://cnq51r1gqkxf3" path="res://scenes/city.tscn" id="4_tn0gf"]
+[ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="5_65nlr"]
+[ext_resource type="PackedScene" uid="uid://cigi7nvofnqbc" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape.glb" id="6_0b60f"]
+[ext_resource type="PackedScene" uid="uid://dfqjegjjtures" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape_vertical_stripes.glb" id="7_33a50"]
+[ext_resource type="PackedScene" uid="uid://b4cbjvxwa6546" path="res://assets-3d/URBAN/Buildings Prebuild/Hangar1.glb" id="8_m6218"]
+[ext_resource type="PackedScene" uid="uid://cw514mioi0qjj" path="res://assets-3d/URBAN/Buildings Prebuild/flat_Lshape_large_alt.glb" id="9_yeljb"]
+[ext_resource type="PackedScene" uid="uid://d3jlia7mn05uy" path="res://assets-3d/URBAN/Buildings Prebuild/flat_square_brick_alt.glb" id="10_m10ca"]
+[ext_resource type="PackedScene" uid="uid://cu7yckfyfi6pg" path="res://assets-3d/rock_Models/Rock Type2 02.dae" id="11_m10ca"]
+[ext_resource type="PackedScene" uid="uid://fjowcv5w7vjy" path="res://assets-3d/rock_Models/Rock Type3 01.dae" id="12_2qs0g"]
+[ext_resource type="PackedScene" uid="uid://coal0ofb6duqa" path="res://assets-3d/rock_Models/Rock Type3 02.dae" id="13_fuyxm"]
+[ext_resource type="PackedScene" uid="uid://c1n27xjqu1u2o" path="res://assets-3d/rock_Models/Rock Type3 04.dae" id="14_njyva"]
+[ext_resource type="PackedScene" uid="uid://c2cxdgbcqe5xe" path="res://assets-3d/rock_Models/Rock Type4 03.dae" id="15_2qs0g"]
+[ext_resource type="PackedScene" uid="uid://dn07l3ugqgak3" path="res://assets-3d/rock_Models/Rock Type5 01.dae" id="16_fuyxm"]
+[ext_resource type="LabelSettings" uid="uid://ckmvxf2hch5od" path="res://themes/credtis_text.tres" id="17_njyva"]
+[ext_resource type="FontFile" uid="uid://d1dh3ajkjsw7q" path="res://fonts/Minecraftia-Regular.ttf" id="19_f0i3u"]
+[ext_resource type="Texture2D" uid="uid://cbc8wbd5ebs2" path="res://assets-2D/Game UI collection FREE version/Elements-01.png" id="20_nq8nx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1jddt"]
+
+[sub_resource type="Sky" id="Sky_xv7eg"]
+sky_material = SubResource("ProceduralSkyMaterial_1jddt")
+
+[sub_resource type="Environment" id="Environment_tn0gf"]
+background_mode = 2
+background_color = Color(0.6784314, 0.4627451, 0.13333334, 1)
+background_energy_multiplier = 0.85
+sky = SubResource("Sky_xv7eg")
+ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+fog_light_color = Color(0.9098039, 0.8117647, 0.53333336, 1)
+fog_light_energy = 0.79
+fog_sun_scatter = 0.68
+fog_aerial_perspective = 0.316
+fog_sky_affect = 0.6
+fog_height = 2.0
+fog_height_density = 0.01
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.5577951, 0.4287464, 0.33585995, 1)
+volumetric_fog_emission = Color(0.629455, 0.3301617, 5.7756904e-07, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_length = 100.0
+volumetric_fog_detail_spread = 4.141059
+volumetric_fog_ambient_inject = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_nq8nx"]
+font = ExtResource("19_f0i3u")
+font_size = 17
+font_color = Color(0, 0.9098039, 0, 1)
+
+[node name="WinScene" type="Node3D"]
+script = ExtResource("1_qex2r")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = ExtResource("1_1jddt")
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
+
+[node name="scene" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Player2" parent="SubViewportContainer/SubViewport/scene" instance=ExtResource("2_1jddt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03779602, 0.51316047, 3.5352392)
+script = ExtResource("3_xv7eg")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/scene"]
+transform = Transform3D(-0.75005746, -0.06890153, 0.65777385, 0.0040300884, 0.9940639, 0.10872327, -0.6613604, 0.084199585, -0.74532735, 1.9589274, 2.2938495, -1.9130061)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/scene"]
+environment = SubResource("Environment_tn0gf")
+
+[node name="Sun" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/scene"]
+transform = Transform3D(-0.4226179, -0.694272, 0.5825638, 0, 0.64278793, 0.76604414, -0.90630794, 0.323744, -0.27165368, 0, 0, 0)
+light_color = Color(1, 0.8901961, 0.7921569, 1)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="City" parent="SubViewportContainer/SubViewport/scene" instance=ExtResource("4_tn0gf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6329277, 0.45951557, 5.111559)
+
+[node name="platform" parent="SubViewportContainer/SubViewport/scene" instance=ExtResource("5_65nlr")]
+transform = Transform3D(76.06451, 0, 0, 0, 1, 0, 0, 0, 63.46464, 0, 0.003045082, 0)
+metadata/_edit_lock_ = true
+
+[node name="buildings" type="Node3D" parent="SubViewportContainer/SubViewport/scene"]
+
+[node name="flat_Lshape3" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("6_0b60f")]
+transform = Transform3D(-0.43000695, 0, 0.90282565, 0, 1, 0, 0.90282565, 0, 0.43000695, 14.454098, -0.90646744, 12.002653)
+
+[node name="flat_Lshape_vertical_stripes2" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("7_33a50")]
+transform = Transform3D(0.9553454, 0, -0.29549128, 0, 1, 0, 0.29549128, 0, 0.9553454, -16.313517, -0.90646744, 28.473515)
+
+[node name="Hangar13" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("8_m6218")]
+transform = Transform3D(0.8207805, 0, 0.5712439, 0, 1, 0, -0.5712439, 0, 0.8207805, -12.49892, -0.90647125, 21.417652)
+
+[node name="flat_Lshape_large_alt3" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("9_yeljb")]
+transform = Transform3D(-0.6601951, 0, -0.6645103, 0, 0.88487107, 0, 0.77339894, 0, -0.5672447, -30.742607, -0.9064636, 1.7479515)
+
+[node name="flat_square_brick_alt2" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("10_m10ca")]
+transform = Transform3D(0.29240513, 0, 0.9562946, 0, 1, 0, -0.9562946, 0, 0.29240513, -36.467827, -1.5500431, 33.519855)
+
+[node name="Rock Type2 02" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("11_m10ca")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.209074, 0.73703307, 12.23118)
+
+[node name="Rock Type3 01" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("12_2qs0g")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.6715393, 0.6770372, 13.61821)
+
+[node name="Rock Type3 02" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("13_fuyxm")]
+transform = Transform3D(-4.9750433, 0, -0.49894318, 0, 5, 0, 0.49894318, 0, -4.9750433, -18.325329, 0.67703456, 11.731754)
+
+[node name="Rock Type3 04" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("14_njyva")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -9.5024185, 0.6770364, 13.006537)
+
+[node name="Rock Type4 03" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("15_2qs0g")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -20.784092, 0.5030451, 0.39357185)
+
+[node name="Rock Type5 01" parent="SubViewportContainer/SubViewport/scene/buildings" instance=ExtResource("16_fuyxm")]
+transform = Transform3D(4.1087804, 0, -9.116903, 0, 10, 0, 9.116903, 0, 4.1087804, -22.70637, 0.55904037, 23.81837)
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 275.0
+offset_top = 346.0
+offset_right = 315.0
+offset_bottom = 386.0
+
+[node name="texture2" type="NinePatchRect" parent="SubViewportContainer/SubViewport/Control"]
+modulate = Color(0, 0.9764706, 0.14509805, 1)
+layout_mode = 0
+offset_left = 382.0
+offset_top = -68.99999
+offset_right = 1238.6667
+offset_bottom = 687.6667
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("20_nq8nx")
+region_rect = Rect2(1549, 3322, 481, 448)
+patch_margin_left = 12
+patch_margin_top = 15
+patch_margin_right = 24
+patch_margin_bottom = 19
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = -40.0
+offset_right = 324.0
+offset_bottom = -10.0
+text = "Mission finished"
+label_settings = ExtResource("17_njyva")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SubViewportContainer/SubViewport/Control"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 68.0
+offset_right = 379.0
+offset_bottom = 98.0
+text = "Thank you for 
+playing"
+label_settings = ExtResource("17_njyva")
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="SubViewportContainer/SubViewport/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 170.0
+offset_top = 13.0
+offset_right = 413.0
+offset_bottom = 43.0
+text = "Debrief"
+label_settings = SubResource("LabelSettings_nq8nx")
